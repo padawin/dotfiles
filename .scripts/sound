@@ -1,0 +1,23 @@
+#!/bin/bash
+
+if [ -z $1 ]
+then
+    exit 0
+fi
+
+if [ $1 == "mute" ]
+then
+    CURRENT_STATE=`amixer get Master | egrep 'Playback.*?\[o' | egrep -o '\[o.+\]'`
+    if [ $CURRENT_STATE == '[on]' ]
+    then
+        pactl set-sink-mute 0 yes
+    else
+        pactl set-sink-mute 0 no
+    fi
+elif [ $1 == "up" ]
+then
+    amixer -q set Master 2dB+ unmute
+elif [ $1 == "down" ]
+then
+    amixer -q set Master 2dB- unmute
+fi
