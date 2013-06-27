@@ -50,7 +50,7 @@ fi
 export TERM=screen-256color
 
 
-PS1='\[\033[00;32m\]${debian_chroot:+($debian_chroot)}\u@\h\[\033[00m\]: \[\033[31m\]\w\[\033[00;34m\]$(__git_ps1)\[\033[30m\]\n> '
+PS1='\[\033[00;32m\]${debian_chroot:+($debian_chroot)}\u@\h\[\033[00m\]: \[\033[31m\]\w\[\033[00;34m\]$(__git_ps1)\[\033[00m\]\n> '
 
 export EDITOR=vim
 export GIT_PS1_SHOWDIRTYSTATE=1
