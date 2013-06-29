@@ -60,7 +60,6 @@ set number          " show lines numbers
 set autoindent      " set autoindenting on
 set smartindent     " set smart autoindenting
 set ignorecase      " set case insensitive matching
-set expandtab       " always spaces not tabs
 set shiftwidth=4    " tab is 4 spaces
 set tabstop=4       " tab is 4 spaces
 set softtabstop=4   " y=tab is 4 spaces
