@@ -49,13 +49,9 @@ fi
 
 export TERM=screen-256color
 
-function j(){               
-    ret=$(jobs | wc -l)     
-    if [ "$ret" != "0" ]    
-    then                    
-        echo ' ('$ret') '     
-    fi                      
-}                           
+function j(){
+    jobs | wc -l | grep -v 0 | sed -r 's/^([0-9]+)/ (\1) /'
+}
 
 
 PS1='\[\033[00;32m\]${debian_chroot:+($debian_chroot)}\u@\h$(j)\[\033[00m\]: \[\033[31m\]\w\[\033[00;34m\]$(__git_ps1)\[\033[00m\]\n> '
