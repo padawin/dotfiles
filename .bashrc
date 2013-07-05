@@ -50,7 +50,7 @@ fi
 export TERM=screen-256color
 
 function j(){
-    jobs | wc -l | grep -v 0 | sed -r 's/^([0-9]+)/ (\1) /'
+    jobs | wc -l | egrep -v ^0 | sed -r 's/^([0-9]+)/ (\1) /'
 }
 
 
