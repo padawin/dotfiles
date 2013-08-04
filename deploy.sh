@@ -17,7 +17,7 @@ files[11]='.i3'
 
 for f in "${files[@]}"
 do
-	rm -rf $HOME/$f
+	[ -a $f ] && rm -rf $HOME/$f
 	ln -s $SOURCE/$f $HOME/$f
 done
 
