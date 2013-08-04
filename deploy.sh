@@ -18,6 +18,12 @@ files[11]='.i3'
 for f in "${files[@]}"
 do
 	[ -a $f ] && rm -rf $HOME/$f
+
+	sourcedir=$(dirname $HOME/$f)
+	if [ ! -d $(dirname $HOME/$f) ]
+	then
+		mkdir -p $sourcedir
+	fi
 	ln -s $SOURCE/$f $HOME/$f
 done
 
