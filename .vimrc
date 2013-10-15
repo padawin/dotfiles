@@ -99,8 +99,14 @@ function! Foo()
   exec 'v:^--\s*$:s:\s\+$::e'
   exec line
 endfunction
+
+function! EOLUnix()
+	:set fileformat=unix
+endfunction
+
 " remove end of lines white spaces when saving
 autocmd BufWritePre * silent! call Foo()
+autocmd BufReadPost * silent! call EOLUnix()
 
 " ,/ C/C++/C#/Java // comments
 map ,/ :s/^/\/\//<CR>
