@@ -112,6 +112,8 @@ set t_Co=256
 
 " avoid tilde files in working directory
 set backupdir=~/.vim/backup
+" avoid swap files in working directory
+set directory=~/.vim/backup/
 
 " ctrl up and ctrl down in tmux
 set t_kN=[6;*~
