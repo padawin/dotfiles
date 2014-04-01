@@ -114,6 +114,12 @@ map ,/ :s/^/\/\//<CR>
 " , #perl # comments
 map ,# :s/^/#/<CR>
 
+" during a conflict resolution, the user can navigate with this pattern
+" in the different parts of conflicts in the file
+map gn /\(<<<<\\|====\\|>>>>\)<CR>
+
+set pastetoggle=<F2>
+
 set t_Co=256
 
 " avoid tilde files in working directory
