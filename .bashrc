@@ -46,10 +46,6 @@ fi
 if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
 fi
-# For centos, the git completion seems to have to be sources manually
-if [ -f /etc/bash_completion.d/git ]; then
-    . /etc/bash_completion./git
-fi
 
 export TERM=screen-256color
 
