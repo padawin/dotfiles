@@ -27,3 +27,4 @@ do
 	ln -s $SOURCE/$f $HOME/$f
 done
 
+[ ! -d ~/.vim/backup ] && mkdir -p ~/.vim/backup
