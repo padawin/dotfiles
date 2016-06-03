@@ -70,3 +70,7 @@ export GIT_PS1_SHOWUPSTREAM=auto
 
 export LD_LIBRARY_PATH=$HOME/.self/lib:$LD_LIBRARY_PATH
 export PATH=$HOME/.self/bin:$PATH
+
+if [ -f ~/.bash_local ]; then
+  . ~/.bashrc_local
+fi
