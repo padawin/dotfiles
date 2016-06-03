@@ -141,6 +141,10 @@ set t_@7=OF
 map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 
+nnoremap <F5> :GundoToggle<CR>
+nnoremap to :NERDTree .<CR>
+nnoremap tc :NERDTreeClose<CR>
+
 "colorscheme default
 "colorscheme dw_green
 set background=dark
