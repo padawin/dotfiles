@@ -66,6 +66,8 @@ set softtabstop=4   " y=tab is 4 spaces
 set tw=120          " set line length to 80 chars max
 set fdm=marker      "folding
 
+execute pathogen#infect()
+
 " activate filetypes and syntax highlighting
 filetype plugin indent on
 syntax on
