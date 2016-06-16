@@ -128,6 +128,7 @@ map ,# :s/^/#/<CR>
 " during a conflict resolution, the user can navigate with this pattern
 " in the different parts of conflicts in the file
 map gn /^\(<<<<\\|====\\|>>>>\)<CR>
+MapToggle rl relativenumber
 
 set pastetoggle=<F2>
 
