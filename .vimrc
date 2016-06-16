@@ -106,6 +106,15 @@ function! EOLUnix()
 	:set fileformat=unix
 endfunction
 
+" Map key to toggle opt
+function MapToggle(key, opt)
+  let cmd = ':set '.a:opt.'! \| set '.a:opt."?\<CR>"
+  exec 'nnoremap '.a:key.' '.cmd
+  exec 'inoremap '.a:key." \<C-O>".cmd
+endfunction
+command -nargs=+ MapToggle call MapToggle(<f-args>)
+
+
 " remove end of lines white spaces when saving
 autocmd BufWritePre * silent! call TrimEOL()
 autocmd BufReadPost * silent! call EOLUnix()
