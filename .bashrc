@@ -63,6 +63,8 @@ else
 	PS1='\[\033[00;32m\]${debian_chroot:+($debian_chroot)}\u@\h$(j)\[\033[00m\]: \[\033[31m\]\w\[\033[00;34m\]$(__git_ps1)\[\033[00m\]\n> '
 fi
 
+export MANPAGER=most
+
 export EDITOR=vim
 export GIT_PS1_SHOWDIRTYSTATE=1
 export GIT_PS1_SHOWSTASHSTATE=1
