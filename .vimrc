@@ -28,15 +28,11 @@ runtime! debian.vim
 
 " my conf
 "
-set number          " show lines numbers
-set autoindent      " set autoindenting on
-set smartindent     " set smart autoindenting
-set ignorecase      " set case insensitive matching
-set shiftwidth=4    " tab is 4 spaces
-set tabstop=4       " tab is 4 spaces
-set softtabstop=4   " y=tab is 4 spaces
-set tw=120          " set line length to 80 chars max
-set fdm=marker      "folding
+set number      " show lines numbers
+set autoindent  " set autoindenting on
+set smartindent " set smart autoindenting
+set tw=120       " set line length to 80 chars max
+set fdm=marker  " folding
 
 set nocompatible              " be iMproved, required
 filetype off                  " required
