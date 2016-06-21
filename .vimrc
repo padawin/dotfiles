@@ -119,10 +119,6 @@ set t_kP=[5;*~
 set t_kh=OH
 set t_@7=OF
 
-" open Ctags in a tabe or vertical split
-map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
-map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
-
 nnoremap <F5> :GundoToggle<CR>
 nnoremap to :NERDTree .<CR>
 nnoremap tc :NERDTreeClose<CR>
