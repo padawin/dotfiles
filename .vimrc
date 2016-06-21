@@ -10,15 +10,6 @@
 " properly set to work with the Vim-related packages available in Debian.
 runtime! debian.vim
 
-" Uncomment the next line to make Vim more Vi-compatible
-" NOTE: debian.vim sets 'nocompatible'.  Setting 'compatible' changes numerous
-" options, so any other options should be set AFTER setting 'compatible'.
-"set compatible
-
-" Vim5 and later versions support syntax highlighting. Uncommenting the next
-" line enables syntax highlighting by default.
-"syntax on
-
 " If using a dark background within the editing area and syntax highlighting
 " turn on this option as well
 " set background=dark
@@ -30,44 +21,34 @@ runtime! debian.vim
 "    \| exe "normal g'\"" | endif
 "endif
 
-" Uncomment the following to have Vim load indentation rules according to the
-" detected filetype. Per default Debian Vim only load filetype specific
-" plugins.
-"if has("autocmd")
-"  filetype indent on
-"endif
-
-" The following are commented out as they cause vim to behave a lot
-" differently from regular Vi. They are highly recommended though.
-"set showcmd		" Show (partial) command in status line.
-"set showmatch		" Show matching brackets.
-"set ignorecase		" Do case insensitive matching
-"set smartcase		" Do smart case matching
-"set incsearch		" Incremental search
-"set autowrite		" Automatically save before commands like :next and :make
-"set hidden             " Hide buffers when they are abandoned
-"set mouse=a		" Enable mouse usage (all modes) in terminals
-
 " Source a global configuration file if available
-" XXX Deprecated, please move your changes here in /etc/vim/vimrc
-if filereadable("/etc/vim/vimrc.local")
-    source /etc/vim/vimrc.local
-endif
+" if filereadable("/etc/vim/vimrc")
+"     source /etc/vim/vimrc
+" endif
 
 " my conf
 "
-set number          " show lines numbers
-set autoindent      " set autoindenting on
-set smartindent     " set smart autoindenting
-set ignorecase      " set case insensitive matching
-set shiftwidth=4    " tab is 4 spaces
-set tabstop=4       " tab is 4 spaces
-set softtabstop=4   " y=tab is 4 spaces
-set tw=120          " set line length to 80 chars max
-set fdm=marker      "folding
+set number      " show lines numbers
+set autoindent  " set autoindenting on
+set smartindent " set smart autoindenting
+set tw=80       " set line length to 80 chars max
+set fdm=marker  " folding
+set mouse=n     " Enable mouse usage (normal mode) in terminals
 
-execute pathogen#infect()
+set nocompatible              " be iMproved, required
+filetype off                  " required
 
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'sjl/gundo.vim'
+Plugin 'editorconfig/editorconfig-vim'
+Plugin 'scrooloose/nerdtree'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
 " activate filetypes and syntax highlighting
 filetype plugin indent on
 syntax on
@@ -106,31 +87,9 @@ function! EOLUnix()
 	:set fileformat=unix
 endfunction
 
-" Map key to toggle opt
-function MapToggle(key, opt)
-  let cmd = ':set '.a:opt.'! \| set '.a:opt."?\<CR>"
-  exec 'nnoremap '.a:key.' '.cmd
-  exec 'inoremap '.a:key." \<C-O>".cmd
-endfunction
-command -nargs=+ MapToggle call MapToggle(<f-args>)
-
-
 " remove end of lines white spaces when saving
 autocmd BufWritePre * silent! call TrimEOL()
 autocmd BufReadPost * silent! call EOLUnix()
-
-" ,/ C/C++/C#/Java // comments
-map ,/ :s/^/\/\//<CR>
-
-" , #perl # comments
-map ,# :s/^/#/<CR>
-
-" during a conflict resolution, the user can navigate with this pattern
-" in the different parts of conflicts in the file
-map gn /^\(<<<<\\|====\\|>>>>\)<CR>
-MapToggle rl relativenumber
-
-set pastetoggle=<F2>
 
 set t_Co=256
 
@@ -147,16 +106,10 @@ set t_kP=[5;*~
 set t_kh=OH
 set t_@7=OF
 
-" open Ctags in a tabe or vertical split
-map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
-map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
-
-nnoremap <F5> :GundoToggle<CR>
-nnoremap to :NERDTree .<CR>
-nnoremap tc :NERDTreeClose<CR>
-
 "colorscheme default
 "colorscheme dw_green
 set background=dark
 let g:solarized_termcolors=256
 colorscheme solarized
+
+let &colorcolumn="80,".join(range(120,999),",")
