@@ -66,8 +66,20 @@ set softtabstop=4   " y=tab is 4 spaces
 set tw=120          " set line length to 80 chars max
 set fdm=marker      "folding
 
-execute pathogen#infect()
+set nocompatible              " be iMproved, required
+filetype off                  " required
 
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'sjl/gundo.vim'
+Plugin 'editorconfig/editorconfig-vim'
+Plugin 'scrooloose/nerdtree'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
 " activate filetypes and syntax highlighting
 filetype plugin indent on
 syntax on
