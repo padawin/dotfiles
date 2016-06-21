@@ -91,19 +91,6 @@ endfunction
 autocmd BufWritePre * silent! call TrimEOL()
 autocmd BufReadPost * silent! call EOLUnix()
 
-" ,/ C/C++/C#/Java // comments
-map ,/ :s/^/\/\//<CR>
-
-" , #perl # comments
-map ,# :s/^/#/<CR>
-
-" during a conflict resolution, the user can navigate with this pattern
-" in the different parts of conflicts in the file
-map gn /^\(<<<<\\|====\\|>>>>\)<CR>
-nnoremap rl :set relativenumber!<CR>
-
-set pastetoggle=<F2>
-
 set t_Co=256
 
 " avoid tilde files in working directory
@@ -118,10 +105,6 @@ set t_kP=[5;*~
 " fix home and end keys in tmux
 set t_kh=OH
 set t_@7=OF
-
-nnoremap <F5> :GundoToggle<CR>
-nnoremap to :NERDTree .<CR>
-nnoremap tc :NERDTreeClose<CR>
 
 "colorscheme default
 "colorscheme dw_green
