@@ -31,7 +31,7 @@ runtime! debian.vim
 set number      " show lines numbers
 set autoindent  " set autoindenting on
 set smartindent " set smart autoindenting
-set tw=120       " set line length to 80 chars max
+set tw=80       " set line length to 80 chars max
 set fdm=marker  " folding
 
 set nocompatible              " be iMproved, required
