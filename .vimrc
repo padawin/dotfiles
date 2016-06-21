@@ -33,7 +33,7 @@ set autoindent  " set autoindenting on
 set smartindent " set smart autoindenting
 set tw=80       " set line length to 80 chars max
 set fdm=marker  " folding
-set mouse=a     " Enable mouse usage (all modes) in terminals
+set mouse=n     " Enable mouse usage (normal mode) in terminals
 
 set nocompatible              " be iMproved, required
 filetype off                  " required
