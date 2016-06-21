@@ -111,3 +111,5 @@ set t_@7=OF
 set background=dark
 let g:solarized_termcolors=256
 colorscheme solarized
+
+let &colorcolumn="80,".join(range(120,999),",")
