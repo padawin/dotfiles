@@ -22,10 +22,9 @@ runtime! debian.vim
 "endif
 
 " Source a global configuration file if available
-" XXX Deprecated, please move your changes here in /etc/vim/vimrc
-if filereadable("/etc/vim/vimrc.local")
-    source /etc/vim/vimrc.local
-endif
+" if filereadable("/etc/vim/vimrc")
+"     source /etc/vim/vimrc
+" endif
 
 " my conf
 "
