@@ -18,6 +18,9 @@
     svn-rebase = rebase --interactive --preserve-merges refs/remotes/git-svn
     diffc = diff --color-words=.
     diffw = diff --color-words=[a-z]+
+    review = "!git log -p --reverse master..$1"
+    review-full = "!git diff --reverse master..$1"
+    show-merge = "!git log -p --reverse $1^..$1"
 [color]
     status = auto
     pager = true
