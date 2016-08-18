@@ -21,6 +21,7 @@
     review = "!git log -p --reverse master..$1"
     review-full = "!git diff master..$1"
     show-merge = "!git log -p --reverse $1^..$1"
+    show-merge-full = "!git diff $1^..$1"
 [color]
     status = auto
     pager = true
