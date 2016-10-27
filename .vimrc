@@ -10,10 +10,6 @@
 " properly set to work with the Vim-related packages available in Debian.
 runtime! debian.vim
 
-" If using a dark background within the editing area and syntax highlighting
-" turn on this option as well
-" set background=dark
-
 " Uncomment the following to have Vim jump to the last position when
 " reopening a file
 "if has("autocmd")
