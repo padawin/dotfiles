@@ -68,16 +68,6 @@ if has("autocmd")
     autocmd FileType cs,*.cs    call SafeSource("~/.vim/filetypes/cs.vim")
 endif
 
-function! TrimEOL()
-  let line = line(".")
-  exec 'v:^--\s*$:s:\s\+$::e'
-  exec line
-endfunction
-
-function! EOLUnix()
-	:set fileformat=unix
-endfunction
-
 " remove end of lines white spaces when saving
 autocmd BufWritePre * silent! call TrimEOL()
 autocmd BufReadPost * silent! call EOLUnix()

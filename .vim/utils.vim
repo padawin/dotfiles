@@ -15,3 +15,13 @@ function ToggleBooleanOption(name)
     let s:value = getbufvar(s:bufname, '&' . a:name)
     call setbufvar(s:bufname, '&' . a:name, !s:value)
 endfunction
+
+function! TrimEOL()
+  let line = line(".")
+  exec 'v:^--\s*$:s:\s\+$::e'
+  exec line
+endfunction
+
+function! EOLUnix()
+	:set fileformat=unix
+endfunction
