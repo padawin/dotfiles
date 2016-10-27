@@ -57,15 +57,6 @@ call vundle#end()            " required
 filetype plugin indent on
 syntax on
 
-" paramétrage des templates
-" snippetsEmu conf
-let g:snip_start_tag = "@"
-let g:snip_end_tag = "@"
-let g:snip_set_textmate_cp = 1
-
-" mappe sur la combinaison C-SPACE (NUL)
-imap <unique> <Nul> <Plug>Jumper
-
 source ~/.vim/utils.vim
 
 call SafeSource('~/.vim/shortcuts.vim')
