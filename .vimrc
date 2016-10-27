@@ -25,8 +25,7 @@ runtime! debian.vim
 " my conf
 "
 set number      " show lines numbers
-set autoindent  " set autoindenting on
-set smartindent " set smart autoindenting
+set cindent
 set tw=80       " set line length to 80 chars max
 set fdm=syntax  " folding
 set mouse=n     " Enable mouse usage (normal mode) in terminals
