@@ -12,3 +12,4 @@ nnoremap ,/ :s/^/\/\//<CR>
 nnoremap ,# :s/^/#/<CR>
 nnoremap rl :set relativenumber!<CR>
 nnoremap <F3> :set hlsearch!<CR>
+inoremap <F6> <Esc>
