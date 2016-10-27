@@ -59,8 +59,6 @@ let g:snip_start_tag = "@"
 let g:snip_end_tag = "@"
 let g:snip_set_textmate_cp = 1
 
-set nohlsearch
-
 " mappe sur la combinaison C-SPACE (NUL)
 imap <unique> <Nul> <Plug>Jumper
 
