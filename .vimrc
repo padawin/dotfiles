@@ -32,7 +32,7 @@ set number      " show lines numbers
 set autoindent  " set autoindenting on
 set smartindent " set smart autoindenting
 set tw=80       " set line length to 80 chars max
-set fdm=marker  " folding
+set fdm=syntax  " folding
 set mouse=n     " Enable mouse usage (normal mode) in terminals
 
 set nocompatible              " be iMproved, required
@@ -58,8 +58,6 @@ syntax on
 let g:snip_start_tag = "@"
 let g:snip_end_tag = "@"
 let g:snip_set_textmate_cp = 1
-
-let php_folding = 1
 
 set nohlsearch
 
