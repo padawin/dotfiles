@@ -6,10 +6,6 @@ noremap gn /^\(<<<<\\|====\\|>>>>\)<CR>
 noremap gt :GundoToggle<CR>
 noremap to :NERDTree .<CR>
 noremap tc :NERDTreeClose<CR>
-" ,/ C/C++/C#/Java // comments
-nnoremap ,/ :s/^/\/\//<CR>
-" , #perl # comments
-nnoremap ,# :s/^/#/<CR>
 nnoremap rl :set relativenumber!<CR>
 nnoremap <F3> :set hlsearch!<CR>
 inoremap <F6> <Esc>
