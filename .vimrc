@@ -61,13 +61,6 @@ source ~/.vim/utils.vim
 
 call SafeSource('~/.vim/shortcuts.vim')
 
-if has("autocmd")
-    autocmd FileType php,*.php    call SafeSource("~/.vim/filetypes/php.vim")
-    autocmd FileType python,*.py  call SafeSource("~/.vim/filetypes/python.vim")
-    autocmd FileType html,*.html 	call SafeSource("~/.vim/filetypes/html.vim")
-    autocmd FileType cs,*.cs    call SafeSource("~/.vim/filetypes/cs.vim")
-endif
-
 " remove end of lines white spaces when saving
 autocmd BufWritePre * silent! call TrimEOL()
 autocmd BufReadPost * silent! call EOLUnix()
