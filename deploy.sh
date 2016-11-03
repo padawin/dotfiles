@@ -16,6 +16,7 @@ files[10]='.gitconfig'
 files[11]='.vim'
 files[12]='.i3'
 files[13]='.tmux.conf'
+files[14]='.git_template'
 
 for f in "${files[@]}"
 do
