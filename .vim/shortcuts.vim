@@ -9,3 +9,4 @@ noremap tc :NERDTreeClose<CR>
 nnoremap rl :set relativenumber!<CR>
 nnoremap <F3> :set hlsearch!<CR>
 inoremap <F6> <Esc>
+nnoremap <C-]> :tab split<CR><C-]>
