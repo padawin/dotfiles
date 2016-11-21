@@ -83,6 +83,7 @@ set t_@7=OF
 
 set wildchar=<Tab> wildmenu wildmode=full
 set hidden
+set tags=.git/tags;/
 
 "colorscheme default
 "colorscheme dw_green
