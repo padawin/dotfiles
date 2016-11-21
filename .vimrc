@@ -82,6 +82,7 @@ set t_kh=OH
 set t_@7=OF
 
 set wildchar=<Tab> wildmenu wildmode=full
+set hidden
 
 "colorscheme default
 "colorscheme dw_green
