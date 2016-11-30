@@ -1,0 +1,13 @@
+#!/bin/sh
+
+for note in $(git notes)
+do
+    if [ -z "$n" ]
+    then
+        n=$note
+    else
+        n="$note - $(git notes show $note)"
+        echo $n
+        n=""
+    fi
+done
