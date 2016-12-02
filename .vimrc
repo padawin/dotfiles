@@ -66,6 +66,9 @@ call SafeSource('~/.vim/shortcuts.vim')
 autocmd BufWritePre * silent! call TrimEOL()
 autocmd BufReadPost * silent! call EOLUnix()
 
+set noautoread
+autocmd InsertEnter,CursorMoved,CursorMovedI * silent! checktime
+
 set t_Co=256
 
 " avoid tilde files in working directory
