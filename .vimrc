@@ -47,6 +47,7 @@ filetype off                  " required
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 " let Vundle manage Vundle, required
+" git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'mbbill/undotree'
 Plugin 'editorconfig/editorconfig-vim'
@@ -85,6 +86,7 @@ set t_kh=OH
 set t_@7=OF
 
 set wildchar=<Tab> wildmenu wildmode=full
+" To be able to leave an unsaved buffer to access another one
 set hidden
 set tags=.git/tags;/
 
