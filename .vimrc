@@ -52,6 +52,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'mbbill/undotree'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'scrooloose/nerdtree'
+Plugin 'airblade/vim-gitgutter'
 Plugin 'scrooloose/syntastic'
 
 " All of your Plugins must be added before the following line
