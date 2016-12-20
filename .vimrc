@@ -52,6 +52,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'mbbill/undotree'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/syntastic'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -89,6 +90,14 @@ set wildchar=<Tab> wildmenu wildmode=full
 " To be able to leave an unsaved buffer to access another one
 set hidden
 set tags=.git/tags;/
+
+" syntastic
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_python_checkers = ['pep8', 'flake8']
+let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 "colorscheme default
 "colorscheme dw_green
