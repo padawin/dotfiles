@@ -39,6 +39,7 @@ set statusline+=%{strlen(&fenc)?&fenc:&enc}]   " encoding
 set statusline+=%10((%l,%c)%)\                 " line and column
 set statusline+=%P                             " percentage of file
 set hlsearch                                   " highlight search results by default
+set bs=indent,eol,start     " Backspace over everything in insert mode
 
 set nocompatible              " be iMproved, required
 filetype off                  " required
