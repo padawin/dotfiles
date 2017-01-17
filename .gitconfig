@@ -9,11 +9,7 @@
     st = status
     co = checkout
     ba = branch -v -a
-    slog = log --pretty=oneline
-    nlog = log --name-status
-    dlog = log -p
     ci = commit -v
-    br = branch -v
     history = log --graph --pretty=format:'%Cred%h%Creset %d -%Cblue %s%Creset %Cgreen(%ar) %Cblue<%an>%Creset' --abbrev-commit --date=relative
     svn-rebase = rebase --interactive --preserve-merges refs/remotes/git-svn
     diffc = diff --color-words=.
