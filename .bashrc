@@ -58,6 +58,7 @@ intty=${intty:0:3}
 PROMPT_COMMAND=__prompt_command # Func to gen PS1 after CMDs
 
 __prompt_command() {
+	local EXIT="$?" # This needs to be first
 	PS1=""
 
 	local RCol='\[\e[0m\]'
@@ -68,6 +69,11 @@ __prompt_command() {
 
 	PS1+="${Gre}${debian_chroot:+($debian_chroot)}\u@\h$(j)${RCol}: "
 	PS1+="${Red}\w${Blu}$(__git_ps1)"
+	if [ $EXIT != 0 ]; then
+		PS1+=$Red$' \u2717 '"(${EXIT})${RCol}"
+	else
+		PS1+=$Gre$' \u2713'$RCol
+	fi
 	PS1+="${RCol}\n> "
 }
 
