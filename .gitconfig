@@ -2,6 +2,7 @@
     name = <Ghislain Rodrigues>
     email = <git@ghislain-rodrigues.fr>
 [core]
+    attributesfile = ~/.gitattributes
     editor = vim
 [rerere]
     enabled = true
