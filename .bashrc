@@ -57,7 +57,11 @@ if [ "$intty" = "tty" ]
 then
 	PS1='[$(date "+%Y-%m-%d %H:%M:%S")] \[\033[00;32m\]${debian_chroot:+($debian_chroot)}\u@\h$(j)\[\033[00m\]: \[\033[31m\]\w\[\033[00;34m\]$(__git_ps1)\[\033[00m\]\n> '
 else
-	PS1='\[\033[00;32m\]${debian_chroot:+($debian_chroot)}\u@\h$(j)\[\033[00m\]: \[\033[31m\]\w\[\033[00;34m\]$(__git_ps1)\[\033[00m\]\n> '
+	R=$'\033[31m'
+	G=$'\033[32m'
+	B=$'\033[34m'
+	W=$'\033[00m'
+	PS1=$'$G${debian_chroot:+($debian_chroot)}\u@\h$(j)$W: $R\w$B$(__git_ps1)$W\n> '
 fi
 
 export MANPAGER=most
