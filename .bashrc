@@ -53,16 +53,23 @@ function j(){
 intty=$(tty)
 intty=${intty:5}
 intty=${intty:0:3}
-if [ "$intty" = "tty" ]
-then
-	PS1='[$(date "+%Y-%m-%d %H:%M:%S")] \[\033[00;32m\]${debian_chroot:+($debian_chroot)}\u@\h$(j)\[\033[00m\]: \[\033[31m\]\w\[\033[00;34m\]$(__git_ps1)\[\033[00m\]\n> '
-else
-	R=$'\033[31m'
-	G=$'\033[32m'
-	B=$'\033[34m'
-	W=$'\033[00m'
-	PS1=$'$G${debian_chroot:+($debian_chroot)}\u@\h$(j)$W: $R\w$B$(__git_ps1)$W\n> '
-fi
+
+
+PROMPT_COMMAND=__prompt_command # Func to gen PS1 after CMDs
+
+__prompt_command() {
+	PS1=""
+
+	local RCol='\[\e[0m\]'
+
+	local Red='\[\e[0;31m\]'
+	local Gre='\[\e[0;32m\]'
+	local Blu='\[\e[0;34m\]'
+
+	PS1+="${Gre}${debian_chroot:+($debian_chroot)}\u@\h$(j)${RCol}: "
+	PS1+="${Red}\w${Blu}$(__git_ps1)"
+	PS1+="${RCol}\n> "
+}
 
 export MANPAGER=most
 
