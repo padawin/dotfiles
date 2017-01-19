@@ -74,7 +74,7 @@ __prompt_command() {
 	else
 		PS1+="$Gre \342\234\224"
 	fi
-	PS1+="${RCol}\n> "
+	PS1+="$RCol\n> "
 }
 
 export MANPAGER=most
