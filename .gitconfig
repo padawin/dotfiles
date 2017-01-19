@@ -11,7 +11,7 @@
     co = checkout
     ba = branch -v -a
     ci = commit -v
-    history = log --graph --pretty=format:'%Cred%h%C(yellow) %d -%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+    history = log --graph --pretty=format:'%Cred%h%C(yellow) %d -%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset' --date=relative
     svn-rebase = rebase --interactive --preserve-merges refs/remotes/git-svn
     diffc = diff --color-words=.
     diffw = diff --color-words=[a-z]+
