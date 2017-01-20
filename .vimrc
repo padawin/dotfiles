@@ -42,6 +42,8 @@ set hlsearch                                   " highlight search results by def
 set bs=indent,eol,start     " Backspace over everything in insert mode
 
 set nocompatible              " be iMproved, required
+let mapleader=' '
+
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
