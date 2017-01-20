@@ -65,7 +65,7 @@ __prompt_command() {
 
 	local Red='\e[0;31m'
 	local Gre='\e[0;32m'
-	local Blu='\e[0;34m'
+	local Blu='\e[1;34m'
 
 	PS1+="${Gre}${debian_chroot:+($debian_chroot)}\u@\h$(j)${RCol}: "
 	PS1+="${Red}\w${Blu}$(__git_ps1)"
