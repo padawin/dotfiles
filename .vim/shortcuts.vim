@@ -4,7 +4,7 @@ set wildcharm=<C-Z>
 " during a conflict resolution, the user can navigate with this pattern
 " in the different parts of conflicts in the file
 nnoremap <leader>n /^\(<<<<\\|====\\|>>>>\)<CR>
-noremap <leader>gt :UndotreeToggle<CR>
+noremap <leader>u :UndotreeToggle<CR>
 noremap <leader>to :NERDTree .<CR>
 noremap <leader>tc :NERDTreeClose<CR>
 nnoremap <leader>r :set relativenumber!<CR>
