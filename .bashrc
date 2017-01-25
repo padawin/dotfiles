@@ -54,6 +54,14 @@ function j(){
     jobs | wc -l | egrep -v ^0 | sed -r 's/^([0-9]+)/ (\1)/'
 }
 
+function virtual_env_name(){
+    if [ ! -z "$VIRTUAL_ENV" ]
+    then
+	name=`basename $VIRTUAL_ENV`
+        echo "($name) "
+    fi
+}
+
 intty=$(tty)
 intty=${intty:5}
 intty=${intty:0:3}
@@ -63,7 +71,7 @@ PROMPT_COMMAND=__prompt_command # Func to gen PS1 after CMDs
 
 __prompt_command() {
 	local EXIT="$?" # This needs to be first
-	PS1=""
+	PS1="$(virtual_env_name)"
 
 	local RCol='\[\e[0m\]'
 
