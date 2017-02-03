@@ -95,6 +95,9 @@ set wildchar=<Tab> wildmenu wildmode=full
 set hidden
 set tags=.git/tags;/
 
+set splitbelow
+set splitright
+
 " syntastic
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_python_checkers = ['pep8', 'flake8']
