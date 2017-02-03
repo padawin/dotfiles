@@ -10,7 +10,7 @@ function! SafeSource(path)
 endfunction
 
 " toggle a boolean option for the current buffer
-function ToggleBooleanOption(name)
+function! ToggleBooleanOption(name)
     let s:bufname = bufname('%')
     let s:value = getbufvar(s:bufname, '&' . a:name)
     call setbufvar(s:bufname, '&' . a:name, !s:value)
