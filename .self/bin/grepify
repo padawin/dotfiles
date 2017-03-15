@@ -1,0 +1,21 @@
+#!/usr/bin/env python3
+import sys
+
+currFile = None
+for line in sys.stdin:
+    line = line.strip().split(":")
+    if len(line) < 2:
+        print(line[0])
+        continue
+
+    if currFile is None or currFile != line[0]:
+        if currFile is not None:
+            print("\n")
+        currFile = line[0]
+        print(line[0])
+
+    try:
+        lineNumber = int(line[1])
+        print("{}\t{}".format(lineNumber, ":".join(line[2:]).strip()))
+    except ValueError:
+        print("\t{}".format(":".join(line[1:]).strip()))
