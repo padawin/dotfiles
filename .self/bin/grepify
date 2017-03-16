@@ -1,6 +1,10 @@
 #!/usr/bin/env python3
 import sys
 
+YELLOW = "\033[33;1m"
+CYAN = "\033[36m"
+RESET = "\033[0m"
+
 currFile = None
 for line in sys.stdin:
     line = line.strip().split(":")
@@ -12,10 +16,10 @@ for line in sys.stdin:
         if currFile is not None:
             print("\n")
         currFile = line[0]
-        print(line[0])
+        print("{}{}{}".format(YELLOW, line[0], RESET))
 
     try:
-        lineNumber = int(line[1])
+        lineNumber = "{}{}{}".format(CYAN, int(line[1]), RESET)
         print("{}\t{}".format(lineNumber, ":".join(line[2:]).strip()))
     except ValueError:
         print("\t{}".format(":".join(line[1:]).strip()))
