@@ -29,3 +29,8 @@
     default = current
 [init]
     templatedir = ~/.git_template
+[merge]
+    tool = vimdiff
+    conflictstyle = merge
+[mergetool]
+    prompt = false
