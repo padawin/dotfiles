@@ -1,36 +1,36 @@
 [user]
-    name = <Ghislain Rodrigues>
-    email = <git@ghislain-rodrigues.fr>
+	name = <Ghislain Rodrigues>
+	email = <git@ghislain-rodrigues.fr>
 [core]
-    attributesfile = ~/.gitattributes
-    editor = vim
+	attributesfile = ~/.gitattributes
+	editor = vim
 [rerere]
-    enabled = true
+	enabled = true
 [alias]
-    st = status
-    co = checkout
-    ba = branch -v -a
-    ci = commit -v
-    history = log --graph --pretty=format:'%Cred%h%C(yellow) %d -%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset' --date=relative
-    svn-rebase = rebase --interactive --preserve-merges refs/remotes/git-svn
-    diffc = diff --color-words=.
-    diffw = diff --color-words=[a-z]+
-    review = "!sh -c 'git log -p --reverse $1..$2' -"
-    review-full = "!sh -c 'git diff master..$1' -"
-    show-merge = "!sh -c 'git log -p --reverse $1^..$1' -"
-    show-merge-full = "!sh -c 'git diff $1^..$1' -"
-    rework = "!sh -c 'git rebase --interactive $(git merge-base $1 HEAD) --autosquash --autostash --preserve-merges' -"
+	st = status
+	co = checkout
+	ba = branch -v -a
+	ci = commit -v
+	history = log --graph --pretty=format:'%Cred%h%C(yellow) %d -%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset' --date=relative
+	svn-rebase = rebase --interactive --preserve-merges refs/remotes/git-svn
+	diffc = diff --color-words=.
+	diffw = diff --color-words=[a-z]+
+	review = "!sh -c 'git log -p --reverse $1..$2' -"
+	review-full = "!sh -c 'git diff master..$1' -"
+	show-merge = "!sh -c 'git log -p --reverse $1^..$1' -"
+	show-merge-full = "!sh -c 'git diff $1^..$1' -"
+	rework = "!sh -c 'git rebase --interactive $(git merge-base $1 HEAD) --autosquash --autostash --preserve-merges' -"
 [color]
-    status = auto
-    pager = true
-    diff = auto
-    branch = auto
+	status = auto
+	pager = true
+	diff = auto
+	branch = auto
 [push]
-    default = current
+	default = current
 [init]
-    templatedir = ~/.git_template
+	templatedir = ~/.git_template
 [merge]
-    tool = vimdiff
-    conflictstyle = merge
+	tool = vimdiff
+	conflictstyle = merge
 [mergetool]
-    prompt = false
+	prompt = false
