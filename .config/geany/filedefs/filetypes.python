@@ -1,5 +1,0 @@
-[build-menu]
-FT_01_LB=Vérifier code
-FT_01_CM=pep8 --repeat --count "%f"
-FT_01_WD=
-error_regex=^(.+?):([0-9]+):.+
