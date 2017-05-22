@@ -12,6 +12,7 @@ nnoremap <F3> :set hlsearch!<CR>
 nnoremap <leader>t :b <C-Z>
 nnoremap <leader>s :bnext<CR>
 nnoremap <leader>a :bprevious<CR>
+nnoremap <leader>m :make<CR>
 
 " Non quitting analog of ZZ
 nmap zz :w<CR>
