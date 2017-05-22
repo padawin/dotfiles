@@ -41,6 +41,9 @@ set statusline+=%P                             " percentage of file
 set hlsearch                                   " highlight search results by default
 set bs=indent,eol,start     " Backspace over everything in insert mode
 
+" Find in recursive paths + "fuzzy" search
+set path+=**
+
 set nocompatible              " be iMproved, required
 let mapleader=' '
 
