@@ -1,0 +1,7 @@
+	/**
+ 	 * @TODO DOC
+ 	 */
+	protected function ()
+	{
+
+	}

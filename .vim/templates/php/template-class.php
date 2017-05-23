@@ -1,0 +1,8 @@
+<?php
+
+/**
+ * @TODO DOC
+ */
+class  {
+
+}
