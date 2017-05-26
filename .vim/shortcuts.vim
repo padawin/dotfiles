@@ -5,8 +5,6 @@ set wildcharm=<C-Z>
 " in the different parts of conflicts in the file
 nnoremap <leader>n /^\(<<<<\\|====\\|>>>>\)<CR>
 noremap <leader>u :UndotreeToggle<CR>
-noremap <leader>to :NERDTree .<CR>
-noremap <leader>tc :NERDTreeClose<CR>
 nnoremap <leader>r :set relativenumber!<CR>
 nnoremap <F3> :set hlsearch!<CR>
 nnoremap <leader>t :b <C-Z>

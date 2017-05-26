@@ -57,7 +57,6 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'mbbill/undotree'
 Plugin 'editorconfig/editorconfig-vim'
-Plugin 'scrooloose/nerdtree'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'scrooloose/syntastic'
 
