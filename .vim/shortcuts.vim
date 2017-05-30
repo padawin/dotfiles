@@ -1,6 +1,10 @@
 set pastetoggle=<F2>
 set wildcharm=<C-Z>
 
+" shortcut to edit this file
+nnoremap <leader>es :vs <C-R>=MYVIMSHORTCUTS<CR><CR>Go
+nnoremap <leader>. :source $MYVIMRC<CR>
+
 " during a conflict resolution, the user can navigate with this pattern
 " in the different parts of conflicts in the file
 nnoremap <leader>n /^\(<<<<\\|====\\|>>>>\)<CR>
