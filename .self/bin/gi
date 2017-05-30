@@ -1,0 +1,14 @@
+#!/usr/bin/env python3
+import sys
+import subprocess
+
+if __name__ == "__main__":
+    command = sys.argv
+    # git misspelt
+    if command[1][0] == 't':
+        command[0] = "git"
+        command[1] = command[1][1:]
+        exit(subprocess.call(command))
+    else:
+        print("Unknown command gi, Joe.")
+        exit(1)
