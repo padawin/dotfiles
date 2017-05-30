@@ -46,6 +46,7 @@ set path+=**
 
 set nocompatible              " be iMproved, required
 let mapleader=' '
+let maplocalleader=' '
 
 filetype off                  " required
 
