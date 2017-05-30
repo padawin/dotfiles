@@ -68,7 +68,8 @@ syntax on
 
 source ~/.vim/utils.vim
 
-call SafeSource('~/.vim/shortcuts.vim')
+let MYVIMSHORTCUTS = '~/.vim/shortcuts.vim'
+call SafeSource(MYVIMSHORTCUTS)
 
 " remove end of lines white spaces when saving
 autocmd BufWritePre * silent! call TrimEOL()
