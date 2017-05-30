@@ -26,3 +26,6 @@ noremap <Right>  <NOP>
 
 nnoremap <leader>" ciW""<esc>P
 nnoremap <leader>' ciW''<esc>P
+
+" ctrl u -> set the word under the cursor in uppercase
+inoremap <c-u> <esc>viwUgi
