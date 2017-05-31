@@ -79,6 +79,8 @@ autocmd BufReadPost * silent! call EOLUnix()
 set noautoread
 autocmd InsertEnter,CursorMoved,CursorMovedI * silent! checktime
 
+autocmd BufNewFile,BufReadPost *tpp set filetype=cpp
+
 set t_Co=256
 
 " avoid tilde files in working directory
