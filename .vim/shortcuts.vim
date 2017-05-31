@@ -34,8 +34,8 @@ nnoremap <leader>' ciW''<esc>P
 inoremap <c-u> <esc>viwUgi
 
 " shortcut to comment a line, per filetype
-autocmd FileType c,cpp,php,javascript nnoremap <buffer> <localleader>c I//<esc>:silent! s~^\(\s*\)////~\1~<cr>
-autocmd FileType python     nnoremap <buffer> <localleader>c I#<esc>:s~^\(\s*\)##~\1~<cr>
+autocmd FileType c,cpp,php,javascript nnoremap <buffer> <localleader>c I// <esc>:silent! s~^\(\s*\)// // ~\1~<cr>
+autocmd FileType python     nnoremap <buffer> <localleader>c I# <esc>:s~^\(\s*\)# # ~\1~<cr>
 
 " shortcut to comment a block, per filetype
 autocmd FileType c,cpp,php,javascript vnoremap <buffer> <localleader>c <esc>'<O/*<esc>'>o*/<esc>
