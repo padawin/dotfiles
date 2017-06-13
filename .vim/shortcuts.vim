@@ -5,6 +5,8 @@ set wildcharm=<C-Z>
 nnoremap <leader>es :vs <C-R>=MYVIMSHORTCUTS<CR><CR>
 nnoremap <leader>. :source $MYVIMRC<CR>
 
+nnoremap <leader>o :find *
+
 " during a conflict resolution, the user can navigate with this pattern
 " in the different parts of conflicts in the file
 nnoremap <leader>n /^\(<<<<\\|====\\|>>>>\)<CR>
