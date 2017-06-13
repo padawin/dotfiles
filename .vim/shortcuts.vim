@@ -20,7 +20,8 @@ nnoremap <leader>a :bprevious<CR>
 nnoremap <leader>m :make<CR>
 
 " Non quitting analog of ZZ
-nmap zz :w<CR>
+nnoremap zz :w<CR>
+nnoremap <leader>zz zz
 
 nnoremap <leader>j :m .+1<CR>==
 nnoremap <leader>k :m .-2<CR>==
