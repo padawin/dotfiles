@@ -40,6 +40,8 @@ set statusline+=%10((%l,%c)%)\                 " line and column
 set statusline+=%P                             " percentage of file
 set incsearch
 set hlsearch                                   " highlight search results by default
+set ignorecase
+set smartcase
 set bs=indent,eol,start     " Backspace over everything in insert mode
 
 " Find in recursive paths + "fuzzy" search
