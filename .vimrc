@@ -121,4 +121,13 @@ set background=dark
 let g:solarized_termcolors=256
 colorscheme solarized
 
+" Invisible chars display:
+set listchars=space:·,trail:█
+highlight WhiteSpaceBol ctermfg=grey
+highlight WhiteSpaceMol ctermfg=black
+highlight WhiteSpaceEol ctermfg=red
+match WhiteSpaceMol / /
+2match WhiteSpaceBol /^ \+/
+2match WhiteSpaceEol / \+$/
+
 let &colorcolumn="80,".join(range(120,999),",")
