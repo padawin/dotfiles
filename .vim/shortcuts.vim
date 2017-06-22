@@ -13,7 +13,7 @@ nnoremap ; :
 " in the different parts of conflicts in the file
 nnoremap <leader>n /^\(<<<<\\|====\\|>>>>\)<CR>
 noremap <leader>u :UndotreeToggle<CR>
-nnoremap <leader>r :set relativenumber!<CR>
+nnoremap <leader>r :set relativenumber!<CR>:set list!<CR>
 nnoremap <F3> :set hlsearch!<CR>
 nnoremap <leader>s :bnext<CR>
 nnoremap <leader>a :bprevious<CR>
