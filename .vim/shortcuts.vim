@@ -8,6 +8,9 @@ nnoremap <leader>. :source $MYVIMRC<CR>
 nnoremap <leader>o :find *
 nnoremap <leader>b :buffers<CR>:buffer<Space>
 
+nnoremap <leader>N :e .notes<CR>
+nnoremap <leader>S :e $HOME/.vim/scratchpad<CR>
+
 nnoremap : ;
 nnoremap ; :
 " during a conflict resolution, the user can navigate with this pattern
