@@ -44,6 +44,8 @@ set ignorecase
 set smartcase
 set bs=indent,eol,start     " Backspace over everything in insert mode
 
+set spell spelllang=en_gb spellfile=$HOME/.vim/en.utf-8.add
+
 " Find in recursive paths + "fuzzy" search
 set path+=**
 

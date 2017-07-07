@@ -57,3 +57,6 @@ autocmd FileType python     nnoremap <buffer> <localleader>c I# <esc>:s~^\(\s*\)
 " shortcut to comment a block, per filetype
 autocmd FileType c,cpp,php,javascript vnoremap <buffer> <localleader>c <esc>'<O/*<esc>'>o*/<esc>
 autocmd FileType python     vnoremap <buffer> <localleader>c <esc>'<O"""<esc>'>o"""<esc>
+
+" Tab to get suggestion for badly spelt word
+nnoremap <tab> ]s1z=
