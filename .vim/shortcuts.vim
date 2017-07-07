@@ -6,6 +6,7 @@ nnoremap <leader>es :vs <C-R>=MYVIMSHORTCUTS<CR><CR>
 nnoremap <leader>. :source $MYVIMRC<CR>
 
 nnoremap <leader>o :find *
+nnoremap <leader>b :buffers<CR>:buffer<Space>
 
 nnoremap : ;
 nnoremap ; :
