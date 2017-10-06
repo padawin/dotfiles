@@ -4,6 +4,7 @@
 [core]
 	attributesfile = ~/.gitattributes
 	editor = vim
+	excludesfile = ~/.gitignore-global
 [rerere]
 	enabled = true
 [alias]

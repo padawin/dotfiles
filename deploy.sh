@@ -13,11 +13,12 @@ files[7]='.bash_profile'
 files[8]='.bash_aliases'
 files[9]='.gitconfig'
 files[10]='.gitattributes'
-files[11]='.vim'
-files[12]='.i3'
-files[13]='.tmux.conf'
-files[14]='.git_template'
-files[15]='.self'
+files[11]='.gitignore-global'
+files[12]='.vim'
+files[13]='.i3'
+files[14]='.tmux.conf'
+files[15]='.git_template'
+files[16]='.self'
 
 for f in "${files[@]}"
 do
