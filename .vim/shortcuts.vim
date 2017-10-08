@@ -61,3 +61,6 @@ autocmd FileType python     vnoremap <buffer> <localleader>c <esc>'<O"""<esc>'>o
 
 " Tab to get suggestion for badly spelt word
 nnoremap <tab> ]s1z=
+
+inoremap <c-f> <c-x><c-f>
+inoremap <c-l> <c-x><c-l>
