@@ -105,3 +105,6 @@ export TMPDIR=$HOME/.tmp
 if [ -f ~/.bash_local ]; then
   . ~/.bashrc_local
 fi
+
+# so as not to be disturbed by Ctrl-S ctrl-Q in terminals:
+stty -ixon
