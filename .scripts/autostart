@@ -18,3 +18,5 @@ xbacklight -set 90 &
 setxkbmap -option grp:switch,grp:shifts_toggle,grp_led:scroll,compose:ralt us
 
 [ -f ~/Pictures/background ] && feh --bg-max ~/Pictures/background
+xrandr --dpi 220
+xrandr --output HDMI-2 --auto --above eDP-1

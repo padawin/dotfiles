@@ -156,7 +156,7 @@ bindsym Escape mode "default"
 bar {
     status_command i3status
     #~ position top
-    mode hide
+    mode dock
 }
 
 focus_follows_mouse no
@@ -173,4 +173,6 @@ bindsym XF86AudioRaiseVolume exec $HOME/.scripts/sound up
 bindsym XF86AudioLowerVolume exec $HOME/.scripts/sound down
 bindsym XF86AudioMute exec exec $HOME/.scripts/sound mute
 
+exec xrandr --output eDP-1 --dpi 220
+exec xrandr --output HDMI-2 --dpi 192
 exec ~/.scripts/autostart
