@@ -108,3 +108,17 @@ fi
 
 # so as not to be disturbed by Ctrl-S ctrl-Q in terminals:
 stty -ixon
+preexec_invoke_exec () {
+    [ -n "$COMP_LINE" ] && return  # do nothing if completing
+    [ "$BASH_COMMAND" = "$PROMPT_COMMAND" ] && return # don't cause a preexec for $PROMPT_COMMAND
+    local this_command=`HISTTIMEFORMAT= history 1 | sed -e "s/^[ ]*[0-9]*[ ]*//"`;
+    if [ ${#this_command} -gt 4 ]
+    then
+        if [[ "${this_command:0:5}" =~ ^git[a-z]\ $ ]]
+        then
+            this_command=`gitty $this_command`
+            $this_command
+        fi
+    fi
+}
+trap 'preexec_invoke_exec' DEBUG
