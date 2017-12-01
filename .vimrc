@@ -133,6 +133,6 @@ match WhiteSpaceMol / /
 2match WhiteSpaceBol /^ \+/
 2match WhiteSpaceEol / \+$/
 
-let &colorcolumn="80,".join(range(120,999),",")
+let &colorcolumn=&l:textwidth . ",".join(range(120,999),",")
 
 let g:cpp_member_variable_highlight = 1
