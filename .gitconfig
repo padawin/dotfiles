@@ -26,6 +26,11 @@
 	pager = true
 	diff = auto
 	branch = auto
+[color.diff]
+	newMoved = magenta bold
+	oldMoved = magenta bold
+[diff]
+	colorMoved = plain
 [interactive]
 	# needs a perl module, which can be installed by running as root:
 	# cpan Term::ReadKey
