@@ -136,3 +136,5 @@ match WhiteSpaceMol / /
 let &colorcolumn=&l:textwidth . ",".join(range(120,999),",")
 
 let g:cpp_member_variable_highlight = 1
+
+set spellfile=~/.vim/spell/techspeak.utf-8.add
