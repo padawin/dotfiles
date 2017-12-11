@@ -122,3 +122,5 @@ preexec_invoke_exec () {
     fi
 }
 trap 'preexec_invoke_exec' DEBUG
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
