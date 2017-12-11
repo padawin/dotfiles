@@ -64,3 +64,4 @@ nnoremap <tab> ]s1z=
 
 inoremap <c-f> <c-x><c-f>
 inoremap <c-l> <c-x><c-l>
+inoremap <c-k> <c-x><c-k>
