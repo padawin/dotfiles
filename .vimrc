@@ -66,6 +66,7 @@ Plugin 'editorconfig/editorconfig-vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'scrooloose/syntastic'
 Plugin 'octol/vim-cpp-enhanced-highlight'
+Plugin 'klen/python-mode'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -136,5 +137,11 @@ match WhiteSpaceMol / /
 let &colorcolumn=&l:textwidth . ",".join(range(120,999),",")
 
 let g:cpp_member_variable_highlight = 1
+let g:pymode_python = 'python3'
+let g:pymode_folding = 0
+let g:pymode_lint_on_fly = 1
+let g:pymode_lint_checkers = ['pep8', 'flake8']
+let g:pymode_run_bind = '<leader>R'
+let g:pymode_lint_cwindow = 0
 
 set spellfile=~/.vim/spell/techspeak.utf-8.add
