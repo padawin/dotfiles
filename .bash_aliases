@@ -11,6 +11,7 @@ alias gm='git merge --no-ff $(git branch | grep -v $(git rev-parse --abbrev-ref 
 alias gp='git push'
 
 alias ga='git add -p'
+alias gci='git commit'
 
 alias gsl='git stash list'
 alias gs='git status'
