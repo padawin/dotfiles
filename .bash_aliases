@@ -12,6 +12,7 @@ alias gp='git push'
 
 alias ga='git add -p'
 alias gci='git commit'
+alias gst='git stash'
 
 alias gsl='git stash list'
 alias gs='git status'
@@ -21,3 +22,4 @@ alias gh='git history'
 alias gha='git history --all'
 alias gl='git log'
 alias gb='git branch -a'
+alias gmt='git mergetool'
