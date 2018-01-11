@@ -4,6 +4,7 @@ alias la='ls -A'
 alias l='ls -CF'
 alias halt='halt -p'
 
+alias gf='git fetch'
 alias gco='git checkout $(git branch | grep -v $(git rev-parse --abbrev-ref HEAD) | fzf)'
 alias gsp='git stash pop $(git stash list | fzf | cut -d=: -f1)'
 alias grb='git rebase -i $(git log --all --graph --oneline --decorate | fzf --reverse | sed -Ee "s/.* ([a-f0-9]{6,}) .*/\1/")'
