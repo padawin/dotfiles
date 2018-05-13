@@ -64,7 +64,6 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'mbbill/undotree'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'scrooloose/syntastic'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'klen/python-mode'
 
@@ -106,14 +105,6 @@ set tags=.git/tags;/
 
 set splitbelow
 set splitright
-
-" syntastic
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_python_checkers = ['pep8', 'flake8']
-let g:syntastic_always_populate_loc_list = 1
-"let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
 
 "colorscheme default
 "colorscheme dw_green
