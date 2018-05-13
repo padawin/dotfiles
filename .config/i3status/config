@@ -5,6 +5,7 @@ general {
 
 order += "ipv6"
 order += "disk /"
+order += "disk /home"
 order += "wireless wlan0"
 order += "ethernet eth0"
 order += "battery 0"
@@ -40,5 +41,11 @@ cpu_temperature 0 {
 }
 
 disk "/" {
-    format = "%free"
+    format = "%avail / %total"
+	prefix_type = decimal
+}
+
+disk "/home" {
+    format = "%avail / %total"
+	prefix_type = decimal
 }
