@@ -15,3 +15,14 @@ function! ToggleBooleanOption(name)
     let s:value = getbufvar(s:bufname, '&' . a:name)
     call setbufvar(s:bufname, '&' . a:name, !s:value)
 endfunction
+
+fun! Runcmd(cmd)
+    silent! exe "noautocmd botright pedit ".a:cmd
+    noautocmd wincmd P
+    set buftype=nofile
+    exe "noautocmd r! ".a:cmd
+	exe "normal! gg"
+	" goes back to previous window
+    " noautocmd wincmd p
+endfun
+com! -nargs=1 Runcmd :call Runcmd("<args>")
