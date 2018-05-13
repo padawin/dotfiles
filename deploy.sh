@@ -30,7 +30,7 @@ do
 	then
 		mkdir -p $sourcedir
 	fi
-	ln -s $SOURCE/$f $HOME/$f
+	ln -fs $SOURCE/$f $HOME/$f
 done
 
 [ ! -d ~/.vim/backup ] && mkdir -p ~/.vim/backup
