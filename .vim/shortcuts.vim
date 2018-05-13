@@ -12,8 +12,6 @@ nnoremap <leader>b :buffers<CR>:buffer<Space>
 nnoremap <leader>N :e .notes<CR>
 nnoremap <leader>S :e $HOME/.vim/scratchpad<CR>
 
-nnoremap : ;
-nnoremap ; :
 " during a conflict resolution, the user can navigate with this pattern
 " in the different parts of conflicts in the file
 nnoremap <leader>n /^\(<<<<\\|====\\|>>>>\)<CR>
@@ -27,6 +25,8 @@ nnoremap <leader>m :make<CR>
 " Non quitting analog of ZZ
 nnoremap zz :w<CR>
 nnoremap <leader>zz zz
+nnoremap : ;
+nnoremap ; :
 
 nnoremap <leader>j :m .+1<CR>==
 nnoremap <leader>k :m .-2<CR>==
