@@ -44,7 +44,7 @@ set ignorecase
 set smartcase
 set bs=indent,eol,start     " Backspace over everything in insert mode
 
-set spell spelllang=en_gb spellfile=$HOME/.vim/en.utf-8.add
+set spell spelllang=en spellfile=$HOME/.vim/spell/techspeak.utf-8.add,$HOME/.vim/en.utf-8.add
 
 " Find in recursive paths + "fuzzy" search
 set path+=**
@@ -141,5 +141,3 @@ let g:pymode_lint_on_fly = 1
 let g:pymode_lint_checkers = ['pep8', 'flake8']
 let g:pymode_run_bind = '<leader>R'
 let g:pymode_lint_cwindow = 0
-
-set spellfile=~/.vim/spell/techspeak.utf-8.add
