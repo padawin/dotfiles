@@ -130,6 +130,17 @@ match WhiteSpaceMol / /
 2match WhiteSpaceBol /^ \+/
 2match WhiteSpaceEol / \+$/
 
+" Don't mark pascal, camel and snake case as badly spelt
+syn match CamelNoSpell '\<\l\+\(\u\l*\)\+\>' contains=@NoSpell
+syn match SnakeNoSpell '\<\l\+\(_\l\+\)\+\>' contains=@NoSpell
+syn match PascalNoSpell '\<\(\u[a-z]*\)\{2,\}\>' contains=@NoSpell
+" Don't count acronyms / abbreviations as spelling errors
+" (all upper-case letters, at least three characters)
+" Also will not count acronym with 's' at the end a spelling error
+" Also will not count numbers that are part of this
+" Recognizes the following as correct:
+syn match AcronymNoSpell '\<\(\u\|\d\)\{3,}s\?\>' contains=@NoSpell
+
 let &colorcolumn=&l:textwidth . ",".join(range(120,999),",")
 
 let g:cpp_member_variable_highlight = 1
