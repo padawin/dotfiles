@@ -48,7 +48,7 @@ if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
     . /usr/local/bin/virtualenvwrapper.sh
 fi
 
-export TERM=screen-256color
+export TERM=xterm-256color
 
 function j(){
     jobs | wc -l | egrep -v ^0 | sed -r 's/^([0-9]+)/ (\1)/'
