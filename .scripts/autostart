@@ -14,7 +14,7 @@ xset dpms 300 600 900 &
 ## Set LCD brightness
 xbacklight -set 90 &
 
-## Set the keyboard layouts, uk and dvorak with compose key
-setxkbmap -option grp:switch,grp:shifts_toggle,grp_led:scroll,compose:ralt us
+## Set the keyboard layouts, us
+setxkbmap -variant altgr-intl us
 
 [ -f ~/Pictures/background ] && feh --bg-max ~/Pictures/background
