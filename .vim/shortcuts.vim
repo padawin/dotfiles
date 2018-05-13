@@ -63,6 +63,8 @@ autocmd FileType python     vnoremap <buffer> <localleader>c <esc>'<O"""<esc>'>o
 nnoremap <tab> ]s1z=
 nnoremap <s-tab> [s1z=
 
+" convenience and shortcut commands
+" different completions made more accessible
 inoremap <c-f> <c-x><c-f>
 inoremap <c-l> <c-x><c-l>
 inoremap <c-k> <c-x><c-k>
