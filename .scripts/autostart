@@ -17,4 +17,4 @@ xbacklight -set 90 &
 ## Set the keyboard layouts, us
 setxkbmap -variant altgr-intl us
 
-[ -f ~/Pictures/background ] && feh --bg-max ~/Pictures/background
+[ -f ~/Pictures/background ] && feh --bg-fill ~/Pictures/background
