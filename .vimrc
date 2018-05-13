@@ -79,10 +79,6 @@ source ~/.vim/utils.vim
 let MYVIMSHORTCUTS = '~/.vim/shortcuts.vim'
 call SafeSource(MYVIMSHORTCUTS)
 
-" remove end of lines white spaces when saving
-autocmd BufWritePre * silent! call TrimEOL()
-autocmd BufReadPost * silent! call EOLUnix()
-
 set noautoread
 autocmd InsertEnter,CursorMoved,CursorMovedI * silent! checktime
 
