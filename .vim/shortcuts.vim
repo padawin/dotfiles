@@ -69,5 +69,5 @@ inoremap <c-f> <c-x><c-f>
 inoremap <c-l> <c-x><c-l>
 inoremap <c-k> <c-x><c-k>
 
-nnoremap <leader>g :Runcmd ag -s <c-r><c-w>\|grepify<cr>
-nnoremap <leader>G :Runcmd ag <c-r><c-w>\|grepify<cr>
+nnoremap <leader>g *:Runcmd ag -s <c-r><c-w>\|grepify<cr>
+nnoremap <leader>G *:Runcmd ag <c-r><c-w>\|grepify<cr>
