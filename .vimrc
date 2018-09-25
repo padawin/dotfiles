@@ -10,26 +10,13 @@
 " properly set to work with the Vim-related packages available in Debian.
 runtime! debian.vim
 
-" Uncomment the following to have Vim jump to the last position when
-" reopening a file
-"if has("autocmd")
-"  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
-"    \| exe "normal g'\"" | endif
-"endif
-
-" Source a global configuration file if available
-" if filereadable("/etc/vim/vimrc")
-"     source /etc/vim/vimrc
-" endif
-
-" my conf
-"
-set number      " show lines numbers
-set cindent
-set tw=80       " set line length to 80 chars max
-set fdm=manual  " folding
-set mouse=n     " Enable mouse usage (normal mode) in terminals
-set laststatus=2                  " Always show a status bar
+set number                                     " show lines numbers
+set cindent                                    " autoindent as per C rules
+set tw=80                                      " line length to 80 chars max
+set fdm=manual                                 " folding
+set mouse=n                                    " Enable mouse usage (normal
+                                               " mode) in terminals
+set laststatus=2                               " Always show a status bar
 set statusline=
 set statusline+=%<\                            " cut at start
 set statusline+=%*[%n%H%M%R%W]%*\              " flags and buf no
@@ -38,22 +25,29 @@ set statusline+=%=[%{strlen(&ft)?&ft:'none'}\  " filetype
 set statusline+=%{strlen(&fenc)?&fenc:&enc}]   " encoding
 set statusline+=%10((%l,%c)%)\                 " line and column
 set statusline+=%P                             " percentage of file
-set incsearch
-set hlsearch                                   " highlight search results by default
-set ignorecase
-set smartcase
-set bs=indent,eol,start     " Backspace over everything in insert mode
+set incsearch                                  " search is done as the letters
+                                               " are typed
+set hlsearch                                   " highlight search results by
+                                               " default
+set ignorecase                                 " Search is case insensitive...
+set smartcase                                  " ...Unless a capital letter is
+                                               " typed, in which case, the
+                                               " search becomes case sensitive
+set bs=indent,eol,start                        " Backspace over everything in
+                                               " insert mode
 
 set spell spelllang=en spellfile=$HOME/.vim/spell/techspeak.utf-8.add,$HOME/.vim/en.utf-8.add
 
 " Find in recursive paths + "fuzzy" search
 set path+=**
 
-set nocompatible              " be iMproved, required
+" Required
+set nocompatible
+filetype off
+" end required
+
 let mapleader=' '
 let maplocalleader=' '
-
-filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -69,7 +63,8 @@ Plugin 'klen/python-mode'
 Plugin 'AndrewRadev/linediff.vim'
 
 " All of your Plugins must be added before the following line
-call vundle#end()            " required
+call vundle#end()
+
 " activate filetypes and syntax highlighting
 filetype plugin indent on
 syntax on
@@ -80,6 +75,7 @@ let MYVIMSHORTCUTS = '~/.vim/shortcuts.vim'
 call SafeSource(MYVIMSHORTCUTS)
 
 set noautoread
+" Refresh buffers externally changed
 autocmd InsertEnter,CursorMoved,CursorMovedI * silent! checktime
 
 autocmd BufNewFile,BufReadPost *tpp set filetype=cpp
@@ -107,8 +103,6 @@ set tags=.git/tags;/
 set splitbelow
 set splitright
 
-"colorscheme default
-"colorscheme dw_green
 set background=dark
 let g:solarized_termcolors=256
 colorscheme solarized
