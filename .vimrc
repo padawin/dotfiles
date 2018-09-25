@@ -88,12 +88,8 @@ set backupdir=~/.vim/backup
 set directory=~/.vim/backup/
 
 " ctrl up and ctrl down in tmux
-set t_kN=[6;*~
-set t_kP=[5;*~
 
 " fix home and end keys in tmux
-set t_kh=OH
-set t_@7=OF
 
 set wildchar=<Tab> wildmenu wildmode=full
 " To be able to leave an unsaved buffer to access another one
