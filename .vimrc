@@ -23,7 +23,7 @@ set statusline+=%*[%n%H%M%R%W]%*\              " flags and buf no
 set statusline+=%-40f\                         " path
 set statusline+=%=[%{strlen(&ft)?&ft:'none'}\  " filetype
 set statusline+=%{strlen(&fenc)?&fenc:&enc}]   " encoding
-set statusline+=%10((%l,%c)%)\                 " line and column
+set statusline+=%10((%l/%L,%c)%)\              " line and column
 set statusline+=%P                             " percentage of file
 set incsearch                                  " search is done as the letters
                                                " are typed
