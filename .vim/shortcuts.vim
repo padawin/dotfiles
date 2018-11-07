@@ -27,6 +27,7 @@ nnoremap zz :w<CR>
 nnoremap <leader>zz zz
 nnoremap : ;
 nnoremap ; :
+nnoremap * *<c-o>
 
 nnoremap <leader>j :m .+1<CR>==
 nnoremap <leader>k :m .-2<CR>==
