@@ -108,6 +108,8 @@ fi
 
 # so as not to be disturbed by Ctrl-S ctrl-Q in terminals:
 stty -ixon
+
+# for Git typos, eg make `gits tatus` run `git status`
 preexec_invoke_exec () {
     [ -n "$COMP_LINE" ] && return  # do nothing if completing
     [ "$BASH_COMMAND" = "$PROMPT_COMMAND" ] && return # don't cause a preexec for $PROMPT_COMMAND
