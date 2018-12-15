@@ -61,8 +61,8 @@ autocmd FileType c,cpp,php,javascript vnoremap <buffer> <localleader>c <esc>'<O/
 autocmd FileType python     vnoremap <buffer> <localleader>c <esc>'<O"""<esc>'>o"""<esc>
 
 " Tab to get suggestion for badly spelt word
-nnoremap <tab> ]s1z=
-nnoremap <s-tab> [s1z=
+nnoremap <leader><tab> ]s1z=
+nnoremap <leader><s-tab> [s1z=
 
 " convenience and shortcut commands
 " different completions made more accessible
