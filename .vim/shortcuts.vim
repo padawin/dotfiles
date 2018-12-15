@@ -17,7 +17,7 @@ nnoremap <leader>S :e $HOME/.vim/scratchpad<CR>
 nnoremap <leader>n /^\(<<<<\\|====\\|>>>>\)<CR>
 noremap <leader>u :UndotreeToggle<CR>
 nnoremap <leader>r :set relativenumber!<CR>:set list!<CR>
-nnoremap <F3> :set hlsearch!<CR>
+nnoremap <F3> :noh<CR>
 nnoremap <leader>s :bnext<CR>
 nnoremap <leader>a :bprevious<CR>
 nnoremap <leader>m :make<CR>
