@@ -79,8 +79,7 @@ __prompt_command() {
 	local Gre='\e[0;32m'
 	local Blu='\e[1;34m'
 
-	PS1+="${Gre}${debian_chroot:+($debian_chroot)}\u@\h$(j)${RCol}: "
-	PS1+="${Red}\w${Blu}$(__git_ps1)"
+	PS1+="${Gre}\u@\h$(j)${RCol}: ${Red}\w${Blu}$(__git_ps1)"
 	if [ $EXIT != 0 ]; then
 		PS1+="$Red \342\234\226 (${EXIT})"
 	else
