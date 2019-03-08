@@ -8,8 +8,8 @@ hi def link pyCustomFunc  Function
 hi def link pyCustomMethod Function
 hi def link pyCustomAttribute Identifier
 
-highlight pyCustomFunc ctermfg=23
-highlight pyCustomAttribute ctermfg=43
+highlight pyCustomFunc ctermfg=43
+highlight pyCustomAttribute ctermfg=247
 highlight pyCustomMethod ctermfg=33
 
-highlight pythonSelf ctermfg=red
+highlight pythonSelf ctermfg=33 cterm=bold
