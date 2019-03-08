@@ -61,6 +61,7 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'klen/python-mode'
 Plugin 'AndrewRadev/linediff.vim'
+Plugin 'guns/xterm-color-table.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
