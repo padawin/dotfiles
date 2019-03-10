@@ -13,3 +13,6 @@ highlight pyCustomAttribute ctermfg=247
 highlight pyCustomMethod ctermfg=33
 
 highlight pythonSelf ctermfg=33 cterm=bold
+
+highlight String ctermfg=29
+highlight pythonString ctermfg=35
