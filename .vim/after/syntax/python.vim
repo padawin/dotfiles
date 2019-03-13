@@ -14,5 +14,7 @@ highlight pyCustomMethod ctermfg=33
 
 highlight pythonSelf ctermfg=33 cterm=bold
 
-highlight String ctermfg=29
+" Docstrings
+highlight String ctermfg=29 cterm=italic
+" Actual strings
 highlight pythonString ctermfg=35
