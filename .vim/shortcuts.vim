@@ -69,6 +69,7 @@ nnoremap <leader><s-tab> [s1z=
 inoremap <c-f> <c-x><c-f>
 inoremap <c-l> <c-x><c-l>
 inoremap <c-k> <c-x><c-k>
+inoremap <c-s> <c-x><c-o>
 
 nnoremap <leader>g *:Runcmd ag -s <c-r><c-w>\|grepify<cr>
 nnoremap <leader>G *:Runcmd ag <c-r><c-w>\|grepify<cr>
