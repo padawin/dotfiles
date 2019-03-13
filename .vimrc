@@ -37,6 +37,9 @@ set smartcase                                  " ...Unless a capital letter is
 set bs=indent,eol,start                        " Backspace over everything in
                                                " insert mode
 
+set completeopt=menu,preview,menuone
+inoremap <expr> <TAB> pumvisible() ? '<CR>' : "\<TAB>"
+
 set spell spelllang=en spellfile=$HOME/.vim/spell/techspeak.utf-8.add,$HOME/.vim/en.utf-8.add
 
 " Find in recursive paths + "fuzzy" search
@@ -63,6 +66,7 @@ Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'klen/python-mode'
 Plugin 'AndrewRadev/linediff.vim'
 Plugin 'guns/xterm-color-table.vim'
+Plugin 'vim-scripts/AutoComplPop'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
