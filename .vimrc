@@ -18,10 +18,11 @@ set mouse=n                                    " Enable mouse usage (normal
                                                " mode) in terminals
 set laststatus=2                               " Always show a status bar
 set statusline=
+set statusline+=%*[%n%H%R%W]%*\                " flags and buf no
 set statusline+=%<\                            " cut at start
-set statusline+=%*[%n%H%M%R%W]%*\              " flags and buf no
 set statusline+=%-40f\                         " path
-set statusline+=%=[%{strlen(&ft)?&ft:'none'}\  " filetype
+set statusline+=%=%#warningmsg#%m%*
+set statusline+=[%{strlen(&ft)?&ft:'none'}\    " filetype
 set statusline+=%{strlen(&fenc)?&fenc:&enc}]   " encoding
 set statusline+=%10((%l/%L,%c)%)\              " line and column
 set statusline+=%P                             " percentage of file
