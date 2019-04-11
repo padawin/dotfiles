@@ -12,7 +12,7 @@ highlight pyCustomFunc ctermfg=43
 highlight pyCustomAttribute ctermfg=247
 highlight pyCustomMethod ctermfg=33
 
-highlight pythonSelf ctermfg=33 cterm=bold
+highlight pythonSelf ctermfg=4 cterm=bold
 
 " Docstrings
 highlight String ctermfg=29 cterm=italic
