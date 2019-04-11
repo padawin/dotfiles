@@ -77,6 +77,8 @@ call vundle#end()
 filetype plugin indent on
 syntax on
 
+autocmd FileType python set omnifunc=syntaxcomplete#Complete
+
 source ~/.vim/utils.vim
 
 let MYVIMSHORTCUTS = '~/.vim/shortcuts.vim'
