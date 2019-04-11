@@ -18,3 +18,4 @@ highlight pythonSelf ctermfg=33 cterm=bold
 highlight String ctermfg=29 cterm=italic
 " Actual strings
 highlight pythonString ctermfg=35
+highlight pythonStrFormat ctermfg=9
