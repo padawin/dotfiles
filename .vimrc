@@ -45,6 +45,8 @@ set spell spelllang=en spellfile=$HOME/.vim/spell/techspeak.utf-8.add,$HOME/.vim
 " Find in recursive paths + "fuzzy" search
 set path+=**
 
+set grepprg=ag
+
 " Required
 set nocompatible
 filetype off
