@@ -86,6 +86,8 @@ autocmd InsertEnter,CursorMoved,CursorMovedI * silent! checktime
 
 autocmd BufNewFile,BufReadPost *tpp set filetype=cpp
 
+autocmd BufWritePost * silent !ctags-gen
+
 set t_Co=256
 
 " avoid tilde files in working directory

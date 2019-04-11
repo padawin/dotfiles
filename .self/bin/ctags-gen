@@ -7,4 +7,3 @@ git ls-files | \
 	ctags --tag-relative -L - -f"$dir/$$.tags" \
 	--languages=python,php,c,c++
 mv "$dir/$$.tags" "$dir/tags"
-
