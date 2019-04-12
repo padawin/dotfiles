@@ -1,12 +1,12 @@
-syn match    pyCustomParen     "(" contains=cParen
-syn match    pyCustomFunc      "\w\+\s*(" contains=pyCustomParen
-syn match    pyCustomScope     "\."
-syn match    pyCustomAttribute "\.\w\+" contains=pyCustomScope
-syn match    pyCustomMethod    "\.\w\+\s*(" contains=pyCustomScope,pyCustomParen
+syntax match pyCustomParen     "(" contains=cParen
+syntax match pyCustomFunc      "\w\+\s*(" contains=pyCustomParen
+syntax match pyCustomScope     "\."
+syntax match pyCustomAttribute "\.\w\+" contains=pyCustomScope
+syntax match pyCustomMethod    "\.\w\+\s*(" contains=pyCustomScope,pyCustomParen
 
-hi def link pyCustomFunc  Function
-hi def link pyCustomMethod Function
-hi def link pyCustomAttribute Identifier
+highlight def link pyCustomFunc  Function
+highlight def link pyCustomMethod Function
+highlight def link pyCustomAttribute Identifier
 
 highlight pyCustomFunc ctermfg=43
 highlight pyCustomAttribute ctermfg=247

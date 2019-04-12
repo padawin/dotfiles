@@ -1,7 +1,7 @@
 set number                                     " show lines numbers
 set cindent                                    " autoindent as per C rules
-set tw=80                                      " line length to 80 chars max
-set fdm=manual                                 " folding
+set textwidth=80                               " line length to 80 chars max
+set foldmethod=manual                          " folding
 set mouse=n                                    " Enable mouse usage (normal
                                                " mode) in terminals
 set laststatus=2                               " Always show a status bar
@@ -22,7 +22,7 @@ set ignorecase                                 " Search is case insensitive...
 set smartcase                                  " ...Unless a capital letter is
                                                " typed, in which case, the
                                                " search becomes case sensitive
-set bs=indent,eol,start                        " Backspace over everything in
+set backspace=indent,eol,start                 " Backspace over everything in
                                                " insert mode
 
 set completeopt=menu,preview,menuone
@@ -41,7 +41,7 @@ let maplocalleader=' '
 filetype off
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
+set runtimepath+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 " let Vundle manage Vundle, required
 " git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
@@ -111,15 +111,15 @@ match WhiteSpaceMol / /
 2match WhiteSpaceEol / \+$/
 
 " Don't mark pascal, camel and snake case as badly spelt
-syn match CamelNoSpell '\<\l\+\(\u\l*\)\+\>' contains=@NoSpell
-syn match SnakeNoSpell '\<\l\+\(_\l\+\)\+\>' contains=@NoSpell
-syn match PascalNoSpell '\<\(\u[a-z]*\)\{2,\}\>' contains=@NoSpell
+syntax match CamelNoSpell '\<\l\+\(\u\l*\)\+\>' contains=@NoSpell
+syntax match SnakeNoSpell '\<\l\+\(_\l\+\)\+\>' contains=@NoSpell
+syntax match PascalNoSpell '\<\(\u[a-z]*\)\{2,\}\>' contains=@NoSpell
 " Don't count acronyms / abbreviations as spelling errors
 " (all upper-case letters, at least three characters)
 " Also will not count acronym with 's' at the end a spelling error
 " Also will not count numbers that are part of this
 " Recognizes the following as correct:
-syn match AcronymNoSpell '\<\(\u\|\d\)\{3,}s\?\>' contains=@NoSpell
+syntax match AcronymNoSpell '\<\(\u\|\d\)\{3,}s\?\>' contains=@NoSpell
 
 let &colorcolumn=&l:textwidth . ",".join(range(120,999),",")
 
