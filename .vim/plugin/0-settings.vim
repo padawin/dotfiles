@@ -18,8 +18,10 @@ set statusline+=%*[%n%H%R%W]%*
 " cut at start
 set statusline+=\ %<
 " path
-set statusline+=\ %-40f
-set statusline+=\ %=%#warningmsg#%m%*
+set statusline+=\ %-40f\ %=
+" SynStack under cursor
+set statusline+=[%{join(SynStack())}]
+set statusline+=%#warningmsg#%m%*
 " filetype
 set statusline+=[%{strlen(&ft)?&ft:'none'}
 " encoding
