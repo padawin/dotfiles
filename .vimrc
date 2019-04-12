@@ -1,43 +1,3 @@
-set number                                     " show lines numbers
-set cindent                                    " autoindent as per C rules
-set textwidth=80                               " line length to 80 chars max
-set foldmethod=manual                          " folding
-set mouse=n                                    " Enable mouse usage (normal
-                                               " mode) in terminals
-set laststatus=2                               " Always show a status bar
-set statusline=
-set statusline+=%*[%n%H%R%W]%*\                " flags and buf no
-set statusline+=%<\                            " cut at start
-set statusline+=%-40f\                         " path
-set statusline+=%=%#warningmsg#%m%*
-set statusline+=[%{strlen(&ft)?&ft:'none'}\    " filetype
-set statusline+=%{strlen(&fenc)?&fenc:&enc}]   " encoding
-set statusline+=%10((%l/%L,%c)%)\              " line and column
-set statusline+=%P                             " percentage of file
-set incsearch                                  " search is done as the letters
-                                               " are typed
-set hlsearch                                   " highlight search results by
-                                               " default
-set ignorecase                                 " Search is case insensitive...
-set smartcase                                  " ...Unless a capital letter is
-                                               " typed, in which case, the
-                                               " search becomes case sensitive
-set backspace=indent,eol,start                 " Backspace over everything in
-                                               " insert mode
-
-set completeopt=menu,preview,menuone
-inoremap <expr> <TAB> pumvisible() ? '<CR>' : "\<TAB>"
-
-set spell spelllang=en spellfile=$HOME/.vim/spell/techspeak.utf-8.add,$HOME/.vim/en.utf-8.add
-
-" Find in recursive paths + "fuzzy" search
-set path+=**
-
-set grepprg=ag
-
-let mapleader=' '
-let maplocalleader=' '
-
 filetype off
 
 " set the runtime path to include Vundle and initialize
@@ -62,6 +22,9 @@ call vundle#end()
 filetype plugin indent on
 syntax on
 
+let mapleader=' '
+let maplocalleader=' '
+
 augroup Completion
 	autocmd!
 	autocmd FileType python set omnifunc=syntaxcomplete#Complete
@@ -84,24 +47,9 @@ augroup CTags
 	autocmd BufWritePost * silent !ctags-gen
 augroup END
 
-set t_Co=256
-
-" avoid tilde files in working directory
-set backupdir=~/.vim/backup
-" avoid swap files in working directory
-set directory=~/.vim/backup/
-
-" fix home and end keys in tmux
-
-set wildchar=<Tab> wildmenu wildmode=full
-" To be able to leave an unsaved buffer to access another one
-set hidden
-set tags=.git/tags;/
-
-set splitbelow
-set splitright
-
+" Colorscheme
 set background=dark
+set t_Co=256
 let g:solarized_termcolors=256
 let g:solarized_diffmode="high"
 colorscheme solarized
@@ -125,14 +73,3 @@ syntax match PascalNoSpell '\<\(\u[a-z]*\)\{2,\}\>' contains=@NoSpell
 " Also will not count numbers that are part of this
 " Recognizes the following as correct:
 syntax match AcronymNoSpell '\<\(\u\|\d\)\{3,}s\?\>' contains=@NoSpell
-
-let &colorcolumn=&l:textwidth . ",".join(range(120,999),",")
-
-let g:cpp_member_variable_highlight = 1
-let g:pymode_python = 'python3'
-let g:pymode_folding = 0
-let g:pymode_lint_on_fly = 1
-let g:pymode_lint_checkers = ['pylint', 'pycodestyle', 'pyflakes']
-let g:pymode_run_bind = '<leader>R'
-let g:pymode_breakpoint_bind = '<leader>B'
-let g:pymode_lint_cwindow = 0

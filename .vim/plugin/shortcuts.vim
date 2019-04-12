@@ -72,3 +72,5 @@ inoremap <c-l> <c-x><c-l>
 inoremap <c-k> <c-x><c-k>
 inoremap <c-s> <c-x><c-o>
 
+" Complete selected word
+inoremap <expr> <TAB> pumvisible() ? '<CR>' : "\<TAB>"
