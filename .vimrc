@@ -47,13 +47,6 @@ augroup CTags
 	autocmd BufWritePost * silent !ctags-gen
 augroup END
 
-" Colorscheme
-set background=dark
-set t_Co=256
-let g:solarized_termcolors=256
-let g:solarized_diffmode="high"
-colorscheme solarized
-
 " Invisible chars display:
 set listchars=space:·,trail:█
 highlight WhiteSpaceBol ctermfg=grey
