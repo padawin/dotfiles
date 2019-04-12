@@ -43,7 +43,7 @@ set backspace=indent,eol,start
 set completeopt=menu,preview,menuone
 
 " Set spell check
-set spell spelllang=en spellfile=$HOME/.vim/spell/techspeak.utf-8.add,$HOME/.vim/en.utf-8.add
+set spell spelllang=en spellfile=$HOME/.vim/spell/techspeak.utf-8.add,$HOME/.vim/spell/en.utf-8.add
 
 " Find in recursive paths + "fuzzy" search
 set path+=**
