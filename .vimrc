@@ -96,8 +96,6 @@ set backupdir=~/.vim/backup
 " avoid swap files in working directory
 set directory=~/.vim/backup/
 
-" ctrl up and ctrl down in tmux
-
 " fix home and end keys in tmux
 
 set wildchar=<Tab> wildmenu wildmode=full
