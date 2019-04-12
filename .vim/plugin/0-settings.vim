@@ -64,6 +64,9 @@ set tags=.git/tags;/
 set splitbelow
 set splitright
 
+let mapleader=' '
+let maplocalleader=' '
+
 let &colorcolumn=&l:textwidth . ",".join(range(120,999),",")
 
 let g:cpp_member_variable_highlight = 1
