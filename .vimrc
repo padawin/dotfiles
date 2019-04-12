@@ -62,11 +62,6 @@ call vundle#end()
 filetype plugin indent on
 syntax on
 
-source ~/.vim/utils.vim
-
-let MYVIMSHORTCUTS = '~/.vim/shortcuts.vim'
-call SafeSource(MYVIMSHORTCUTS)
-
 augroup Completion
 	autocmd!
 	autocmd FileType python set omnifunc=syntaxcomplete#Complete
