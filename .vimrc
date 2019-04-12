@@ -41,5 +41,5 @@ augroup END
 
 augroup CTags
 	autocmd!
-	autocmd BufWritePost * silent !ctags-gen
+	autocmd BufWritePost * silent !ctags-gen 2> /dev/null
 augroup END
