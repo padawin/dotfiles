@@ -6,3 +6,4 @@ function! SynStack()
   endif
   echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
+command! -nargs=0 SynStack :call SynStack()
