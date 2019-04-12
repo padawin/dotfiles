@@ -62,20 +62,32 @@ call vundle#end()
 filetype plugin indent on
 syntax on
 
-autocmd FileType python set omnifunc=syntaxcomplete#Complete
-
 source ~/.vim/utils.vim
 
 let MYVIMSHORTCUTS = '~/.vim/shortcuts.vim'
 call SafeSource(MYVIMSHORTCUTS)
 
+augroup Completion
+	autocmd!
+	autocmd FileType python set omnifunc=syntaxcomplete#Complete
+augroup END
+
 set noautoread
-" Refresh buffers externally changed
-autocmd InsertEnter,CursorMoved,CursorMovedI * silent! checktime
+augroup Refresh
+	autocmd!
+	" Refresh buffers externally changed
+	autocmd InsertEnter,CursorMoved,CursorMovedI * silent! checktime
+augroup END
 
-autocmd BufNewFile,BufReadPost *tpp set filetype=cpp
+augroup ExtraFiletype
+	autocmd!
+	autocmd BufNewFile,BufReadPost *tpp set filetype=cpp
+augroup END
 
-autocmd BufWritePost * silent !ctags-gen
+augroup CTags
+	autocmd!
+	autocmd BufWritePost * silent !ctags-gen
+augroup END
 
 set t_Co=256
 
