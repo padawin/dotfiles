@@ -74,3 +74,10 @@ inoremap <c-s> <c-x><c-o>
 
 " Complete selected word
 inoremap <expr> <TAB> pumvisible() ? '<CR>' : "\<TAB>"
+
+" EasyMotion {{{
+let g:EasyMotion_do_mapping = 0 " Disable default mappings
+" have to use nmap for whatever reason
+nmap <leader>/ <Plug>(easymotion-overwin-f2)
+let g:EasyMotion_smartcase = 1
+" }}}

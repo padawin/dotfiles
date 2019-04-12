@@ -14,6 +14,7 @@ Plugin 'klen/python-mode'
 Plugin 'AndrewRadev/linediff.vim'
 Plugin 'guns/xterm-color-table.vim'
 Plugin 'vim-scripts/AutoComplPop'
+Plugin 'easymotion/vim-easymotion'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
