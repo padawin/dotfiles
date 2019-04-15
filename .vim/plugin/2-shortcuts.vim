@@ -2,7 +2,8 @@ set pastetoggle=<F2>
 set wildcharm=<C-Z>
 
 " shortcut to edit this file
-nnoremap <leader>es :vs <C-R>=MYVIMSHORTCUTS<CR><CR>
+" @TODO change path name into path of current file
+nnoremap <leader>es :vs ~/.vim/plugin/2-shortcuts.vim<CR>
 nnoremap <leader>. :source $MYVIMRC<CR>
 
 nnoremap <leader>o :find *
