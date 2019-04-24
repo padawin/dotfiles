@@ -7,6 +7,11 @@ if [ -z "$SEARCH" ]; then
 	exit 1
 fi
 
+function finish {
+  rm "$RES_FILE"
+}
+trap finish EXIT
+
 ag "$SEARCH" > "$RES_FILE"
 
 if [ $? -ne 0 ]; then
@@ -19,4 +24,3 @@ read o
 if [ "$o" = "y" ]; then
 	vim +/"$1" $(awk -F':' '{print $1}' "$RES_FILE" | tr '\n' ' ')
 fi
-rm "$RES_FILE"
