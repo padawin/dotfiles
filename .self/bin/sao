@@ -1,0 +1,22 @@
+#!/bin/bash
+
+SEARCH="$1"
+RES_FILE="/tmp/sao.res"
+
+if [ -z "$SEARCH" ]; then
+	exit 1
+fi
+
+ag "$SEARCH" > "$RES_FILE"
+
+if [ $? -ne 0 ]; then
+	exit 0
+fi
+
+cat "$RES_FILE" | grepify -c
+echo "Open files (y/N)?"
+read o
+if [ "$o" = "y" ]; then
+	vim +/"$1" $(awk -F':' '{print $1}' "$RES_FILE" | tr '\n' ' ')
+fi
+rm "$RES_FILE"
