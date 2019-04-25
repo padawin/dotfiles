@@ -15,6 +15,7 @@ Plugin 'AndrewRadev/linediff.vim'
 Plugin 'guns/xterm-color-table.vim'
 Plugin 'vim-scripts/AutoComplPop'
 Plugin 'easymotion/vim-easymotion'
+Plugin 'padawin/vim-presentation'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
