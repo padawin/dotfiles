@@ -45,3 +45,13 @@ augroup CTags
 	autocmd!
 	autocmd BufWritePost * silent !ctags-gen 2> /dev/null
 augroup END
+
+" Most of the configurations are is:
+" This one contains most of the `set ` commands
+" plugin/0-settings.vim
+" This one contains some functions to use when needed
+" plugin/1-utils.vim
+" This one contains all my mappings
+" plugin/2-shortcuts.vim
+" This one sets up my syntax highlight, colorscheme and related
+" plugin/3-highlight.vim
