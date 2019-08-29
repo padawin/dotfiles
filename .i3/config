@@ -172,5 +172,8 @@ bindsym $mod+Control+l exec "i3lock -c 000000"
 bindsym XF86AudioRaiseVolume exec $HOME/.scripts/sound up
 bindsym XF86AudioLowerVolume exec $HOME/.scripts/sound down
 bindsym XF86AudioMute exec exec $HOME/.scripts/sound mute
+bindsym XF86MonBrightnessUp exec light -A 5 # increase screen brightness
+bindsym XF86MonBrightnessDown exec light -U 5 # decrease screen brightness
+
 
 exec ~/.scripts/autostart
