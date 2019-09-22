@@ -2,6 +2,11 @@
 
 SOURCE=$(dirname $(readlink -f $0))
 
+# Prepare git hooks
+for hook in $(ls $SOURCE/git_hooks/); do
+	ln -s "$SOURCE/git_hooks/$hook" ".git_template/hooks/$hook"
+done
+
 files[0]='.gconf/apps/gnome-terminal'
 files[1]='.ackrc'
 files[2]='.bashrc'
