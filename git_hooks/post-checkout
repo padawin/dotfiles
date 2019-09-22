@@ -1,2 +1,14 @@
 #!/bin/sh
+
+SOURCE=$(dirname $(readlink -f $0))
+res=0
+# add call to local hook
+local_hook="$(dirname $0)/../hooks_local/$(basename $0)"
+if [ -f "$local_hook" ]; then
+	$local_hook
+	res=$?
+fi
+
 ctags-gen >/dev/null 2>&1 &
+
+exit $res
