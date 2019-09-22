@@ -1,4 +1,3 @@
-
 function! MyPythonHighlights() abort
 	syntax match pyCustomParen     "(" contains=cParen
 	syntax match pyCustomFunc      "\w\+\s*(" contains=pyCustomParen
