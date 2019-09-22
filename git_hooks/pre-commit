@@ -1,0 +1,18 @@
+#!/bin/sh
+
+SOURCE=$(dirname $(readlink -f $0))
+res=0
+# add call to local hook
+local_hook="$(dirname $0)/../hooks_local/$(basename $0)"
+if [ -f "$local_hook" ]; then
+	$local_hook
+	res=$?
+fi
+
+if [ $res -eq 0 ]; then
+	# Practice german everytime I commit
+	exec < /dev/tty
+	german_artikels random 5
+fi
+
+exit $res
