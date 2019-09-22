@@ -125,3 +125,6 @@ preexec_invoke_exec () {
 trap 'preexec_invoke_exec' DEBUG
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+export HISTFILESIZE=
+export HISTSIZE=
