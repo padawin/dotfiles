@@ -19,7 +19,7 @@ for line in sys.stdin:
 
     if currFile is None or currFile != line[0]:
         if currFile is not None:
-            print("\n")
+            print("")
         currFile = line[0]
         print("{}{}{}".format(YELLOW, line[0], RESET))
 
