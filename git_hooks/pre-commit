@@ -12,7 +12,9 @@ fi
 if [ $res -eq 0 ]; then
 	# Practice german everytime I commit
 	exec < /dev/tty
-	german-practice random 5
+	if [ ! -z "$GERMAN_PRACTICE" ]; then
+		german-practice random 5
+	fi
 fi
 
 exit $res

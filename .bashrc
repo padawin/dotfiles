@@ -128,3 +128,5 @@ trap 'preexec_invoke_exec' DEBUG
 
 export HISTFILESIZE=
 export HISTSIZE=
+
+export GERMAN_PRACTICE=1
