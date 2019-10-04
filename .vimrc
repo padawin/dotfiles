@@ -11,6 +11,8 @@ Plugin 'editorconfig/editorconfig-vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'klen/python-mode'
+Plugin 'nanotech/jellybeans.vim'
+
 Plugin 'AndrewRadev/linediff.vim'
 Plugin 'guns/xterm-color-table.vim'
 Plugin 'vim-scripts/AutoComplPop'

@@ -28,11 +28,7 @@ augroup MyColors
 augroup END
 
 " Colorscheme
-set background=dark
-set t_Co=256
-let g:solarized_termcolors=256
-let g:solarized_diffmode="high"
-colorscheme solarized
+colorscheme jellybeans
 
 " Invisible chars display:
 set listchars=space:·,trail:█
@@ -53,3 +49,8 @@ syntax match PascalNoSpell '\<\(\u[a-z]*\)\{2,\}\>' contains=@NoSpell
 " Also will not count numbers that are part of this
 " Recognizes the following as correct:
 syntax match AcronymNoSpell '\<\(\u\|\d\)\{3,}s\?\>' contains=@NoSpell
+
+" Spell mistakes
+highlight SpellBad cterm=underline,bold ctermbg=NONE
+highlight IncSearch term=standout cterm=standout ctermfg=166 gui=reverse
+highlight Search term=reverse cterm=reverse ctermfg=136 guifg=Black guibg=Yellow
