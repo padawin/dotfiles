@@ -15,19 +15,20 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 " git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'mbbill/undotree'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'octol/vim-cpp-enhanced-highlight'
-Plugin 'klen/python-mode'
 Plugin 'nanotech/jellybeans.vim'
 
 Plugin 'AndrewRadev/linediff.vim'
 Plugin 'guns/xterm-color-table.vim'
+Plugin 'mbbill/undotree'
 Plugin 'vim-scripts/AutoComplPop'
 Plugin 'easymotion/vim-easymotion'
+
 Plugin 'padawin/vim-presentation'
 Plugin 'fatih/vim-go'
+Plugin 'octol/vim-cpp-enhanced-highlight'
+Plugin 'klen/python-mode'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
