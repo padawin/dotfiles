@@ -1,5 +1,7 @@
 " show lines numbers
 set number
+" Highlight the line where the cursor is
+set cursorline
 " autoindent as per C rules
 set cindent
 " line length to 80 chars max
@@ -79,3 +81,4 @@ let g:pymode_lint_checkers = ['pylint', 'pycodestyle', 'pyflakes']
 let g:pymode_run_bind = '<leader>R'
 let g:pymode_breakpoint_bind = '<leader>B'
 let g:pymode_lint_cwindow = 0
+let g:acp_completeOption = '.,w,b,u,i,k'
