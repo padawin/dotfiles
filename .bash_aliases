@@ -24,3 +24,6 @@ alias gha='git history --all'
 alias gl='git log'
 alias gb='git branch -a'
 alias gmt='git mergetool'
+
+alias json='python -m json.tool'
+alias jvim='python -m json.tool | vim +"set ft=json" -'
