@@ -10,9 +10,9 @@ if [ -f "$local_hook" ]; then
 fi
 
 if [ $res -eq 0 ]; then
-	# Practice german everytime I commit
-	exec < /dev/tty
 	if [ ! -z "$GERMAN_PRACTICE" ]; then
+		# Practice German every time I commit
+		exec < /dev/tty
 		german-practice random 5
 	fi
 fi
