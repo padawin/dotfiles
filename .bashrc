@@ -109,10 +109,6 @@ export LD_LIBRARY_PATH=$HOME/.self/lib:$LD_LIBRARY_PATH
 export PATH=$HOME/.self/bin:$HOME/.local/bin:$PATH
 export TMPDIR=$HOME/.tmp
 
-if [ -f ~/.bash_local ]; then
-  . ~/.bashrc_local
-fi
-
 # so as not to be disturbed by Ctrl-S ctrl-Q in terminals:
 stty -ixon
 
@@ -138,3 +134,7 @@ export HISTFILESIZE=
 export HISTSIZE=
 
 export GERMAN_PRACTICE=1
+
+if [ -f ~/.bash_local ]; then
+  . ~/.bashrc_local
+fi
