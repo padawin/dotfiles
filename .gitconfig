@@ -12,7 +12,7 @@
 	co = checkout
 	ba = branch -v -a
 	ci = commit -v
-	history = log --graph --pretty=format:'%Cred%h%C(yellow) %d -%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset' --date=relative
+	history = log --graph --pretty=format:'%Cred%h%C(yellow)%d %Creset- %s %Cgreen(%ad) %C(blue)<%an>%Creset' --date=relative
 	svn-rebase = rebase --interactive --preserve-merges refs/remotes/git-svn
 	diffc = diff --color-words=.
 	diffw = "diff --color-words='([a-zA-Z_]+|[^a-zA-Z_\\s]+)'"
@@ -26,9 +26,15 @@
 	pager = true
 	diff = auto
 	branch = auto
+	ui = true
 [color.diff]
 	newMoved = magenta bold
 	oldMoved = magenta bold
+	# meta = 11
+	frag = blue bold
+	old = red
+	new = green
+	whitespace = red reverse
 [diff]
 	colorMoved = plain
 [interactive]
@@ -46,3 +52,8 @@
 	prompt = false
 [help]
 	autocorrect = 1
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
