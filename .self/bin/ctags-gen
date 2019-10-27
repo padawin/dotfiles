@@ -1,7 +1,10 @@
 #!/bin/sh
 set -e
 
-git status > /dev/null 2>&1 || exit
+checkGit="$1"
+if [ ! -z "$checkGit" ]; then
+	git status > /dev/null 2>&1 || exit
+fi
 
 PATH="/usr/local/bin:$PATH"
 dir="`git rev-parse --git-dir`"

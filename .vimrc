@@ -56,7 +56,7 @@ augroup END
 
 augroup CTags
 	autocmd!
-	autocmd BufWritePost * silent !ctags-gen 2> /dev/null
+	autocmd BufWritePost * silent !ctags-gen check-git 2> /dev/null
 augroup END
 
 " Most of the configurations are is:
