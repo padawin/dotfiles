@@ -1,0 +1,71 @@
+!-*- Settings -*-
+URxvt.iso14755_52: disabled
+URxvt.iso14755: disabled
+
+!-*- Colors -*-
+! Dark Grey
+*color0: #2E3436
+! Red Red
+*color1: #EF2929
+! Green
+*color2: #4E9A06
+! Yellow
+*color3: #C4A000
+! Blue
+*color4: #3465A4
+! Purple
+*color5: #75507B
+! Orange
+*color6: #F57900
+! Light Grey
+*color7: #BABDB9
+
+! Dark Grey
+*color8: #555753
+! Red
+*color9: #EF2929
+! Pastel Green
+*color10: #8AE234
+! Pastel Yellow
+*color11: #FCE94F
+! Pastel Blue
+*color12: #729FCF
+! Pastel Purple
+*color13: #AD7FA8
+! Pastel Orange
+*color14: #FCAF3E
+! Pastel Grey
+*color15: #EEEEEC
+
+! Style
+URxvt.foreground: white
+URxvt.background: #151515
+
+URxvt.scrollColor: #777777
+
+! Font
+URxvt.font: xft:Monospace:size=12
+
+! Set the scrollbar on the right
+URxvt.scrollBar: false
+URxvt.scrollBar_right: true
+
+! Scrollback
+URxvt.saveLines: 1000000
+
+!-*- Perl extensions -*-
+URxvt.perl-ext-common: default,font-size
+
+!-*- Controls -*-
+
+! Common Keybinds for Navigations
+URxvt.keysym.Control-+: perl:font-size:increase
+URxvt.keysym.Control--: perl:font-size:decrease
+URxvt.keysym.Control-0: perl:font-size:reset
+URxvt.keysym.Control-Right: \033[1;5C
+URxvt.keysym.Control-Left: \033[1;5D
+
+! Clipboard
+URxvt.clipboard.autocopy: true
+URxvt.keysym.Control-Shift-c: perl:clipboard:copy
+URxvt.keysym.Control-Shift-v: perl:clipboard:paste

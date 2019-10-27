@@ -25,6 +25,7 @@ files[14]='.tmux.conf'
 files[15]='.git_template'
 files[16]='.self'
 files[17]='.editorconfig'
+files[18]='.Xresources'
 
 for f in "${files[@]}"
 do
