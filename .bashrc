@@ -135,6 +135,6 @@ export HISTSIZE=
 
 export GERMAN_PRACTICE=1
 
-if [ -f ~/.bash_local ]; then
+if [ -f ~/.bashrc_local ]; then
   . ~/.bashrc_local
 fi
