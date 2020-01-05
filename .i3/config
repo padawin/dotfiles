@@ -155,8 +155,6 @@ bindsym Escape mode "default"
 # finds out, if available)
 bar {
     status_command i3status
-    #~ position top
-    mode hide
 }
 
 focus_follows_mouse no
