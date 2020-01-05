@@ -15,7 +15,7 @@ nnoremap <leader>S :e $HOME/.vim/scratchpad<CR>
 " during a conflict resolution, the user can navigate with this pattern
 " in the different parts of conflicts in the file
 nnoremap <leader>n /^\(<<<<\\|====\\|>>>>\)<CR>
-noremap <leader>u :UndotreeToggle<CR>
+nnoremap <leader>u :UndotreeToggle<CR>
 nnoremap <leader>r :set relativenumber!<CR>:set list!<CR>
 nnoremap <F3> :noh<CR>
 nnoremap <leader>s :bnext<CR>
