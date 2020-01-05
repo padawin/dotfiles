@@ -8,9 +8,8 @@ set cindent
 set textwidth=80
 " folding
 set foldmethod=manual
-" Enable mouse usage (normal
+" Enable mouse usage (normal mode) in terminals
 set mouse=n
-" mode) in terminals
 
 " Always show a status bar
 set laststatus=2
@@ -53,7 +52,6 @@ set spell spelllang=en spellfile=$HOME/.vim/spell/techspeak.utf-8.add,$HOME/.vim
 set path+=**
 
 set grepprg=ag
-
 
 " avoid tilde files in working directory
 set backupdir=~/.vim/backup
