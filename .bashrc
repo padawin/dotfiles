@@ -87,7 +87,7 @@ __prompt_command() {
 
 	PS1+="${Gre}\u@\h$(j)${RCol}: ${Red}\w${Blu}$(__git_ps1)"
 	if [ $EXIT != 0 ]; then
-		PS1+="$Red \342\234\226 (${EXIT})"
+		PS1+="$Red ✗ (${EXIT})"
 	else
 		PS1+="$Gre \342\234\224"
 	fi
