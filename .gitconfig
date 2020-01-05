@@ -16,7 +16,7 @@
 	svn-rebase = rebase --interactive --preserve-merges refs/remotes/git-svn
 	diffc = diff --color-words=.
 	diffw = "diff --color-words='([a-zA-Z0-9_]+|[^a-zA-Z0-9_\\s]+)'"
-	review = "!sh -c 'git log -p --reverse $1..$2' -"
+	review = "!sh -c 'git log -p --reverse --topo-order $1..$2' -"
 	review-full = "!sh -c 'git diff master..$1' -"
 	show-merge = "!sh -c 'git log -p --reverse $1^..$1' -"
 	show-merge-full = "!sh -c 'git diff $1^..$1' -"
