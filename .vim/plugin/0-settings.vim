@@ -81,4 +81,4 @@ let g:pymode_lint_checkers = ['pylint', 'pycodestyle', 'pyflakes']
 let g:pymode_run_bind = '<leader>R'
 let g:pymode_breakpoint_bind = '<leader>B'
 let g:pymode_lint_cwindow = 0
-let g:acp_completeOption = '.,w,b,u,i,k'
+let g:acp_completeOption = '.,w,b,u'
