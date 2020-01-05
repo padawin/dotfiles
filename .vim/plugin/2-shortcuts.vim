@@ -6,7 +6,6 @@ set wildcharm=<C-Z>
 nnoremap <leader>es :vs ~/.vim/plugin/2-shortcuts.vim<CR>
 nnoremap <leader>. :source $MYVIMRC<CR>
 
-nnoremap <leader>o :find *
 nnoremap <leader><leader> :find *
 nnoremap <leader>b :buffers<CR>:buffer<Space>
 
