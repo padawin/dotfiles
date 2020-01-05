@@ -28,6 +28,7 @@ Plugin 'easymotion/vim-easymotion'
 Plugin 'padawin/vim-presentation'
 Plugin 'fatih/vim-go'
 Plugin 'octol/vim-cpp-enhanced-highlight'
+Plugin 'beyondmarc/glsl.vim'
 Plugin 'klen/python-mode'
 
 " All of your Plugins must be added before the following line
