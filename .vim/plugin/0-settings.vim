@@ -11,6 +11,8 @@ set foldmethod=manual
 " Enable mouse usage (normal mode) in terminals
 set mouse=n
 
+set scrolloff=3
+
 " Always show a status bar
 set laststatus=2
 set statusline=
