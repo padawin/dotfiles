@@ -15,6 +15,6 @@ xset dpms 300 600 900 &
 xbacklight -set 90 &
 
 ## Set the keyboard layouts, us
-setxkbmap -variant altgr-intl us
+setxkbmap dvorak -option compose:ralt
 
 [ -f ~/Pictures/background ] && feh --bg-fill ~/Pictures/background
