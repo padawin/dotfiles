@@ -41,6 +41,8 @@ syntax on
 augroup Completion
 	autocmd!
 	autocmd FileType python set omnifunc=syntaxcomplete#Complete
+	autocmd FileType go set omnifunc=syntaxcomplete#Complete
+	autocmd FileType vim set omnifunc=syntaxcomplete#Complete
 augroup END
 
 set noautoread
