@@ -1,0 +1,40 @@
+# COMPLETION IMPROVEMENT
+set skip-completed-text on
+set show-all-if-ambiguous on
+set show-all-if-unmodified on
+TAB: menu-complete
+
+#set editing-mode vi
+#set show-mode-in-prompt on
+
+# COLORS, COLORS EVERYWHERE!
+# Color files by types
+set colored-stats On
+# Append char to indicate type
+set visible-stats On
+# Mark symlinked directories
+set mark-symlinked-directories On
+# Color the common prefix
+set colored-completion-prefix On
+# Color the common prefix in menu-complete
+set menu-complete-display-prefix On
+
+set completion-prefix-display-length 2
+
+# NOTE TO OVERRIDE Control-W
+set bind-tty-special-chars Off
+
+# MAPPINGS REFINEMENT
+# Re-execute the last run command
+"\e\C-M": "\C-P\n"
+# Delete words back and forth
+"\ew": unix-word-rubout
+"\C-W": backward-kill-word
+
+# filter history on typed command
+# e.g. typing "cd " and using up arrow goes through the "cd " commands in
+# history, instead of going through everything.
+"\C-P": history-search-backward
+"\C-N": history-search-forward
+"\e[A": history-search-backward
+"\e[B": history-search-forward
