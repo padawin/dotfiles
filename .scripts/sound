@@ -1,24 +1,42 @@
 #!/bin/bash
 
+is_mixer_on () {
+	mixername=$1
+	CURRENT_STATE=$(amixer get $mixername | egrep 'Playback.*?\[o' | egrep -o '\[o.+\]')
+    if [ -z "$(echo "$CURRENT_STATE" | grep 'on')" ]; then
+		echo "0"
+	else
+		echo "1"
+	fi
+}
+
 if [ -z $1 ]
 then
     exit 0
 fi
 
+if [ "`is_mixer_on Headphone`" == "1" ]; then
+	mixer="Headphone"
+else
+	mixer="Speaker"
+fi
+
 if [ $1 == "mute" ]
 then
-    CURRENT_STATE=$(amixer get Master | egrep 'Playback.*?\[o' | egrep -o '\[o.+\]')
-    echo $CURRENT_STATE
-    if [ -z $(echo "$CURRENT_STATE" | grep 'on') ]
-    then
+	if [ "`is_mixer_on Master`" == "0" ]; then
         amixer sset Master unmute
+		amixer sset Speaker unmute
+		amixer sset Headphone unmute
     else
         amixer sset Master mute
+		amixer sset $mixer mute
     fi
 elif [ $1 == "up" ]
 then
     amixer sset Master 5%+ unmute
+    amixer sset $mixer unmute
 elif [ $1 == "down" ]
 then
     amixer sset Master 5%- unmute
+    amixer sset $mixer unmute
 fi
