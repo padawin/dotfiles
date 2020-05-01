@@ -47,7 +47,7 @@ URxvt.scrollColor: #777777
 URxvt.font: xft:Monospace:size=12
 
 ! Set the scrollbar on the right
-URxvt.scrollBar: false
+URxvt.scrollBar: true
 URxvt.scrollBar_right: true
 
 ! Scrollback
