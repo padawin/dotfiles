@@ -38,12 +38,12 @@ call vundle#end()
 filetype plugin indent on
 syntax on
 
-augroup Completion
-	autocmd!
-	autocmd FileType python set omnifunc=syntaxcomplete#Complete
-	autocmd FileType go set omnifunc=syntaxcomplete#Complete
-	autocmd FileType vim set omnifunc=syntaxcomplete#Complete
-augroup END
+if has("autocmd") && exists("+omnifunc")
+	autocmd Filetype *
+		\	if &omnifunc == "" |
+		\		setlocal omnifunc=syntaxcomplete#Complete |
+		\	endif
+endif
 
 set noautoread
 augroup Refresh
