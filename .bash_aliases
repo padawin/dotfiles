@@ -23,4 +23,4 @@ alias gh='git history'
 alias gmt='git mergetool'
 
 alias json='python -m json.tool'
-alias jvim='python -m json.tool | vim +"set ft=json" -'
+alias jvim='python -m json.tool | view +"set ft=json" -'
