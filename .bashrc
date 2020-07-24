@@ -64,7 +64,7 @@ function virtual_env_name(){
     if [ ! -z "$VIRTUAL_ENV" ]
     then
 	name=`basename $VIRTUAL_ENV`
-        echo "($name) "
+        echo " ($name) "
     fi
 }
 
@@ -81,11 +81,14 @@ __prompt_command() {
 
 	local RCol='\[\e[0m\]'
 
-	local Red='\e[0;31m'
-	local Gre='\e[0;32m'
-	local Blu='\e[1;34m'
+	local Red='\[\e[0;31m\]'
+	local Gre='\[\e[0;32m\]'
+	local Blu='\[\e[38;5;33m\]'
+	local Ora='\[\e[1;38;5;215m\]'
+	local Mau='\[\e[1;38;5;147m\]'
+	local Gre2='\[\e[1;38;5;35m\]'
 
-	PS1+="${Gre}\u@\h$(j)${RCol}: ${Red}\w${Blu}$(__git_ps1)"
+	PS1+="${Ora}\u${RCol}$(j) ${Mau}\w${Gre2}$(__git_ps1)"
 	if [ $EXIT != 0 ]; then
 		PS1+="$Red ✗ (${EXIT})"
 	else
