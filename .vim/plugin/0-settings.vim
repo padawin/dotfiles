@@ -82,3 +82,9 @@ let g:pymode_run_bind = '<leader>R'
 let g:pymode_breakpoint_bind = '<leader>B'
 let g:pymode_lint_cwindow = 0
 let g:acp_completeOption = '.,w,b,u'
+
+"let g:go_fmt_command = "goimports"
+"let g:go_fmt_options = {
+"      \ 'goimports': '-local github.com',
+"      \ }
+let g:go_auto_type_info = 1
