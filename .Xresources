@@ -1,3 +1,6 @@
+! Use the following command to reload the file:
+! xrdb .Xresources
+
 !-*- Settings -*-
 URxvt.iso14755_52: disabled
 URxvt.iso14755: disabled
