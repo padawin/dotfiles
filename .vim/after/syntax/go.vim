@@ -16,5 +16,3 @@ highlight goCustomFuncDef ctermfg=13
 highlight goCustomFunc ctermfg=43
 highlight goCustomAttribute ctermfg=247
 highlight goCustomMethod ctermfg=33
-
-highlight goString ctermfg=35

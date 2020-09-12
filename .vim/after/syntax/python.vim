@@ -18,5 +18,4 @@ highlight pythonSelf ctermfg=4 cterm=bold
 " Docstrings
 highlight pythonDocstring ctermfg=29 cterm=italic
 " Actual strings
-highlight pythonString ctermfg=35
 highlight pythonStrFormat ctermfg=9
