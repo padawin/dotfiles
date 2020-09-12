@@ -47,7 +47,7 @@ URxvt.background: #151515
 URxvt.scrollColor: #777777
 
 ! Font
-URxvt.font: xft:Monospace:size=12
+URxvt.font: xft:Operator Mono Medium:size=12
 
 ! Set the scrollbar on the right
 URxvt.scrollBar: true
