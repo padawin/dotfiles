@@ -88,7 +88,7 @@ __prompt_command() {
 	local Mau='\[\e[1;38;5;147m\]'
 	local Gre2='\[\e[1;38;5;35m\]'
 
-	PS1+="${Ora}\u${RCol}$(j) ${Mau}\w${Gre2}$(__git_ps1)"
+	PS1+="$(j)${Mau}\w${Ora}$(__git_ps1)"
 	if [ $EXIT != 0 ]; then
 		PS1+="$Red ✗ (${EXIT})"
 	else
