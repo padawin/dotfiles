@@ -32,3 +32,5 @@ highlight Search term=reverse cterm=reverse ctermfg=136 guifg=Black guibg=Yellow
 
 highlight VertSplit ctermbg=238 ctermfg=238
 highlight StatusLineNC ctermbg=238 ctermfg=250
+
+highlight String cterm=italic ctermfg=35 guifg=#99ad6a
