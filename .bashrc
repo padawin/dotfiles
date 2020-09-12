@@ -57,7 +57,7 @@ fi
 export TERM=xterm-256color
 
 function j(){
-    jobs | wc -l | egrep -v ^0 | sed -r 's/^([0-9]+)/ (\1)/'
+	[  -z "`jobs`" ] && echo "" || echo "(\j) "
 }
 
 function virtual_env_name(){
