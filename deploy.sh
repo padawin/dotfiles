@@ -29,6 +29,7 @@ files[16]='.self'
 files[17]='.editorconfig'
 files[18]='.Xresources'
 files[19]='.inputrc'
+files[20]='xterm-256color-italic.terminfo'
 
 for f in "${files[@]}"
 do
