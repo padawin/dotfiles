@@ -38,3 +38,8 @@ set bind-tty-special-chars Off
 "\C-N": history-search-forward
 "\e[A": history-search-backward
 "\e[B": history-search-forward
+
+"\C-\M-h": backward-char
+"\C-\M-l": forward-char
+"\C-\M-b": backward-word
+"\C-\M-w": forward-word
