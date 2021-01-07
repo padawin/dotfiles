@@ -12,3 +12,7 @@ To disable capslocks, the following line has to be changed in
 
 For italic terminal:
 tic -x xterm-256color-italic.terminfo
+
+To set Gnome Terminal up, run:
+
+	dconf load /org/gnome/terminal/ < ./gnome-terminal.config
