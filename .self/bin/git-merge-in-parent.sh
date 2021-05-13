@@ -18,3 +18,17 @@ fi
 MERGE_COMMIT=$(git commit-tree "$CURR_TREE" -p "$PARENT_COMMIT" -p "$CURRENT_COMMIT" -m "$MESSAGE")
 git branch -f "$PARENT_BRANCH" "$MERGE_COMMIT"
 git checkout "$PARENT_BRANCH"
+
+read -p "Delete branch $CURRENT_BRANCH (y/N)? " -r DELETE_BRANCH
+if [ "$DELETE_BRANCH" == "Y" ] || [ "$DELETE_BRANCH" == "y" ]; then
+	git branch -d "$CURRENT_BRANCH"
+fi
+
+git rev-parse "origin/$CURRENT_BRANCH" 2> /dev/null
+REMOTE_EXISTS=$?
+if [ $REMOTE_EXISTS -eq 0 ]; then
+	read -p "Delete remote branch origin/$CURRENT_BRANCH (y/N)? " -r DELETE_BRANCH
+	if [ "$DELETE_BRANCH" == "Y" ] || [ "$DELETE_BRANCH" == "y" ]; then
+		git push -d origin "$CURRENT_BRANCH"
+	fi
+fi
