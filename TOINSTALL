@@ -4,6 +4,12 @@ https://github.com/rwos/gti
 rxvt-unicode
 i3blocks
 flameshot
+sysstat
+acpi
+feh
+volumeicon
+xset
+light
 
 To disable capslocks, the following line has to be changed in
 `/etc/default/keyboard`:
