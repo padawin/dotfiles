@@ -11,5 +11,5 @@ endfun
 augroup GoBuild
 	autocmd!
 	autocmd BufWritePre *.go :GoImports
-	autocmd BufWritePost * call CompileGoFile()
+	autocmd BufWritePost *.go call CompileGoFile()
 augroup END
