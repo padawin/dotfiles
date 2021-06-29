@@ -39,4 +39,8 @@ elif [ $1 == "down" ]
 then
     amixer sset Master 5%- unmute
     amixer sset $mixer unmute
+elif [ $1 == "reset" ]
+then
+    amixer sset Master 100% unmute
+    amixer sset $mixer unmute
 fi
