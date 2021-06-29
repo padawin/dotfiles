@@ -36,6 +36,9 @@ if [ -f ~/.bash_aliases_private ]; then
     . ~/.bash_aliases_private
 fi
 
+if [ -f ~/.bashrc_local ]; then
+  . ~/.bashrc_local
+fi
 
 # enable color support of ls and also add handy aliases
 if [ "$TERM" != "dumb" ]; then
@@ -138,6 +141,3 @@ export HISTSIZE=
 
 export GERMAN_PRACTICE=1
 
-if [ -f ~/.bashrc_local ]; then
-  . ~/.bashrc_local
-fi
