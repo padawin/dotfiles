@@ -1,5 +1,7 @@
 #!/bin/bash
 
+flameshot &
+
 volumeicon &
 
 ## Set startup volume
