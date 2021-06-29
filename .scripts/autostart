@@ -14,9 +14,9 @@ xset -b &
 xset dpms 300 600 900 &
 
 ## Set LCD brightness
-xbacklight -set 90 &
+light -S 100 &
 
-## Set the keyboard layouts, us
-setxkbmap dvorak -option compose:ralt
+## Set the keyboard layouts, dvorak and us
+setxkbmap -variant altgr-intl dvorak,us
 
-[ -f ~/Pictures/background ] && feh --bg-fill ~/Pictures/background
+[ -f ~/Pictures/background ] && feh --bg-scale ~/Pictures/background
