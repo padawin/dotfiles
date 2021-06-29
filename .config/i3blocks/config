@@ -34,9 +34,9 @@ markup=none
 # The script may be called with a optional argument to set the alert
 # (defaults to 10 for 10%).
 [disk]
-label=HOME
+label=HOME 
 #DIR=/mnt/data
-interval=once
+interval=10
 
 # Network interface monitoring
 #
@@ -57,12 +57,12 @@ command=$HOME/.config/i3blocks/bandwidth/bandwidth -i '↓ ' -o '↑ '
 #
 # The type defaults to "mem" if the instance is not specified.
 [memory]
-label=MEM
+label=MEM 
 separator=false
 interval=30
 
 [memory]
-label=SWAP
+label=SWAP 
 instance=swap
 interval=30
 
@@ -71,7 +71,7 @@ interval=30
 # The script may be called with -w and -c switches to specify thresholds,
 # see the script for details.
 [cpu_usage]
-label=CPU
+label=CPU 
 interval=10
 #min_width=CPU 100.00%
 
@@ -79,8 +79,7 @@ interval=10
 #
 # The battery instance defaults to 0.
 [battery]
-label=BAT
-#label=⚡
+label=BAT 
 interval=5
 
 # Date Time
