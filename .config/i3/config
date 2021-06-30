@@ -188,8 +188,11 @@ bindsym XF86MonBrightnessUp exec light -A 5 # increase screen brightness
 bindsym XF86MonBrightnessDown exec light -U 5 # decrease screen brightness
 
 # Assign programs to workspaces
+# the class can be found using:
+# xprop | grep CLASS
 assign [class="Firefox"] 1
 assign [class="TelegramDesktop"] 3
+assign [class="Signal"] 3
 assign [class="chrome"] 4
 assign [class="tutanota-desktop"] 4
 
