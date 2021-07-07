@@ -11,6 +11,7 @@ volumeicon
 xset
 light
 min browser
+rofi
 
 To disable capslocks, the following line has to be changed in
 `/etc/default/keyboard`:
