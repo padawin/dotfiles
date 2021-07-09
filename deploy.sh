@@ -5,7 +5,7 @@ SOURCE=$(dirname $(readlink -f $0))
 # Prepare git hooks
 for hook in $(ls $SOURCE/git_hooks/); do
 	if [ ! -f ".git_template/hooks/$hook" ]; then
-		ln -s "$SOURCE/git_hooks/$hook" ".git_template/hooks/$hook"
+		ln -fs "$SOURCE/git_hooks/$hook" ".git_template/hooks/$hook"
 	fi
 done
 
@@ -42,4 +42,4 @@ do
 	ln -fs $SOURCE/$f $HOME/$f
 done
 
-[ ! -d ~/.vim/backup ] && mkdir -p ~/.vim/backup
+mkdir -p ~/.vim/backup
