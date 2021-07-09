@@ -12,6 +12,7 @@ xset
 light
 min browser
 rofi
+alacritty
 
 To disable capslocks, the following line has to be changed in
 `/etc/default/keyboard`:
