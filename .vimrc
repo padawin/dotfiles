@@ -18,6 +18,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'nanotech/jellybeans.vim'
+Plugin 'ap/vim-css-color'
 
 Plugin 'AndrewRadev/linediff.vim'
 Plugin 'guns/xterm-color-table.vim'

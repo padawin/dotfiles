@@ -2,7 +2,7 @@
 [colors]
 
 prefix-foreground = ${xrdb:color12}
-clickable-foreground = #4b954b
+clickable-foreground = #4E9A06
 background = ${xrdb:background}
 foreground = ${xrdb:foreground}
 color0 = ${xrdb:color0}
@@ -115,7 +115,7 @@ wrapping-scroll = false
 
 label-mode-padding = 2
 label-mode-foreground = ${colors.color0}
-label-mode-background = ${colors.color8}
+label-mode-background = ${colors.color1}
 
 # focused = Active workspace on focused monitor
 label-focused = %index%

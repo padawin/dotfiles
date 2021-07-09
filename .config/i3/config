@@ -12,7 +12,7 @@
 set $mod Mod4
 
 # font for window titles. ISO 10646 = Unicode
-font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+font pango:DejaVu Sans 11
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -52,11 +52,18 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
-# split in horizontal orientation
-bindsym $mod+Shift+bar split h
+mode "split" {
+	# split in horizontal orientation
+	bindsym h split h, mode "default"
 
-# split in vertical orientation
-bindsym $mod+minus split v
+	# split in vertical orientation
+	bindsym v split v, mode "default"
+
+	# back to normal: Enter or Escape
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+}
+bindsym $mod+Shift+s mode "split"
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen
@@ -172,13 +179,13 @@ bindsym $mod+Shift+Escape mode "$mode_system"
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 focus_follows_mouse no
-bindsym $mod+Control+l exec "i3lock -c 000000"
+workspace_layout tabbed
 
-# colors
-#~ client.focused          #4c7899 #285577 #ffffff #2e9ef4
-#~ client.focused_inactive #333333 #5f676a #ffffff #484e50
-#~ client.unfocused        #333333 #222222 #888888 #292d2e
-#~ client.urgent           #2f343a #900000 #ffffff #900000
+# colors                border  background text    indicator
+client.focused          #2e3436 #404b4f    #babdb9 #4b954b
+client.focused_inactive #2e3436 #2e3436    #babdb9 #4b954b
+client.unfocused        #2e3436 #2e3436    #888888 #4b954b
+client.urgent           #2f343a #2e3436    #babdb9 #4b954b
 
 bindsym Print exec flameshot gui
 
@@ -187,6 +194,8 @@ bindsym XF86AudioLowerVolume exec $HOME/.scripts/sound down
 bindsym XF86AudioMute exec exec $HOME/.scripts/sound mute
 bindsym XF86MonBrightnessUp exec light -A 5 # increase screen brightness
 bindsym XF86MonBrightnessDown exec light -U 5 # decrease screen brightness
+
+bindsym $mod+Control+l exec "i3lock -c 000000"
 
 # Assign programs to workspaces
 # the class can be found using:
