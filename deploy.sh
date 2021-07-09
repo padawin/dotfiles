@@ -9,6 +9,12 @@ for hook in $(ls $SOURCE/git_hooks/); do
 	fi
 done
 
+# Desktop launchers
+mkdir -p ~/local/share/applications
+for launcher in $(ls $SOURCE/.desktop/); do
+	ln -rfs "$SOURCE/.desktop/$launcher" ~/.local/share/applications/"$launcher"
+done
+
 files[0]='.gconf/apps/gnome-terminal'
 files[1]='.ackrc'
 files[2]='.bashrc'
