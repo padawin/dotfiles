@@ -1,6 +1,6 @@
 # some more ls aliases
-alias ll='ls -l'
-alias la='ls -A'
+alias ll='ls -lh'
+alias la='ls -lhA'
 alias l='ls -CF'
 alias halt='halt -p'
 
