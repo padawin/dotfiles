@@ -267,9 +267,9 @@ selection:
 # If the same trigger is assigned to multiple actions, all of them are executed
 # in the order they were defined in.
 key_bindings:
-  - { mods: Shift,   key: Insert,                       action: Paste            }
-  - { mods: Control, key: Insert,                       action: Copy             }
-  - { mods: Control, key: N,        mode: ~Alt,         action: SpawnNewInstance }
+  - { mods: Shift,         key: Insert,                 action: Paste            }
+  - { mods: Control,       key: Insert,                 action: Copy             }
+  - { mods: Shift|Control, key: N,  mode: ~Alt,         action: SpawnNewInstance }
 
   # Defaults bindings
   #- {                key: Paste,                        action: Paste          }
