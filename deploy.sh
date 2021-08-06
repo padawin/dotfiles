@@ -37,6 +37,7 @@ files[18]='.Xresources'
 files[19]='.inputrc'
 files[20]='.profile'
 files[21]='xterm-256color-italic.terminfo'
+files[22]='.emacs'
 
 for f in "${files[@]}"
 do

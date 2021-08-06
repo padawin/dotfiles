@@ -1,0 +1,170 @@
+#+TITLE: My Emacs Configuration
+
+* Emacs configuration
+
+** Packages
+
+First, let's setup the package sources
+
+#+BEGIN_SRC emacs-lisp
+(require 'package)
+
+(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/"))
+(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
+(add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/"))
+
+(setq package-enable-at-startup nil)
+(unless package-archive-contents (package-refresh-contents))
+#+END_SRC
+
+** Misc settings
+
+Skip startup screen
+#+BEGIN_SRC emacs-lisp
+(setq inhibit-startup-message -1)
+#+END_SRC
+
+Display line numbers
+#+BEGIN_SRC emacs-lisp
+(global-display-line-numbers-mode)
+#+END_SRC
+
+Set font
+#+BEGIN_SRC emacs-lisp
+(set-frame-font "Operator Mono 12" nil t)
+#+END_SRC
+
+Hide toolbar
+#+BEGIN_SRC emacs-lisp
+(tool-bar-mode -1)
+#+END_SRC
+
+Hide menu bar
+#+BEGIN_SRC emacs-lisp
+(menu-bar-mode -1)
+#+END_SRC
+
+Show matching parenthesis
+#+BEGIN_SRC emacs-lisp
+(show-paren-mode t)
+#+END_SRC
+
+Replace confirm prompt to y/n, instead of yes/no
+#+BEGIN_SRC emacs-lisp
+(fset 'yes-or-no-p 'y-or-n-p)
+#+END_SRC
+
+Disable automatically added custom instructions in my conf.
+
+#+BEGIN_SRC emacs-lisp
+(setq custom-file null-device)
+#+END_SRC
+
+** Custom functions
+
+Line completion
+#+BEGIN_SRC emacs-lisp
+; XXX How to feed the candidate lines to Ivy/Helm?
+(defun my-expand-lines ()
+  (interactive)
+  (let ((hippie-expand-try-functions-list
+         '(try-expand-line)))
+    (call-interactively 'hippie-expand)))
+
+#+END_SRC
+
+** Packages
+
+*** Use package
+
+First, let's setup =use-package=, to make package management easier.
+
+#+BEGIN_SRC emacs-lisp
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+
+(eval-when-compile
+  (require 'use-package))
+(setq use-package-always-ensure t)
+#+END_SRC
+
+*** Undo-tree
+
+#+BEGIN_SRC emacs-lisp
+  (use-package undo-tree
+      :config
+      (global-undo-tree-mode)
+  )
+#+END_SRC
+
+*** Evil
+
+#+BEGIN_SRC emacs-lisp
+  (use-package evil
+	  :requires undo-tree
+	  :custom
+	  (evil-undo-system 'undo-tree)
+	  :config
+	  (evil-mode 1)
+  )
+  (define-key evil-insert-state-map (kbd "C-l") 'my-expand-lines)
+  ; Swap ; and :
+  (with-eval-after-load 'evil-maps
+	  (define-key evil-motion-state-map (kbd ":") 'evil-repeat-find-char)
+	  (define-key evil-motion-state-map (kbd ";") 'evil-ex)
+  )
+#+END_SRC
+
+*** Editorconfig
+
+#+BEGIN_SRC emacs-lisp
+  (use-package editorconfig
+      :ensure t
+      :config
+      (editorconfig-mode 1)
+  )
+#+END_SRC
+
+*** Themes
+
+#+BEGIN_SRC emacs-lisp
+  (use-package jbeans-theme
+	  :ensure t
+	  :config
+	  (load-theme 'jbeans t)
+  )
+#+END_SRC
+
+*** Ivy
+
+Ivy is a completion tool. Helm could be an alternative.
+
+#+BEGIN_SRC emacs-lisp
+  (use-package ivy
+	  :ensure t
+	  :config
+	  (ivy-mode 1)
+  )
+#+END_SRC
+
+** Key bindings
+
+#+BEGIN_SRC emacs-lisp
+  ; Easy switch between buffers
+  (define-key global-map (kbd "M-o") 'other-window)
+
+  ; Comment seemlessly line or region, and stay on the current line
+  (define-key global-map (kbd "C-;") (lambda()
+	  (interactive)
+	  (comment-line 1)
+	  (previous-line)
+  ))
+#+END_SRC
+
+** TODO
+
+- =ediff= for Line Diff
+- Group backups in a single place
+- Auto indent is weird (at least in SRC blocks in org files)
+- List recent files when opening a file?
