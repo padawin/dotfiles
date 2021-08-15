@@ -111,6 +111,7 @@ First, let's setup =use-package=, to make package management easier.
   (define-key evil-insert-state-map (kbd "C-l") 'my-expand-lines)
   ; Swap ; and :
   (with-eval-after-load 'evil-maps
+	  (define-key evil-normal-state-map (kbd "zz") 'evil-write)
 	  (define-key evil-motion-state-map (kbd ":") 'evil-repeat-find-char)
 	  (define-key evil-motion-state-map (kbd ";") 'evil-ex)
   )
