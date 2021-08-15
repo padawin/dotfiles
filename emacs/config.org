@@ -148,6 +148,51 @@ Ivy is a completion tool. Helm could be an alternative.
   )
 #+END_SRC
 
+*** Flycheck
+
+Flycheck is a syntax checker.
+
+#+BEGIN_SRC emacs-lisp
+  (use-package flycheck
+      :ensure t
+      :config
+      (global-flycheck-mode)
+  )
+#+END_SRC
+
+*** Python development
+
+Install elpy (Emacs Lisp Python Environment), make it use flycheck,
+enable pep8 and black.
+
+#+BEGIN_SRC emacs-lisp
+  (use-package elpy
+	  :ensure t
+	  :config
+	  (elpy-enable)
+  )
+
+  ; Enable Flycheck
+  (when (require 'flycheck nil t)
+	  (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
+	  (add-hook 'elpy-mode-hook 'flycheck-mode)
+  )
+
+  ; Enable PEP8
+  (use-package py-autopep8
+	  :ensure t
+	  :config
+	  (add-hook 'elpy-mode-hook 'py-autopep8-enable-on-save)
+  )
+
+  ; Enable black
+  (use-package blacken
+	  :ensure t
+	  :config
+      (blacken-mode)
+  )
+#+END_SRC
+
 ** Key bindings
 
 #+BEGIN_SRC emacs-lisp
