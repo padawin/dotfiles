@@ -155,9 +155,9 @@ Flycheck is a syntax checker.
 
 #+BEGIN_SRC emacs-lisp
   (use-package flycheck
-      :ensure t
-      :config
-      (global-flycheck-mode)
+	  :ensure t
+	  :config
+      (add-hook 'after-init-hook #'global-flycheck-mode)
   )
 #+END_SRC
 
@@ -194,6 +194,17 @@ enable pep8 and black.
   )
 #+END_SRC
 
+*** Golang development
+
+#+BEGIN_SRC emacs-lisp
+  (use-package go-mode
+	  :ensure t
+	  :config
+	  (add-hook 'before-save-hook 'gofmt-before-save)
+  )
+  (setq gofmt-command "goimports")
+#+END_SRC
+
 ** Key bindings
 
 #+BEGIN_SRC emacs-lisp
@@ -214,3 +225,4 @@ enable pep8 and black.
 - Group backups in a single place
 - Auto indent is weird (at least in SRC blocks in org files)
 - List recent files when opening a file?
+- Display current work directory in status bar?
