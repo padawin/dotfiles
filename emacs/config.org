@@ -98,6 +98,14 @@ First, let's setup =use-package=, to make package management easier.
   )
 #+END_SRC
 
+*** Magit
+
+#+BEGIN_SRC emacs-lisp
+  (use-package magit
+      :config
+  )
+#+END_SRC
+
 *** Evil
 
 #+BEGIN_SRC emacs-lisp
