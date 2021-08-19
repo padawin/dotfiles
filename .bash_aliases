@@ -17,6 +17,7 @@ alias gsh='git show'
 alias gd='git diff'
 alias gh='git history'
 alias gmt='git mergetool'
+alias grup='git remote update -p'
 
 alias json='python -m json.tool'
 alias jvim='python -m json.tool | view +"set ft=json" -'
