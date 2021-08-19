@@ -2,9 +2,9 @@
 [colors]
 
 prefix-foreground = ${xrdb:color12}
-clickable-foreground = #4E9A06
-background = ${xrdb:background}
-foreground = ${xrdb:foreground}
+clickable-foreground = #4b954b
+background = $(xrdb:background)
+foreground = $(xrdb:foreground)
 color0 = ${xrdb:color0}
 color1 = ${xrdb:color1}
 color2 = ${xrdb:color2}
@@ -48,9 +48,8 @@ font-1 = FontAwesome:style=Regular:size=13;2
 # Define the cursor for clickable modules
 cursor-click = pointer
 
-modules-left = i3 filesystem cpu mem
-modules-center = battery wlan wlan-downspeed wlan-upspeed
-modules-right = xkeyboard pulseaudio light date
+modules-left = i3 filesystem cpu mem battery wlan
+modules-right = xkeyboard light date
 tray-position = right
 
 [module/cpu]
@@ -205,21 +204,6 @@ format-prefix= " "
 format-padding = 1
 
 
-[module/pulseaudio]
-type = internal/pulseaudio
-click-right = ~/.scripts/sound reset
-format-volume = <ramp-volume><label-volume>
-label-volume = "%percentage%%"
-ramp-volume-foreground = ${colors.clickable-foreground}
-label-volume-padding=1
-ramp-volume-0 = ""
-ramp-volume-1 = ""
-ramp-volume-2 = ""
-label-muted = " Muted"
-label-muted-foreground = ${colors.color8}
-label-muted-padding=1
-
-
 [module/light]
 type = custom/script
 exec = light
@@ -258,27 +242,6 @@ label-disconnected = "  disconnected"
 label-disconnected-foreground = ${colors.background}
 label-disconnected-background = ${colors.color1}
 label-disconnected-padding = 1
-
-[module/wlan-upspeed]
-type = internal/network
-interface = wlp2s0
-interval = 1.0
-format-connected-prefix = " "
-format-connected-prefix-foreground=${colors.prefix-foreground}
-label-connected = "%upspeed%"
-#label-disconnected = ""
-format-connected-padding = 1
-
-[module/wlan-downspeed]
-type = internal/network
-interface = wlp2s0
-interval = 1.0
-format-connected-prefix = " "
-format-connected-prefix-foreground=${colors.prefix-foreground}
-label-connected = "%downspeed%"
-#label-disconnected = ""
-format-connected-padding = 0
-
 
 [module/filesystem]
 type = internal/fs
