@@ -219,6 +219,15 @@ enable pep8 and black.
   ; Easy switch between buffers
   (define-key global-map (kbd "M-o") 'other-window)
 
+  ; Toggle whitespaces display
+  (define-key global-map (kbd "C-c r") 'whitespace-mode)
+
+  ; Create new tab
+  (define-key global-map (kbd "C-c t") 'tab-new)
+
+  ; Compile project
+  (define-key global-map (kbd "C-c m") 'compile)
+
   ; Comment seemlessly line or region, and stay on the current line
   (define-key global-map (kbd "C-;") (lambda()
 	  (interactive)
