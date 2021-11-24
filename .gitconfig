@@ -27,6 +27,8 @@
 	diff = auto
 	branch = auto
 	ui = true
+[color.decorate]
+	branch = 11
 [color.diff]
 	newMoved = magenta bold
 	oldMoved = magenta bold
