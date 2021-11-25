@@ -93,6 +93,40 @@ First, let's setup =use-package=, to make package management easier.
 (setq use-package-always-ensure t)
 #+END_SRC
 
+*** Completion tools
+
+Completion prompts:
+
+#+BEGIN_SRC emacs-lisp
+  (use-package ivy
+    :ensure t
+    :config
+    (ivy-mode 1)
+  )
+  (use-package helm
+      :ensure t
+      :config
+      (helm-mode 1)
+  )
+  ; Use helm in places
+  (define-key global-map (kbd "M-x") 'helm-M-x)
+  ;(define-key global-map (kbd "C-x C-f") 'helm-find-files)
+  (define-key global-map (kbd "C-x b") 'helm-mini)
+  ; use tab to complete selection
+  (define-key helm-map (kbd "TAB") #'helm-execute-persistent-action)
+  (define-key helm-map (kbd "<tab>") #'helm-execute-persistent-action)
+#+END_SRC
+
+Autocompletion:
+
+#+BEGIN_SRC emacs-lisp
+  (use-package company
+  :ensure t
+  :config
+  (add-hook 'after-init-hook 'global-company-mode)
+  )
+#+END_SRC
+
 *** Undo-tree
 
 #+BEGIN_SRC emacs-lisp
@@ -146,18 +180,6 @@ First, let's setup =use-package=, to make package management easier.
 	  :ensure t
 	  :config
 	  (load-theme 'jbeans t)
-  )
-#+END_SRC
-
-*** Ivy
-
-Ivy is a completion tool. Helm could be an alternative.
-
-#+BEGIN_SRC emacs-lisp
-  (use-package ivy
-	  :ensure t
-	  :config
-	  (ivy-mode 1)
   )
 #+END_SRC
 
