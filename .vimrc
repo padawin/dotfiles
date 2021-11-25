@@ -72,3 +72,7 @@ augroup END
 " plugin/2-shortcuts.vim
 " This one sets up my syntax highlight, colorscheme and related
 " plugin/3-highlight.vim
+
+" Allow .vimrc files to be created in projects and automatically loaded
+set exrc
+set secure
