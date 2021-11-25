@@ -92,3 +92,8 @@ let g:acp_completeOption = '.,w,b,u'
 "      \ 'goimports': '-local github.com',
 "      \ }
 let g:go_auto_type_info = 1
+
+" This value is set to '<c-c>' by default, making an annoying delay when wanting
+" to use <c-c> as its normal usage (escape-like)
+" Defined in: /usr/share/vim/vim82/ftplugin/sql.vim
+let g:omni_sql_no_default_maps = '1'
