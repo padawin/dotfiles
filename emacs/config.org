@@ -239,6 +239,35 @@ enable pep8 and black.
   (setq gofmt-command "goimports")
 #+END_SRC
 
+** Slime
+
+SLIME is a Emacs mode for Common Lisp development.
+
+*** Prerequired setup
+
+From https://lisp-lang.org/learn/getting-started/, run the following in your terminal:
+
+#+BEGIN_SRC bash
+  # Install SBCL (apt, dnf)
+
+  # Install Quicklisp
+  curl -o /tmp/ql.lisp http://beta.quicklisp.org/quicklisp.lisp
+  sbcl --no-sysinit --no-userinit --load /tmp/ql.lisp \
+	   --eval '(quicklisp-quickstart:install :path "~/.quicklisp")' \
+	   --eval '(ql:add-to-init-file)' \
+	   --quit
+
+  # Install Slime
+  sbcl --eval '(ql:quickload :quicklisp-slime-helper)' --quit
+#+END_SRC
+
+*** Init Slime mode
+
+#+BEGIN_SRC emacs-lisp
+  (load (expand-file-name "~/.quicklisp/slime-helper.el"))
+  (setq inferior-lisp-program "sbcl")
+#+END_SRC
+
 ** Key bindings
 
 #+BEGIN_SRC emacs-lisp
