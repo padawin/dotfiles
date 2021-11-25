@@ -30,3 +30,5 @@ To set Gnome Terminal up, run:
 To save Gnome Terminal, run:
 
 	dconf dump /org/gnome/terminal/ > ./gnome-terminal.config
+
+tmuxp for tmux sessions
