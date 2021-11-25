@@ -160,6 +160,7 @@ Autocompletion:
 	  (define-key evil-normal-state-map (kbd "zz") 'evil-write)
 	  (define-key evil-motion-state-map (kbd ":") 'evil-repeat-find-char)
 	  (define-key evil-motion-state-map (kbd ";") 'evil-ex)
+	  (define-key evil-normal-state-map (kbd "C-u") 'evil-scroll-up)
   )
 #+END_SRC
 
