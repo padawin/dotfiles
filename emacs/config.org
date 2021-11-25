@@ -60,6 +60,10 @@ Disable automatically added custom instructions in my conf.
 (setq custom-file null-device)
 #+END_SRC
 
+#+BEGIN_SRC emacs-lisp
+(setq backup-directory-alist `(("." . "~/dotfiles/emacs/backups/")))
+#+END_SRC
+
 ** Custom functions
 
 Line completion
