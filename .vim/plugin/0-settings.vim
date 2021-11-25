@@ -65,6 +65,10 @@ set wildchar=<Tab> wildmenu wildmode=full
 set hidden
 set tags=.git/tags;/
 
+" Make diffing better: https://vimways.org/2018/the-power-of-diff/
+set diffopt+=algorithm:patience
+set diffopt+=indent-heuristic
+
 set splitbelow
 set splitright
 
