@@ -24,7 +24,7 @@ match WhiteSpaceMol / /
 " augroup END
 
 " Spell mistakes
-highlight SpellBad cterm=underline,bold ctermbg=NONE
+highlight SpellBad cterm=underline,bold ctermfg=none ctermbg=NONE
 
 " Colorscheme override
 highlight IncSearch term=standout cterm=standout ctermfg=166 gui=reverse
@@ -34,3 +34,5 @@ highlight VertSplit ctermbg=238 ctermfg=238
 highlight StatusLineNC ctermbg=238 ctermfg=250
 
 highlight String cterm=italic ctermfg=35 guifg=#99ad6a
+
+highlight QuickFixLine ctermbg=none
