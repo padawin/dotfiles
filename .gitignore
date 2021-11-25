@@ -1,2 +1,9 @@
 .git_template
 emacs/config.el
+emacs/backups/
+.vim/bundle/
+.vim/spell/
+.vim/.netrwhist
+.vim/backup
+.vim/scratchpad
+.vim/plugin/99-local.vim
