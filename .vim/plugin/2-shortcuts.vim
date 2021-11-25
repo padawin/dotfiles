@@ -34,6 +34,9 @@ nnoremap <leader>j :m .+1<CR>==
 nnoremap <leader>k :m .-2<CR>==
 vnoremap <leader>j :m '>+1<CR>gv=gv
 vnoremap <leader>k :m '<-2<CR>gv=gv
+
+nnoremap <leader>c :call ToggleCursorbind()<CR>
+
 noremap <Up>     <NOP>
 noremap <Down>   <NOP>
 noremap <Left>   <NOP>

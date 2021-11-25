@@ -7,6 +7,14 @@ function! SynStack()
   return map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
 
+function! ToggleCursorbind()
+  if &cursorbind == 1
+    set nocursorbind
+  else
+    set cursorbind
+  endif
+endfunc
+
 function! EchoSynStack()
   echo join(SynStack(), ", ")
 endfunc
