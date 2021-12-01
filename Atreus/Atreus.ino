@@ -30,6 +30,7 @@
 #include "Kaleidoscope-OneShot.h"
 #include "Kaleidoscope-Qukeys.h"
 #include "Kaleidoscope-SpaceCadet.h"
+#include <Kaleidoscope-TapDance.h>
 
 
 #define MO(n) ShiftToLayer(n)
@@ -49,6 +50,12 @@ enum {
 #define Key_And LSHIFT(Key_7)
 #define Key_Star LSHIFT(Key_8)
 #define Key_Plus LSHIFT(Key_Equals)
+
+// Dvorak keys
+#define DvorakKey_LeftBracket Key_Minus
+#define DvorakKey_LeftCurlyBracket LSHIFT(Key_Minus)
+#define DvorakKey_RightBracket Key_Equals
+#define DvorakKey_RightCurlyBracket LSHIFT(Key_Equals)
 
 enum {
   QWERTY,
@@ -109,6 +116,7 @@ KALEIDOSCOPE_INIT_PLUGINS(
   SpaceCadet,
   OneShot,
   Macros,
+  TapDance,
   MouseKeys
 );
 
@@ -132,6 +140,23 @@ const macro_t *macroAction(uint8_t macroIndex, uint8_t keyState) {
   }
 
   return MACRO_NONE;
+}
+
+static void tapDanceBrackets(uint8_t tap_dance_index, uint8_t tap_count, kaleidoscope::plugin::TapDance::ActionType tap_dance_action) {
+  if (tap_dance_index == 0) {
+    tapDanceActionKeys(tap_count, tap_dance_action, Key_LeftParen, DvorakKey_LeftCurlyBracket, DvorakKey_LeftBracket);
+  }
+  else if (tap_dance_index == 1) {
+    tapDanceActionKeys(tap_count, tap_dance_action, Key_RightParen, DvorakKey_RightCurlyBracket, DvorakKey_RightBracket);
+  }
+}
+
+void tapDanceAction(uint8_t tap_dance_index, KeyAddr key_addr, uint8_t tap_count, kaleidoscope::plugin::TapDance::ActionType tap_dance_action) {
+  switch (tap_dance_index) {
+  case 0:
+  case 1:
+    return tapDanceBrackets(tap_dance_index, tap_count, tap_dance_action);
+  }
 }
 
 void setup() {

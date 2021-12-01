@@ -406,16 +406,18 @@
     ],
     [
       {
-        "baseCode": 45,
         "categories": [
-          "with-modifiers",
-          "shift"
+          "tapdance"
         ],
-        "code": 2093,
+        "code": 53267,
         "label": {
-          "base": "_",
-          "hint": null
-        }
+          "base": "#0",
+          "hint": {
+            "1u": "TD",
+            "full": "TapDance"
+          }
+        },
+        "rangeStart": 53267
       },
       {
         "code": 45,
@@ -441,16 +443,18 @@
         }
       },
       {
-        "baseCode": 46,
         "categories": [
-          "with-modifiers",
-          "shift"
+          "tapdance"
         ],
-        "code": 2094,
+        "code": 53268,
         "label": {
-          "base": "+",
-          "hint": null
-        }
+          "base": "#1",
+          "hint": {
+            "1u": "TD",
+            "full": "TapDance"
+          }
+        },
+        "rangeStart": 53267
       },
       {
         "categories": [
