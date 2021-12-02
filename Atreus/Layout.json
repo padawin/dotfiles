@@ -97,11 +97,19 @@
         }
       },
       {
-        "code": 4,
+        "baseCode": 4,
+        "categories": [
+          "modifier",
+          "dualuse",
+          "shift"
+        ],
+        "code": 49429,
         "label": {
           "base": "a",
-          "shifted": "A"
-        }
+          "hint": "Shift/"
+        },
+        "modifier": "Shift",
+        "rangeStart": 49169
       },
       {
         "code": 22,
@@ -111,18 +119,34 @@
         }
       },
       {
-        "code": 7,
+        "baseCode": 7,
+        "categories": [
+          "modifier",
+          "dualuse",
+          "gui"
+        ],
+        "code": 49944,
         "label": {
           "base": "e",
-          "shifted": "E"
-        }
+          "hint": "Super/"
+        },
+        "modifier": "Super",
+        "rangeStart": 49169
       },
       {
-        "code": 9,
+        "baseCode": 9,
+        "categories": [
+          "modifier",
+          "dualuse",
+          "ctrl"
+        ],
+        "code": 49178,
         "label": {
           "base": "u",
-          "shifted": "U"
-        }
+          "hint": "Control/"
+        },
+        "modifier": "Control",
+        "rangeStart": 49169
       },
       {
         "code": 10,
@@ -163,18 +187,34 @@
         }
       },
       {
-        "code": 13,
+        "baseCode": 13,
+        "categories": [
+          "modifier",
+          "dualuse",
+          "ctrl"
+        ],
+        "code": 49182,
         "label": {
           "base": "h",
-          "shifted": "H"
-        }
+          "hint": "Control/"
+        },
+        "modifier": "Control",
+        "rangeStart": 49169
       },
       {
-        "code": 14,
+        "baseCode": 14,
+        "categories": [
+          "modifier",
+          "dualuse",
+          "gui"
+        ],
+        "code": 49951,
         "label": {
           "base": "t",
-          "shifted": "T"
-        }
+          "hint": "Super/"
+        },
+        "modifier": "Super",
+        "rangeStart": 49169
       },
       {
         "code": 15,
@@ -184,11 +224,19 @@
         }
       },
       {
-        "code": 51,
+        "baseCode": 51,
+        "categories": [
+          "modifier",
+          "dualuse",
+          "shift"
+        ],
+        "code": 49476,
         "label": {
           "base": "s",
-          "shifted": "S"
-        }
+          "hint": "Shift/"
+        },
+        "modifier": "Shift",
+        "rangeStart": 49169
       },
       {
         "code": 29,
@@ -310,34 +358,17 @@
         }
       },
       {
-        "baseCode": 44,
-        "categories": [
-          "modifier",
-          "dualuse",
-          "ctrl"
-        ],
-        "code": 49213,
+        "code": 44,
         "label": {
           "base": "Space",
-          "hint": "Control/"
-        },
-        "modifier": "Control",
-        "rangeStart": 49169
+          "shifted": "Space"
+        }
       },
       {
-        "baseCode": 43,
-        "categories": [
-          "modifier",
-          "dualuse",
-          "gui"
-        ],
-        "code": 49980,
+        "code": 43,
         "label": {
-          "base": "Tab",
-          "hint": "Super/"
-        },
-        "modifier": "Super",
-        "rangeStart": 49169
+          "base": "Tab"
+        }
       },
       {
         "code": 42,
@@ -349,19 +380,10 @@
         }
       },
       {
-        "baseCode": 40,
-        "categories": [
-          "modifier",
-          "dualuse",
-          "shift"
-        ],
-        "code": 49465,
+        "code": 40,
         "label": {
-          "base": "Enter",
-          "hint": "Shift/"
-        },
-        "modifier": "Shift",
-        "rangeStart": 49169
+          "base": "Enter"
+        }
       },
       {
         "categories": [
