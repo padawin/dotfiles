@@ -15,6 +15,7 @@
  * You should have received a copy of the GNU General Public License along
  * with this program; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+ *
  */
 
 #ifndef BUILD_INFORMATION
@@ -30,7 +31,6 @@
 #include "Kaleidoscope-OneShot.h"
 #include "Kaleidoscope-Qukeys.h"
 #include "Kaleidoscope-SpaceCadet.h"
-#include <Kaleidoscope-TapDance.h>
 
 
 #define MO(n) ShiftToLayer(n)
@@ -65,43 +65,28 @@ enum {
 
 /* *INDENT-OFF* */
 KEYMAPS(
-  [QWERTY] = KEYMAP_STACKED
+  [QWERTY] = KEYMAP
   (
-       Key_Q   ,Key_W   ,Key_E       ,Key_R         ,Key_T
-      ,Key_A   ,Key_S   ,Key_D       ,Key_F         ,Key_G
-      ,Key_Z   ,Key_X   ,Key_C       ,Key_V         ,Key_B, Key_Backtick
-      ,Key_Esc ,Key_Tab ,Key_LeftGui ,Key_LeftShift ,Key_Backspace ,Key_LeftControl
-
-                     ,Key_Y     ,Key_U      ,Key_I     ,Key_O      ,Key_P
-                     ,Key_H     ,Key_J      ,Key_K     ,Key_L      ,Key_Semicolon
-       ,Key_Backslash,Key_N     ,Key_M      ,Key_Comma ,Key_Period ,Key_Slash
-       ,Key_LeftAlt  ,Key_Space ,MO(FUN)    ,Key_Minus ,Key_Quote  ,Key_Enter
+       Key_Q   ,Key_W   ,Key_E ,Key_R       ,Key_T,Key_Y                            ,Key_U     ,Key_I        ,Key_O        ,Key_P
+      ,Key_A   ,Key_S   ,Key_D ,Key_F       ,Key_G,Key_H                            ,Key_J     ,Key_K        ,Key_L        ,Key_Semicolon
+      ,Key_Z   ,Key_X   ,Key_C ,Key_V       ,Key_B     ,Key_Backtick ,Key_Backslash ,Key_N     ,Key_M        ,Key_Comma    ,Key_Period    ,Key_Slash
+      ,Key_Esc ,___     ,___   ,Key_LeftAlt ,Key_Space ,Key_Tab      ,Key_Backspace ,Key_Enter ,MO(FUN)      ,Key_RightAlt ,___           ,Key_RightBracket
   ),
 
-  [FUN] = KEYMAP_STACKED
+  [FUN] = KEYMAP
   (
-       Key_Exclamation ,Key_At           ,Key_UpArrow   ,Key_Dollar           ,Key_Percent
-      ,Key_LeftParen   ,Key_LeftArrow    ,Key_DownArrow ,Key_RightArrow       ,Key_RightParen
-      ,Key_LeftBracket ,Key_RightBracket ,Key_Hash      ,Key_LeftCurlyBracket ,Key_RightCurlyBracket ,Key_Caret
-      ,TG(UPPER)       ,Key_Insert       ,Key_LeftGui   ,Key_LeftShift        ,Key_Delete         ,Key_LeftControl
-
-                   ,Key_PageUp   ,Key_7 ,Key_8      ,Key_9 ,Key_Backspace
-                   ,Key_PageDown ,Key_4 ,Key_5      ,Key_6 ,___
-      ,Key_And     ,Key_Star     ,Key_1 ,Key_2      ,Key_3 ,Key_Plus
-      ,Key_LeftAlt ,Key_Space    ,___   ,Key_Period ,Key_0 ,Key_Equals
+       DvorakKey_LeftCurlyBracket ,DvorakKey_LeftBracket ,Key_UpArrow        ,DvorakKey_RightBracket ,DvorakKey_RightCurlyBracket                          ,Key_PageUp   ,Key_7 ,Key_8 ,Key_9 ,Key_Backspace
+      ,Key_LeftParen              ,Key_LeftArrow         ,Key_DownArrow      ,Key_RightArrow         ,Key_RightParen                                       ,Key_PageDown ,Key_4 ,Key_5 ,Key_6 ,Key_Quote
+      ,Key_Exclamation            ,Key_At                ,Key_Hash           ,Key_Dollar             ,Key_Percent                ,Key_Caret ,Key_And       ,Key_Star     ,Key_1 ,Key_2 ,Key_3 ,Key_Plus
+      ,TG(UPPER)                  ,Key_LeftGui           ,LSHIFT(Key_Insert) ,Key_LeftAlt            ,Key_Delete                 ,Key_Tab   ,Key_Backspace ,Key_Enter    ,___   ,Key_0 ,Key_0 ,Key_Equals
    ),
 
-  [UPPER] = KEYMAP_STACKED
+  [UPPER] = KEYMAP
   (
-       Key_Insert            ,Key_Home                 ,Key_UpArrow   ,Key_End        ,Key_PageUp
-      ,Key_Delete            ,Key_LeftArrow            ,Key_DownArrow ,Key_RightArrow ,Key_PageDown
-      ,M(MACRO_VERSION_INFO) ,Consumer_VolumeIncrement ,XXX           ,XXX            ,___ ,___
-      ,MoveToLayer(QWERTY)   ,Consumer_VolumeDecrement ,___           ,___            ,___ ,___
-
-                ,Key_UpArrow   ,Key_F7              ,Key_F8          ,Key_F9         ,Key_F10
-                ,Key_DownArrow ,Key_F4              ,Key_F5          ,Key_F6         ,Key_F11
-      ,___      ,XXX           ,Key_F1              ,Key_F2          ,Key_F3         ,Key_F12
-      ,___      ,___           ,MoveToLayer(QWERTY) ,Key_PrintScreen ,Key_ScrollLock ,Consumer_PlaySlashPause
+       Key_Insert            ,Key_Home                 ,Key_UpArrow   ,Key_End        ,Key_PageUp             ,Key_UpArrow   ,Key_F7              ,Key_F8          ,Key_F9         ,Key_F10
+      ,Key_Delete            ,Key_LeftArrow            ,Key_DownArrow ,Key_RightArrow ,Key_PageDown           ,Key_DownArrow ,Key_F4              ,Key_F5          ,Key_F6         ,Key_F11
+      ,M(MACRO_VERSION_INFO) ,Consumer_VolumeIncrement ,XXX           ,XXX            ,___          ,___ ,___ ,XXX           ,Key_F1              ,Key_F2          ,Key_F3         ,Key_F12
+      ,MoveToLayer(QWERTY)   ,Consumer_VolumeDecrement ,___           ,___            ,___          ,___ ,___ ,___           ,MoveToLayer(QWERTY) ,Key_PrintScreen ,Key_ScrollLock ,Consumer_PlaySlashPause
    )
 )
 /* *INDENT-ON* */
@@ -116,7 +101,6 @@ KALEIDOSCOPE_INIT_PLUGINS(
   SpaceCadet,
   OneShot,
   Macros,
-  TapDance,
   MouseKeys
 );
 
@@ -142,24 +126,16 @@ const macro_t *macroAction(uint8_t macroIndex, uint8_t keyState) {
   return MACRO_NONE;
 }
 
-static void tapDanceBrackets(uint8_t tap_dance_index, uint8_t tap_count, kaleidoscope::plugin::TapDance::ActionType tap_dance_action) {
-  if (tap_dance_index == 0) {
-    tapDanceActionKeys(tap_count, tap_dance_action, Key_LeftParen, DvorakKey_LeftCurlyBracket, DvorakKey_LeftBracket);
-  }
-  else if (tap_dance_index == 1) {
-    tapDanceActionKeys(tap_count, tap_dance_action, Key_RightParen, DvorakKey_RightCurlyBracket, DvorakKey_RightBracket);
-  }
-}
-
-void tapDanceAction(uint8_t tap_dance_index, KeyAddr key_addr, uint8_t tap_count, kaleidoscope::plugin::TapDance::ActionType tap_dance_action) {
-  switch (tap_dance_index) {
-  case 0:
-  case 1:
-    return tapDanceBrackets(tap_dance_index, tap_count, tap_dance_action);
-  }
-}
-
 void setup() {
+  QUKEYS(
+    kaleidoscope::plugin::Qukey(0, KeyAddr(1,  0), Key_LeftShift),   // A/shift
+    kaleidoscope::plugin::Qukey(0, KeyAddr(1,  2), Key_LeftGui),     // D/super
+    kaleidoscope::plugin::Qukey(0, KeyAddr(1,  3), Key_LeftControl), // F/control
+    kaleidoscope::plugin::Qukey(0, KeyAddr(1,  8), Key_LeftControl), // H/control
+    kaleidoscope::plugin::Qukey(0, KeyAddr(1,  9), Key_LeftGui),     // T/super
+    kaleidoscope::plugin::Qukey(0, KeyAddr(1, 11), Key_LeftShift),   // S/shift
+  )
+  Qukeys.activate();
   Kaleidoscope.setup();
   SpaceCadet.disable();
   EEPROMKeymap.setup(10);
