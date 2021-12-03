@@ -38,6 +38,7 @@ files[19]='.inputrc'
 files[20]='.profile'
 files[21]='xterm-256color-italic.terminfo'
 files[22]='.emacs'
+files[23]='.config/nvim'
 
 for f in "${files[@]}"
 do
