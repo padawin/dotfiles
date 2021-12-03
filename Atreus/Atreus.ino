@@ -75,10 +75,10 @@ KEYMAPS(
 
   [FUN] = KEYMAP
   (
-       DvorakKey_LeftCurlyBracket ,DvorakKey_LeftBracket ,Key_UpArrow        ,DvorakKey_RightBracket ,DvorakKey_RightCurlyBracket                          ,Key_PageUp   ,Key_7 ,Key_8 ,Key_9 ,Key_Backspace
-      ,Key_LeftParen              ,Key_LeftArrow         ,Key_DownArrow      ,Key_RightArrow         ,Key_RightParen                                       ,Key_PageDown ,Key_4 ,Key_5 ,Key_6 ,Key_Quote
-      ,Key_Exclamation            ,Key_At                ,Key_Hash           ,Key_Dollar             ,Key_Percent                ,Key_Caret ,Key_And       ,Key_Star     ,Key_1 ,Key_2 ,Key_3 ,Key_Plus
-      ,TG(UPPER)                  ,Key_LeftGui           ,LSHIFT(Key_Insert) ,Key_LeftAlt            ,Key_Delete                 ,Key_Tab   ,Key_Backspace ,Key_Enter    ,___   ,Key_0 ,Key_0 ,Key_Equals
+       DvorakKey_LeftCurlyBracket ,DvorakKey_LeftBracket ,Key_UpArrow        ,DvorakKey_RightBracket ,DvorakKey_RightCurlyBracket                               ,Key_PageUp   ,Key_7 ,Key_8 ,Key_9 ,Key_LeftBracket
+      ,Key_LeftParen              ,Key_LeftArrow         ,Key_DownArrow      ,Key_RightArrow         ,Key_RightParen                                            ,Key_PageDown ,Key_4 ,Key_5 ,Key_6 ,Key_Quote
+      ,Key_Exclamation            ,Key_At                ,Key_Hash           ,Key_Dollar             ,Key_Percent                ,Key_Caret      ,Key_And       ,Key_Star     ,Key_1 ,Key_2 ,Key_3 ,Key_Plus
+      ,TG(UPPER)                  ,Key_LeftGui           ,LSHIFT(Key_Insert) ,Key_LeftAlt            ,Key_Delete                 ,Key_LeftShift  ,Key_Backspace ,Key_Enter    ,___   ,Key_0 ,Key_0 ,Key_Equals
    ),
 
   [UPPER] = KEYMAP
