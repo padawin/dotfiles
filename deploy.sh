@@ -10,7 +10,7 @@ for hook in $(ls $SOURCE/git_hooks/); do
 done
 
 # Desktop launchers
-mkdir -p ~/local/share/applications
+mkdir -p ~/.local/share/applications
 for launcher in $(ls $SOURCE/.desktop/); do
 	ln -rfs "$SOURCE/.desktop/$launcher" ~/.local/share/applications/"$launcher"
 done
