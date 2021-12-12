@@ -3,5 +3,5 @@ Encoding=UTF-8
 Version=1.0
 Type=Application
 Terminal=false
-Exec=min https://mail.google.com
+Exec=min https://mail.google.com/mail/u/0/?nocheckbrowser#inbox
 Name=Mail

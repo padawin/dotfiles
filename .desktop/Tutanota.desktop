@@ -1,14 +1,14 @@
 [Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Terminal=false
+Exec=tutanota
 Name=Tutanota Desktop
 Comment=The desktop client for Tutanota, the secure e-mail service.
 GenericName=Mail Client
 Keywords=Email;E-mail
-Exec="~/.self/bin/tutanota" %U
-Terminal=false
-Type=Application
-Icon=tutanota-desktop.png
+#Icon=tutanota-desktop.png
 StartupWMClass=tutanota-desktop
-MimeType=x-scheme-handler/mailto;
-Categories=Network;
-X-Tutanota-Version=3.89.20
-TryExec=~/.self/bin/tutanota
+#MimeType=x-scheme-handler/mailto;
+#Categories=Network;
+#X-Tutanota-Version=3.89.20
