@@ -1,4 +1,5 @@
 .git_template
+.emacs.d
 emacs/config.el
 emacs/backups/
 .vim/bundle/
