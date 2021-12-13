@@ -14,6 +14,8 @@ min browser
 rofi
 alacritty
 black
+git-branch-status (https://github.com/bill-auger/git-branch-status)
+markdown (http://daringfireball.net/projects/markdown/)
 
 To disable capslocks, the following line has to be changed in
 `/etc/default/keyboard`:

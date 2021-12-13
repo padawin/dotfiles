@@ -21,7 +21,7 @@ git checkout "$PARENT_BRANCH"
 
 read -p "Delete branch $CURRENT_BRANCH (y/N)? " -r DELETE_BRANCH
 if [ "$DELETE_BRANCH" == "Y" ] || [ "$DELETE_BRANCH" == "y" ]; then
-	git branch -d "$CURRENT_BRANCH"
+	git branch -D "$CURRENT_BRANCH"
 fi
 
 git rev-parse "origin/$CURRENT_BRANCH" 2> /dev/null
