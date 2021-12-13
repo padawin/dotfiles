@@ -39,7 +39,9 @@ set bind-tty-special-chars Off
 "\e[A": history-search-backward
 "\e[B": history-search-forward
 
-"\C-\M-h": backward-char
-"\C-\M-l": forward-char
-"\C-\M-b": backward-word
-"\C-\M-w": forward-word
+"\eb": backward-char
+"\ef": forward-char
+"\eh": backward-word
+"\el": forward-word
+"\e\C-h": vi-backward-bigword
+"\e\C-l": vi-forward-bigword
