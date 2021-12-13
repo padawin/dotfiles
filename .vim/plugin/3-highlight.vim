@@ -1,3 +1,14 @@
+function! MyMarkdownHighlights() abort
+    syntax region mdCodeAround  start=+^ \n\(\t|    \)+ end=+^$+ keepend contains=markdownCodeBlock
+    " highlight def link mdCodeAround Normal
+    highlight mdCodeAround ctermfg=43
+endfunction
+
+augroup MyColors
+    autocmd!
+    autocmd BufEnter *.md call MyMarkdownHighlights()
+augroup END
+
 " Colorscheme
 colorscheme jellybeans
 
