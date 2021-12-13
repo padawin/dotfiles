@@ -8,8 +8,3 @@ fun! CompileGoFile()
 endfun
 
 
-augroup GoBuild
-	autocmd!
-	autocmd BufWritePre *.go :GoImports
-	autocmd BufWritePost *.go call CompileGoFile()
-augroup END
