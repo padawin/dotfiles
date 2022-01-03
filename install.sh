@@ -21,7 +21,8 @@ sudo $INSTALL_PROG install \
 	rofi \
 	polybar sysstat acpi volumeicon network-manager-applet \
 	xset \
-	light
+	light \
+	htop tree
 
 (
 	echo "Install fzf"
@@ -67,6 +68,27 @@ sudo $INSTALL_PROG install \
 	cd git-branch-status
 	mv git-branch-status ~/.local/bin/git-branch-status
 	echo "git branch-status installed"
+)
+
+(
+	echo "Install Github Notifications"
+	DIR=$(mktemp -d)
+	cd $DIR
+	git clone https://github.com/padawin/github-notifications
+	cd github-notifications
+	make
+	mv github-notifications ~/.local/bin/github-notifications
+	echo "github notifications installed"
+)
+
+(
+	echo "Install German Practice"
+	DIR=$(mktemp -d)
+	cd $DIR
+	git clone https://github.com/padawin/german-practice
+	cd german-practice
+	BINDIR=~/.local/bin/ make all install
+	echo "German Practice installed"
 )
 
 echo "Install tmuxp"
