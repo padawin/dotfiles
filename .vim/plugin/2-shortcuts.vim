@@ -20,8 +20,8 @@ nnoremap <leader>r :set relativenumber!<CR>:set list!<CR>
 nnoremap <F3> :noh<CR>
 nnoremap <leader>s :bnext<CR>
 nnoremap <leader>a :bprevious<CR>
-nnoremap <leader>m :make<CR><C-o>:cwindow<CR>
-nnoremap <leader>g :grep <c-r><c-w><CR><C-o>:cwindow<CR>
+nnoremap <leader>m :make<CR><C-o>:bo cwindow<CR>
+nnoremap <leader>g :grep <c-r><c-w><CR><C-o>:bo cwindow<CR>
 
 " Non quitting analog of ZZ
 nnoremap zz :w<CR>
