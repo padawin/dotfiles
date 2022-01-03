@@ -49,7 +49,7 @@ font-1 = FontAwesome:style=Regular:size=13;2
 cursor-click = pointer
 
 modules-left = i3 filesystem cpu mem battery wlan
-modules-right = xkeyboard light date
+modules-right = github-notifications xkeyboard light date
 tray-position = right
 
 [module/cpu]
@@ -254,3 +254,10 @@ format-mounted-prefix = " "
 format-mounted-prefix-foreground = ${colors.prefix-foreground}
 format-mounted = <label-mounted>
 label-mounted = %mountpoint% %free%
+
+[module/github-notifications]
+type = custom/script
+exec = github-notifications
+tail = false
+interval = 300
+click-left = xdg-open https://github.com/notifications?query=is%3Aunread
