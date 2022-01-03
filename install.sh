@@ -24,7 +24,7 @@ sudo $INSTALL_PROG install \
 	light \
 	htop tree
 
-(
+if [ -z "`which fzf`" ]; then
 	echo "Install fzf"
 	echo "fzf releases: https://github.com/junegunn/fzf/releases"
 	read -p "URL to fzf archive to install (leave empty to skip): " -r URL
@@ -37,9 +37,9 @@ sudo $INSTALL_PROG install \
 		rm `basename $URL`
 	fi
 	echo "fzf installed"
-)
+fi
 
-(
+if [ -z "`which gti`" ]; then
 	echo "Install gti"
 	DIR=$(mktemp -d)
 	cd $DIR
@@ -48,9 +48,9 @@ sudo $INSTALL_PROG install \
 	make
 	mv gti ~/.local/bin/gti
 	echo "gti installed"
-)
+fi
 
-(
+if [ -z "`which markdown`" ]; then
 	echo "Install markdown"
 	DIR=$(mktemp -d)
 	cd $DIR
@@ -58,9 +58,9 @@ sudo $INSTALL_PROG install \
 	unzip Markdown_1.0.1.zip
 	mv Markdown_1.0.1/Markdown.pl ~/.local/bin/markdown
 	echo "markdown installed"
-)
+fi
 
-(
+if [ -z "`which git-branch-status`" ]; then
 	echo "Install git branch-status"
 	DIR=$(mktemp -d)
 	cd $DIR
@@ -68,9 +68,9 @@ sudo $INSTALL_PROG install \
 	cd git-branch-status
 	mv git-branch-status ~/.local/bin/git-branch-status
 	echo "git branch-status installed"
-)
+fi
 
-(
+if [ -z "`which github-notifications`" ]; then
 	echo "Install Github Notifications"
 	DIR=$(mktemp -d)
 	cd $DIR
@@ -79,9 +79,9 @@ sudo $INSTALL_PROG install \
 	make
 	mv github-notifications ~/.local/bin/github-notifications
 	echo "github notifications installed"
-)
+fi
 
-(
+if [ -z "`which german-practice`" ]; then
 	echo "Install German Practice"
 	DIR=$(mktemp -d)
 	cd $DIR
@@ -89,10 +89,12 @@ sudo $INSTALL_PROG install \
 	cd german-practice
 	BINDIR=~/.local/bin/ make all install
 	echo "German Practice installed"
-)
+fi
 
-echo "Install tmuxp"
-pip3 install --user tmuxp
+if [ -z "`which tmuxp`" ]; then
+	echo "Install tmuxp"
+	pip3 install --user tmuxp
+fi
 
 # Some setup
 # For italic terminal:
