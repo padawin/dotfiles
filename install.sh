@@ -99,3 +99,10 @@ fi
 # Some setup
 # For italic terminal:
 tic -x xterm-256color-italic.terminfo
+
+cd ~
+if [ ! -d dotfiles ]; then
+	git clone git@github.com:padawin/dotfiles
+	cd dotfiles
+	./deploy.sh
+fi
