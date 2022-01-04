@@ -86,7 +86,7 @@ pin-workspaces = true
 inline-mode = true
 enable-click = true
 enable-scroll = true
-reverse-scroll = false
+reverse-scroll = true
 
 ws-icon-0 = 1;1
 ws-icon-1 = 2;2
