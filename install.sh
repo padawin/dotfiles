@@ -15,13 +15,14 @@ echo "Use $INSTALL_PROG"
 echo "Install some needed programs using system's package manager"
 # Install needed programs
 sudo $INSTALL_PROG install -y \
-	git vim alacritty tmux python3 pip \
+	git vim alacritty tmux tmate python3 pip \
 	i3 flameshot feh ranger \
 	rofi \
 	polybar sysstat acpi volumeicon network-manager-applet \
 	xset \
 	light \
-	htop tree
+	htop tree \
+	fontawesome-fonts
 
 if [ -z "`which fzf`" ]; then
 	echo "Install fzf"
@@ -35,8 +36,8 @@ if [ -z "`which fzf`" ]; then
 		mv fzf ~/.local/bin/fzf
 		rm `basename $URL`
 	fi
-	echo "fzf installed"
 fi
+echo -e "\e[0;32m✔\e[0m fzf installed"
 
 if [ -z "`which gti`" ]; then
 	echo "Install gti"
@@ -46,8 +47,8 @@ if [ -z "`which gti`" ]; then
 	cd gti
 	make
 	mv gti ~/.local/bin/gti
-	echo "gti installed"
 fi
+echo -e "\e[0;32m✔\e[0m gti installed"
 
 if [ -z "`which markdown`" ]; then
 	echo "Install markdown"
@@ -56,8 +57,8 @@ if [ -z "`which markdown`" ]; then
 	wget https://daringfireball.net/projects/downloads/Markdown_1.0.1.zip
 	unzip Markdown_1.0.1.zip
 	mv Markdown_1.0.1/Markdown.pl ~/.local/bin/markdown
-	echo "markdown installed"
 fi
+echo -e "\e[0;32m✔\e[0m markdown installed"
 
 if [ -z "`which git-branch-status`" ]; then
 	echo "Install git branch-status"
@@ -66,8 +67,8 @@ if [ -z "`which git-branch-status`" ]; then
 	git clone https://github.com/bill-auger/git-branch-status
 	cd git-branch-status
 	mv git-branch-status ~/.local/bin/git-branch-status
-	echo "git branch-status installed"
 fi
+echo -e "\e[0;32m✔\e[0m git branch-status installed"
 
 if [ -z "`which github-notifications`" ]; then
 	echo "Install Github Notifications"
@@ -77,8 +78,8 @@ if [ -z "`which github-notifications`" ]; then
 	cd github-notifications
 	make
 	mv github-notifications ~/.local/bin/github-notifications
-	echo "github notifications installed"
 fi
+echo -e "\e[0;32m✔\e[0m github notifications installed"
 
 if [ -z "`which german-practice`" ]; then
 	echo "Install German Practice"
@@ -87,13 +88,14 @@ if [ -z "`which german-practice`" ]; then
 	git clone https://github.com/padawin/german-practice
 	cd german-practice
 	BINDIR=~/.local/bin/ make all install
-	echo "German Practice installed"
 fi
+echo -e "\e[0;32m✔\e[0m German Practice installed"
 
 if [ -z "`which tmuxp`" ]; then
 	echo "Install tmuxp"
 	pip3 install --user tmuxp
 fi
+echo -e "\e[0;32m✔\e[0m tmuxp installed"
 
 # Some setup
 # For italic terminal:
@@ -105,3 +107,6 @@ if [ ! -d dotfiles ]; then
 	cd dotfiles
 	./deploy.sh
 fi
+
+read -p "Is your GITHUB_NOTIFICATION_TOKEN set?"
+echo -e "\e[0;32m✔\e[0m Installation complete"
