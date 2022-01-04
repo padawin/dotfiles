@@ -4,8 +4,7 @@ set -o pipefail
 set -o nounset
 
 echo "Figuring out which package manager to use"
-which dnf 1> /dev/null
-if [ $? -eq 0 ]; then
+if [ ! -z `which dnf` ]; then
 	INSTALL_PROG="dnf"
 else
 	INSTALL_PROG="apt"
