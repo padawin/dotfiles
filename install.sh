@@ -15,7 +15,7 @@ echo "Use $INSTALL_PROG"
 
 echo "Install some needed programs using system's package manager"
 # Install needed programs
-sudo $INSTALL_PROG install \
+sudo $INSTALL_PROG install -y \
 	git vim alacritty tmux python3 pip \
 	i3 flameshot feh ranger \
 	rofi \
