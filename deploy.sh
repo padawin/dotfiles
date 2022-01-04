@@ -11,8 +11,14 @@ done
 
 # Desktop launchers
 mkdir -p ~/.local/share/applications
-for launcher in $(ls $SOURCE/.desktop/); do
-	ln -rfs "$SOURCE/.desktop/$launcher" ~/.local/share/applications/"$launcher"
+for launcher in $(ls $SOURCE/.local/share/applications/*.desktop); do
+	ln -rfs "$launcher" ~/.local/share/applications/"`basename $launcher`"
+done
+
+# fonts
+mkdir -p ~/.local/share/fonts/
+for font in $(ls $SOURCE/.local/share/fonts/*.otf); do
+	ln -rfs "$font" ~/.local/share/fonts/"`basename $font`"
 done
 
 files[0]='.gconf/apps/gnome-terminal'
