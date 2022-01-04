@@ -35,7 +35,7 @@ match WhiteSpaceMol / /
 " augroup END
 
 " Spell mistakes
-highlight SpellBad cterm=underline,bold ctermfg=none ctermbg=NONE
+highlight SpellBad cterm=underline,bold guifg=NONE guibg=NONE ctermfg=none ctermbg=NONE
 
 " Colorscheme override
 highlight IncSearch term=standout cterm=standout ctermfg=166 gui=reverse
