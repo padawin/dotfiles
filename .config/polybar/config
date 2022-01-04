@@ -2,7 +2,8 @@
 [colors]
 
 prefix-foreground = ${xrdb:color12}
-clickable-foreground = #4b954b
+clickable-foreground = ${xrdb:color2}
+clickable-alt-foreground = ${xrdb:color4}
 background = $(xrdb:background)
 foreground = $(xrdb:foreground)
 color0 = ${xrdb:color0}
@@ -48,8 +49,8 @@ font-1 = FontAwesome:style=Regular:size=13;2
 # Define the cursor for clickable modules
 cursor-click = pointer
 
-modules-left = i3 filesystem cpu mem battery wlan
-modules-right = github-notifications xkeyboard light date
+modules-left = i3 github-notifications xkeyboard light config
+modules-right = filesystem cpu mem battery wlan date
 tray-position = right
 
 [module/cpu]
@@ -198,23 +199,16 @@ format-discharging-padding = 1
 
 [module/xkeyboard]
 type = internal/xkeyboard
-label-layout = %name%
-format-prefix-foreground = ${colors.clickable-foreground}
-format-prefix= " "
-format-padding = 1
+format= " "
+format-foreground = ${colors.clickable-foreground}
 
 
 [module/light]
-type = custom/script
-exec = light
-interval = 1
+type = custom/text
 scroll-up = light -A 5
 scroll-down = light -U 5
-format = <label>
-format-prefix =" "
-label = %output%
-format-prefix-foreground = ${colors.color3}
-format-padding = 1
+content = " "
+content-foreground = ${colors.color3}
 
 
 [module/screenshot]
@@ -261,3 +255,26 @@ exec = github-notifications
 tail = false
 interval = 300
 click-left = xdg-open https://github.com/notifications?query=is%3Aunread
+
+[module/config]
+type = custom/menu
+
+expand-right = true
+
+label-open = 
+label-open-foreground = ${colors.clickable-foreground}
+label-close = 
+label-close-foreground = ${colors.clickable-alt-foreground}
+label-separator = " "
+label-separator-foreground = ${colors.foreground-alt}
+
+menu-0-0 = i3
+menu-0-0-exec = gvim ~/.config/i3/config
+menu-0-1 = polybar
+menu-0-1-exec = gvim ~/.config/polybar/config
+menu-0-2 = alacritty
+menu-0-2-exec = gvim ~/.config/alacritty/alacritty.yml
+menu-0-3 = vim
+menu-0-3-exec = gvim ~/.vimrc
+menu-0-4 = git
+menu-0-4-exec = gvim ~/.gitconfig
