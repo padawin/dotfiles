@@ -10,6 +10,8 @@ if [ -f "$local_hook" ]; then
 fi
 
 if [ $res -eq 0 ]; then
+	# Do not run german practice when amending or fixing commits up
+	if ps -ocommand= -p $PPID | egrep -q "(--fixup|--amend|--squash)"; then exit $res; fi
 	if [ ! -z "$GERMAN_PRACTICE" ]; then
 		# Practice German every time I commit
 		exec < /dev/tty
