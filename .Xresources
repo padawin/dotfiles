@@ -1,5 +1,8 @@
 ! Use the following command to reload the file:
 ! xrdb .Xresources
+! gsettings set org.gnome.desktop.interface gtk-theme "`xrescat gnome.gtk.theme Adwaita`"
+! gsettings set org.gnome.desktop.wm.preferences theme "`xrescat gnome.wm.theme Adwaita`"
+! gsettings set org.gnome.desktop.interface icon-theme "`xrescat gnome.icon.theme Adwaita`"
 
 !-*- Settings -*-
 URxvt.iso14755_52: disabled
@@ -72,3 +75,33 @@ URxvt.keysym.Control-Left: \033[1;5D
 URxvt.clipboard.autocopy: true
 URxvt.keysym.Control-Shift-c: perl:clipboard:copy
 URxvt.keysym.Control-Shift-v: perl:clipboard:paste
+
+! i3 conf
+i3-wm.workspace.01.name: 1: Browser
+i3-wm.workspace.02.name: 2: Code
+i3-wm.workspace.03.name: 3: Communication
+i3-wm.workspace.04.name: 4: Mail
+i3-wm.workspace.05.name: 5
+i3-wm.workspace.06.name: 6
+i3-wm.workspace.07.name: 7
+i3-wm.workspace.08.name: 8
+i3-wm.workspace.09.name: 9
+i3-wm.workspace.10.name: 10
+
+#define icon_theme Faba
+
+gnome.gtk.theme:          Dracula
+gnome.wm.theme:           Dracula
+gnome.icon.theme:         icon_theme
+gnome.wallpaper:          ~/Pictures/background
+gnome.terminal.font:      typeface_gnome_terminal
+gnome.terminal.scrollbar: theme_terminal_scrollbar
+
+! -- Applications
+rofi.theme:                 ~/.config/rofi/dracula.rasi
+rofi.font:                  Operator Mono Book 16
+rofi.show-icons:            true
+rofi.icon-theme:            icon_theme
+rofi.drun-display-format:   {name}
+rofi.window-format:         \ {n} {t}
+rofi.modi:                  window,drun,run

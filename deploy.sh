@@ -45,6 +45,7 @@ files[20]='.profile'
 files[21]='xterm-256color-italic.terminfo'
 files[22]='.emacs'
 files[23]='.config/nvim'
+files[24]='.config/rofi'
 
 for f in "${files[@]}"
 do

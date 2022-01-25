@@ -16,7 +16,7 @@ echo "Install some needed programs using system's package manager"
 # Install needed programs
 sudo $INSTALL_PROG install -y \
 	git vim alacritty tmux tmate python3 pip \
-	i3 flameshot feh ranger \
+	i3 i3ipc flameshot feh ranger \
 	rofi \
 	polybar sysstat acpi volumeicon network-manager-applet \
 	xset \
@@ -59,6 +59,16 @@ if [ -z "`which markdown`" ]; then
 	mv Markdown_1.0.1/Markdown.pl ~/.local/bin/markdown
 fi
 echo -e "\e[0;32m✔\e[0m markdown installed"
+
+if [ -z "`which rofication-gui`" ]; then
+	echo "Install rofication"
+	DIR=$(mktemp -d)
+	cd $DIR
+	git clone https://github.com/regolith-linux/regolith-rofication.git
+	cd regolith-notification
+	sudo python setup.py install
+fi
+echo -e "\e[0;32m✔\e[0m rofication installed"
 
 if [ -z "`which git-branch-status`" ]; then
 	echo "Install git branch-status"

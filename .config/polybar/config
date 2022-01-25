@@ -1,11 +1,14 @@
 # vim: filetype=config
 [colors]
-
-prefix-foreground = ${xrdb:color12}
-clickable-foreground = ${xrdb:color2}
-clickable-alt-foreground = ${xrdb:color4}
-background = $(xrdb:background)
-foreground = $(xrdb:foreground)
+prefix-foreground = ${xrdb:color7}
+prefix-background = ${xrdb:color8}
+foreground = ${xrdb:color0}
+background = "#bbbbbb"
+clickable-foreground = ${xrdb:color0}
+clickable-background = "#308634"
+clickable-alt-foreground = ${xrdb:color0}
+clickable-alt-background = "#6C77BB"
+focused-workspace = "#308634"
 color0 = ${xrdb:color0}
 color1 = ${xrdb:color1}
 color2 = ${xrdb:color2}
@@ -23,7 +26,6 @@ color13 = ${xrdb:color13}
 color14 = ${xrdb:color14}
 color15 = ${xrdb:color15}
 
-
 [bar/placeholder]
 width = 100%
 height = 30
@@ -31,7 +33,6 @@ override-redirect = false
 bottom = true
 modules-center = placeholder
 tray-position = right
-
 
 [bar/bottom]
 #monitor = ${env:MONITOR:HDMI-1}
@@ -42,212 +43,66 @@ background = ${colors.color0}
 foreground = ${colors.color7}
 bottom = true
 line-size = 1
-
 font-0 = Operator Mono Font:style=Bold:size=12;2
 font-1 = FontAwesome:style=Regular:size=13;2
-
 # Define the cursor for clickable modules
 cursor-click = pointer
-
-modules-left = i3 github-notifications xkeyboard light config
+modules-left = i3 notifications github-notifications light xkeyboard config
 modules-right = filesystem cpu mem battery wlan date
 tray-position = right
-
-[module/cpu]
-type = internal/cpu
-interval = 2
-format-prefix = "  CPU "
-format-prefix-foreground = ${colors.prefix-foreground}
-format-prefix-background = ${colors.background}
-label-foreground = ${colors.foreground}
-label-background = ${colors.background}
-label = "%percentage:2%%"
-
-#wm-restack = i3
-#override-redirect = true
-
-
-[module/mem]
-type = custom/script
-exec = ~/.scripts/memory | head -n 1
-
-format = <label>
-format-prefix = "MEM "
-format-prefix-foreground = ${colors.prefix-foreground}
-format-prefix-background = ${colors.background}
-format-foreground = ${colors.foreground}
-format-background = ${colors.background}
-format-padding = 1
-
+module-margin = 1
+border-size = 5
+border-color = ${colors.color0}
 
 [module/i3]
 type = internal/i3
-
 pin-workspaces = true
 inline-mode = true
 enable-click = true
 enable-scroll = true
 reverse-scroll = true
-
-ws-icon-0 = 1;1
-ws-icon-1 = 2;2
-ws-icon-2 = 3;3
-ws-icon-3 = 4;4
-ws-icon-4 = 5;5
-ws-icon-5 = 6;6
-ws-icon-6 = 7;7
-ws-icon-7 = 8;8
-ws-icon-8 = 9;9
-ws-icon-9 = 10;10
-ws-icon-10 = 11;11
-ws-icon-11 = 12;12
-ws-icon-12 = 13;13
-ws-icon-13 = 14;14
-ws-icon-14 = 15;15
-ws-icon-15 = 16;16
-
+ws-icon-0 = 1;${xrdb:i3-wm.workspace.01.name}
+ws-icon-1 = 2;${xrdb:i3-wm.workspace.02.name}
+ws-icon-2 = 3;${xrdb:i3-wm.workspace.03.name}
+ws-icon-3 = 4;${xrdb:i3-wm.workspace.04.name}
+ws-icon-4 = 5;${xrdb:i3-wm.workspace.05.name}
+ws-icon-5 = 6;${xrdb:i3-wm.workspace.06.name}
+ws-icon-6 = 7;${xrdb:i3-wm.workspace.07.name}
+ws-icon-7 = 8;${xrdb:i3-wm.workspace.08.name}
+ws-icon-8 = 9;${xrdb:i3-wm.workspace.09.name}
+ws-icon-9 = 10;${xrdb:i3-wm.workspace.10.name}
 format = <label-state> <label-mode>
 index-sort = true
 wrapping-scroll = false
-
 label-mode-padding = 2
 label-mode-foreground = ${colors.color0}
 label-mode-background = ${colors.color1}
-
 # focused = Active workspace on focused monitor
-label-focused = %index%
-label-focused-background = ${colors.background}
+label-focused = %name%
 label-focused-foreground = ${colors.foreground}
-label-focused-padding = 1
-
+label-focused-background = ${colors.focused-workspace}
+label-focused-padding = 2
 # unfocused = Inactive workspace on any monitor
 label-unfocused = %index%
-label-unfocused-padding = 1
+label-unfocused-padding = 2
 label-unfocused-foreground = ${colors.color8}
-
+label-unfocused-background = ${colors.background}
 # visible = Active workspace on unfocused monitor
 label-visible = %index%
-label-visible-background = ${self.label-focused-background}
-label-visible-padding = ${self.label-focused-padding}
-
+label-visible-foreground = ${colors.foreground}
+label-visible-background = ${colors.background}
+label-visible-padding = 2
 # urgent = Workspace with urgency hint set
 label-urgent = ""
 label-urgent-foreground = ${colors.background}
 label-urgent-background = ${colors.color1}
-label-urgent-padding = 1
+label-urgent-padding = 2
 
-
-[module/date]
-type = internal/date
-interval = 1
-date = %Y-%m-%d
-time = %H:%M:%S
-format-prefix =""
-format-prefix-foreground = ${colors.prefix-foreground}
-label = " %date% %time%"
-format-padding = 1
-
-
-[module/battery]
-type = internal/battery
-battery = BAT0
-adapter = AC0
-full-at = 98
-
-format-charging = <animation-charging> <label-charging>
-#format-charging-foreground = ${colors.background}
-#format-charging-background = ${colors.background}
-
-format-discharging = <ramp-capacity> <label-discharging>
-#format-discharging-background = ${colors.background}
-
-format-full-prefix = "  "
-#format-full-prefix-foreground = ${colors.color4}
-label-full = "%percentage%% "
-format-foreground = ${colors.color4}
-format-background = ${colors.background}
-
-label-discharging = %percentage%%
-label-discharging-foreground = ${colors.foreground}
-
-label-charging = %percentage%%
-
-label-padding = 1
-
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
-ramp-capacity-3 = 
-ramp-capacity-4 = 
-ramp-capacity-4-foreground = ${colors.color12}
-ramp-capacity-3-foreground = ${colors.color10}
-ramp-capacity-2-foreground = ${colors.color11}
-ramp-capacity-1-foreground = ${colors.color14}
-ramp-capacity-0-foreground = ${colors.color9}
-
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
-animation-charging-3 = 
-animation-charging-4 = 
-animation-charging-foreground = ${colors.prefix-foreground}
-animation-charging-framerate = 750
-
-format-charging-padding = 1
-format-discharging-padding = 1
-
-
-[module/xkeyboard]
-type = internal/xkeyboard
-format= " "
-format-foreground = ${colors.clickable-foreground}
-
-
-[module/light]
-type = custom/text
-scroll-up = light -A 5
-scroll-down = light -U 5
-content = " "
-content-foreground = ${colors.color3}
-
-
-[module/screenshot]
-type = custom/text
-content-background = ${colors.color0}
-content-foreground = ${colors.color7}
-click-left = flameshot gui
-content = " "
-
-
-[module/wlan]
-type = internal/network
-interface = wlp2s0
-interval = 5.0
-
-format-connected = <label-connected>
-label-connected = "%essid%"
-format-connected-prefix = ""
-format-connected-prefix-foreground = ${colors.prefix-foreground}
-format-connected-prefix-background = ${colors.background}
-label-connected-padding = 1
-
-format-disconnected = <label-disconnected>
-label-disconnected = "  disconnected"
-label-disconnected-foreground = ${colors.background}
-label-disconnected-background = ${colors.color1}
-label-disconnected-padding = 1
-
-[module/filesystem]
-type = internal/fs
-mount-0 = /
-mount-1 = /home
-interval = 10
-fixed-values = true
-spacing = 0
-format-mounted-prefix = " "
-format-mounted-prefix-foreground = ${colors.prefix-foreground}
-format-mounted = <label-mounted>
-label-mounted = %mountpoint% %free%
+[module/notifications]
+type = custom/script
+exec = rofication-status
+internal = 1
+click-left = rofication-gui
 
 [module/github-notifications]
 type = custom/script
@@ -256,25 +111,172 @@ tail = false
 interval = 300
 click-left = xdg-open https://github.com/notifications?query=is%3Aunread
 
+[module/xkeyboard]
+type = internal/xkeyboard
+format-prefix= ""
+format-prefix-foreground = ${colors.clickable-foreground}
+format-prefix-background = ${colors.clickable-background}
+format-prefix-padding = 1
+label-layout = "%name%"
+label-layout-foreground = ${colors.foreground}
+label-layout-background = ${colors.background}
+label-layout-padding = 1
+
 [module/config]
 type = custom/menu
-
 expand-right = true
-
-label-open = 
+label-open = " %{B#bbbbbb} Configuration files"
 label-open-foreground = ${colors.clickable-foreground}
-label-close = 
+label-open-background = ${colors.clickable-background}
+label-open-padding = 1
+label-close = ""
 label-close-foreground = ${colors.clickable-alt-foreground}
+label-close-background = ${colors.clickable-alt-background}
+label-close-padding = 1
 label-separator = " "
-label-separator-foreground = ${colors.foreground-alt}
-
 menu-0-0 = i3
+menu-0-0-foreground = ${colors.foreground}
+menu-0-0-background = ${colors.background}
+menu-0-0-padding = 1
 menu-0-0-exec = gvim ~/.config/i3/config
 menu-0-1 = polybar
+menu-0-1-foreground = ${colors.foreground}
+menu-0-1-background = ${colors.background}
+menu-0-1-padding = 1
 menu-0-1-exec = gvim ~/.config/polybar/config
 menu-0-2 = alacritty
+menu-0-2-foreground = ${colors.foreground}
+menu-0-2-background = ${colors.background}
+menu-0-2-padding = 1
 menu-0-2-exec = gvim ~/.config/alacritty/alacritty.yml
 menu-0-3 = vim
+menu-0-3-foreground = ${colors.foreground}
+menu-0-3-background = ${colors.background}
+menu-0-3-padding = 1
 menu-0-3-exec = gvim ~/.vimrc
 menu-0-4 = git
+menu-0-4-foreground = ${colors.foreground}
+menu-0-4-background = ${colors.background}
+menu-0-4-padding = 1
 menu-0-4-exec = gvim ~/.gitconfig
+
+[module/date]
+type = internal/date
+interval = 1
+date = %Y-%m-%d
+time = %H:%M:%S
+format-prefix ="  "
+format-prefix-foreground = ${colors.prefix-foreground}
+format-prefix-background = ${colors.prefix-background}
+label = " %date% %time% "
+label-foreground = ${colors.foreground}
+label-background = ${colors.background}
+
+[module/light]
+type = custom/text
+scroll-up = light -A 5
+scroll-down = light -U 5
+content = ""
+content-foreground = ${colors.foreground}
+content-background = ${colors.color3}
+content-padding = 1
+
+[module/wlan]
+type = internal/network
+interface = wlp9s0
+interval = 5.0
+format-connected = <label-connected>
+label-connected = "%essid%"
+format-connected-prefix = "  "
+format-connected-prefix-foreground = ${colors.prefix-foreground}
+format-connected-prefix-background = ${colors.prefix-background}
+label-connected-padding = 1
+label-connected-foreground = ${colors.foreground}
+label-connected-background = ${colors.background}
+format-disconnected = <label-disconnected>
+format-disconnected-prefix = "  "
+format-disconnected-prefix-foreground = ${colors.prefix-foreground}
+format-disconnected-prefix-background = ${colors.prefix-background}
+label-disconnected = "disconnected"
+label-disconnected-foreground = ${colors.foreground}
+label-disconnected-background = ${colors.background}
+label-disconnected-padding = 1
+
+[module/filesystem]
+type = internal/fs
+mount-0 = /
+interval = 10
+fixed-values = true
+spacing = 0
+format-mounted-prefix = "  "
+format-mounted-prefix-foreground = ${colors.prefix-foreground}
+format-mounted-prefix-background = ${colors.prefix-background}
+format-mounted = <label-mounted>
+label-mounted = " %mountpoint% %free% "
+label-mounted-foreground = ${colors.foreground}
+label-mounted-background = ${colors.background}
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+format-prefix = "  "
+format-prefix-foreground = ${colors.prefix-foreground}
+format-prefix-background = ${colors.prefix-background}
+label-foreground = ${colors.foreground}
+label-background = ${colors.background}
+label = "%percentage:2%%"
+label-padding = 1
+
+[module/mem]
+type = custom/script
+exec = ~/.scripts/memory | head -n 1
+format = "<label>"
+format-prefix = "  "
+format-prefix-foreground = ${colors.prefix-foreground}
+format-prefix-background = ${colors.prefix-background}
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+label-padding = 1
+
+[module/battery]
+type = internal/battery
+battery = BAT0
+adapter = AC0
+full-at = 98
+format-charging = <animation-charging> <label-charging>
+format-discharging = <ramp-capacity> <label-discharging>
+format-full-prefix = "  "
+format-full-prefix-foreground = ${colors.prefix-foreground}
+format-full-prefix-background = ${colors.prefix-background}
+label-full = " %percentage%% "
+label-full-foreground = ${colors.foreground}
+label-full-background = ${colors.background}
+label-discharging = " %percentage%% "
+label-discharging-foreground = ${colors.foreground}
+label-discharging-background = ${colors.background}
+label-charging = " %percentage%% "
+label-charging-foreground = ${colors.foreground}
+label-charging-background = ${colors.background}
+ramp-capacity-0 = "  "
+ramp-capacity-1 = "  "
+ramp-capacity-2 = "  "
+ramp-capacity-3 = "  "
+ramp-capacity-4 = "  "
+ramp-capacity-4-foreground = ${colors.color12}
+ramp-capacity-3-foreground = ${colors.color10}
+ramp-capacity-2-foreground = ${colors.color11}
+ramp-capacity-1-foreground = ${colors.color14}
+ramp-capacity-0-foreground = ${colors.color9}
+ramp-capacity-4-background = ${colors.prefix-background}
+ramp-capacity-3-background = ${colors.prefix-background}
+ramp-capacity-2-background = ${colors.prefix-background}
+ramp-capacity-1-background = ${colors.prefix-background}
+ramp-capacity-0-background = ${colors.prefix-background}
+animation-charging-0 = "  "
+animation-charging-1 = "  "
+animation-charging-2 = "  "
+animation-charging-3 = "  "
+animation-charging-4 = "  "
+animation-charging-foreground = ${colors.prefix-foreground}
+animation-charging-background = ${colors.prefix-background}
+animation-charging-framerate = 750
