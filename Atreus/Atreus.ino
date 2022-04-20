@@ -24,12 +24,10 @@
 
 #include "Kaleidoscope.h"
 #include "Kaleidoscope-EEPROM-Settings.h"
-#include "Kaleidoscope-EEPROM-Keymap.h"
 #include "Kaleidoscope-FocusSerial.h"
 #include "Kaleidoscope-Macros.h"
 #include "Kaleidoscope-MouseKeys.h"
 #include "Kaleidoscope-OneShot.h"
-#include "Kaleidoscope-Qukeys.h"
 #include "Kaleidoscope-SpaceCadet.h"
 
 
@@ -67,18 +65,18 @@ enum {
 KEYMAPS(
   [QWERTY] = KEYMAP
   (
-       Key_Q   ,Key_W   ,Key_E ,Key_R       ,Key_T,Key_Y                            ,Key_U     ,Key_I        ,Key_O        ,Key_P
-      ,Key_A   ,Key_S   ,Key_D ,Key_F       ,Key_G,Key_H                            ,Key_J     ,Key_K        ,Key_L        ,Key_Semicolon
-      ,Key_Z   ,Key_X   ,Key_C ,Key_V       ,Key_B     ,Key_Backtick ,Key_Backslash ,Key_N     ,Key_M        ,Key_Comma    ,Key_Period    ,Key_Slash
-      ,Key_Esc ,___     ,___   ,Key_LeftAlt ,Key_Space ,Key_Tab      ,Key_Backspace ,Key_Enter ,MO(FUN)      ,Key_RightAlt ,___           ,___
+       Key_Q   ,Key_W           ,Key_E           ,Key_R         ,Key_T                                  ,Key_Y         ,Key_U   ,Key_I        ,Key_O        ,Key_P
+      ,Key_A   ,Key_S           ,Key_D           ,Key_F         ,Key_G                                  ,Key_H         ,Key_J   ,Key_K        ,Key_L        ,Key_Semicolon
+      ,Key_Z   ,Key_X           ,Key_C           ,Key_V         ,Key_B     ,Key_Backtick ,Key_Backslash ,Key_N         ,Key_M   ,Key_Comma    ,Key_Period   ,Key_Slash
+      ,Key_Esc ,Key_LeftGui     ,Key_LeftControl ,Key_LeftShift ,Key_Space ,Key_Tab      ,Key_Backspace ,Key_Enter     ,MO(FUN) ,Key_LeftAlt  ,Key_RightAlt ,___
   ),
 
   [FUN] = KEYMAP
   (
-       DvorakKey_LeftCurlyBracket ,DvorakKey_LeftBracket ,Key_UpArrow        ,DvorakKey_RightBracket ,DvorakKey_RightCurlyBracket                               ,Key_PageUp   ,Key_7 ,Key_8 ,Key_9 ,Key_LeftBracket
-      ,Key_LeftParen              ,Key_LeftArrow         ,Key_DownArrow      ,Key_RightArrow         ,Key_RightParen                                            ,Key_PageDown ,Key_4 ,Key_5 ,Key_6 ,Key_Quote
-      ,Key_Exclamation            ,Key_At                ,Key_Hash           ,Key_Dollar             ,Key_Percent                ,Key_Caret      ,Key_And       ,Key_Star     ,Key_1 ,Key_2 ,Key_3 ,Key_RightBracket
-      ,TG(UPPER)                  ,Key_LeftGui           ,LSHIFT(Key_Insert) ,Key_LeftAlt            ,Key_Delete                 ,Key_LeftShift  ,Key_Backspace ,Key_Enter    ,___   ,Key_0 ,Key_0 ,___
+       DvorakKey_LeftCurlyBracket ,DvorakKey_LeftBracket ,Key_UpArrow        ,DvorakKey_RightBracket ,DvorakKey_RightCurlyBracket                       ,Key_PageUp   ,Key_7 ,Key_8              ,Key_9        ,Key_LeftBracket
+      ,Key_LeftParen              ,Key_LeftArrow         ,Key_DownArrow      ,Key_RightArrow         ,Key_RightParen                                    ,Key_PageDown ,Key_4 ,Key_5              ,Key_6        ,Key_Quote
+      ,Key_Exclamation            ,Key_At                ,Key_Hash           ,Key_Dollar             ,Key_Percent                ,Key_Caret ,Key_And    ,Key_Star     ,Key_1 ,Key_2              ,Key_3        ,Key_RightBracket
+      ,TG(UPPER)                  ,Key_LeftGui           ,Key_LeftControl    ,Key_LeftShift          ,Key_Space                  ,Key_Tab   ,Key_Delete ,Key_Enter    ,Key_0 ,LSHIFT(Key_Insert) ,Key_RightAlt ,___
    ),
 
   [UPPER] = KEYMAP
@@ -93,11 +91,9 @@ KEYMAPS(
 
 KALEIDOSCOPE_INIT_PLUGINS(
   EEPROMSettings,
-  EEPROMKeymap,
   Focus,
   FocusEEPROMCommand,
   FocusSettingsCommand,
-  Qukeys,
   SpaceCadet,
   OneShot,
   Macros,
@@ -127,18 +123,8 @@ const macro_t *macroAction(uint8_t macroIndex, uint8_t keyState) {
 }
 
 void setup() {
-  QUKEYS(
-    kaleidoscope::plugin::Qukey(0, KeyAddr(1,  0), Key_LeftShift),   // A/shift
-    kaleidoscope::plugin::Qukey(0, KeyAddr(1,  2), Key_LeftGui),     // D/super
-    kaleidoscope::plugin::Qukey(0, KeyAddr(1,  3), Key_LeftControl), // F/control
-    kaleidoscope::plugin::Qukey(0, KeyAddr(1,  8), Key_LeftControl), // H/control
-    kaleidoscope::plugin::Qukey(0, KeyAddr(1,  9), Key_LeftGui),     // T/super
-    kaleidoscope::plugin::Qukey(0, KeyAddr(1, 11), Key_LeftShift),   // S/shift
-  )
-  Qukeys.activate();
   Kaleidoscope.setup();
   SpaceCadet.disable();
-  EEPROMKeymap.setup(10);
 }
 
 void loop() {
