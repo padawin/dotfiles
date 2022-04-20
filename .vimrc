@@ -21,7 +21,7 @@ Plugin 'nanotech/jellybeans.vim'
 Plugin 'ap/vim-css-color'
 
 Plugin 'AndrewRadev/linediff.vim'
-Plugin 'guns/xterm-color-table.vim'
+Plugin 'padawin/xterm-color-table.vim'
 Plugin 'mbbill/undotree'
 Plugin 'vim-scripts/AutoComplPop'
 Plugin 'easymotion/vim-easymotion'
