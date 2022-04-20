@@ -4,6 +4,8 @@ flameshot &
 
 volumeicon &
 
+nm-applet &
+
 ## Set startup volume
 pactl set-sink-volume 0 '20%' &
 
