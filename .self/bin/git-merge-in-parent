@@ -13,7 +13,8 @@ CURR_TREE=$(git log --pretty='format:%T' -n 1)
 if [ -z "$PR_NUMBER" ]; then
 	MESSAGE="Merge $CURRENT_BRANCH into $PARENT_BRANCH"
 else
-	MESSAGE="Merge pull request #$PR_NUMBER from $(basename `pwd`)/$CURRENT_BRANCH"
+	PWD="$(pwd)"
+	MESSAGE="Merge pull request #$PR_NUMBER from $(basename $PWD)/$CURRENT_BRANCH"
 fi
 MERGE_COMMIT=$(git commit-tree "$CURR_TREE" -p "$PARENT_COMMIT" -p "$CURRENT_COMMIT" -m "$MESSAGE")
 git branch -f "$PARENT_BRANCH" "$MERGE_COMMIT"
