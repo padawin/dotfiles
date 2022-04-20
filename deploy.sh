@@ -46,6 +46,8 @@ files[21]='xterm-256color-italic.terminfo'
 files[22]='.emacs'
 files[23]='.config/nvim'
 files[24]='.config/rofi'
+files[25]='.config/regolith'
+files[26]='.tmate.conf'
 
 for f in "${files[@]}"
 do
