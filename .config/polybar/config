@@ -122,6 +122,9 @@ label-layout = "%name%"
 label-layout-foreground = ${colors.foreground}
 label-layout-background = ${colors.background}
 label-layout-padding = 1
+blacklist-0 = num lock
+blacklist-1 = scroll lock
+blacklist-2 = caps lock
 
 [module/config]
 type = custom/menu
