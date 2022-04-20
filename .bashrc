@@ -59,6 +59,10 @@ if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
     . /usr/local/bin/virtualenvwrapper.sh
 fi
 
+if [ -f ~/git-prompt.sh ]; then
+    . ~/git-prompt.sh
+fi
+
 export TERM=xterm-256color-italic
 
 function j(){
@@ -93,7 +97,8 @@ __prompt_command() {
 	local Mau='\[\e[1;38;5;147m\]'
 	local Gre2='\[\e[1;38;5;35m\]'
 
-	PS1+="$(j)${Mau}\w${Ora}$(__git_ps1)"
+	gitPS1=$(__git_ps1 " ${Ora}(%s${Ora})${RCol}")
+	PS1+="$(j)${Mau}\w${gitPS1}"
 	if [ $EXIT != 0 ]; then
 		PS1+="$Red ✗ (${EXIT})"
 	else
@@ -108,6 +113,7 @@ export MANPAGER=most
 export HISTCONTROL=ignoredups
 export GIT_PS1_SHOWDIRTYSTATE=1
 export GIT_PS1_SHOWSTASHSTATE=1
+export GIT_PS1_SHOWCOLORHINTS=1
 export GIT_PS1_SHOWUPSTREAM=auto
 
 export GTI_SPEED=3000
