@@ -162,11 +162,11 @@ bindsym $mod+Ctrl+Shift+k move workspace to output down
 bindsym $mod+Ctrl+Shift+j move workspace to output up
 bindsym $mod+Ctrl+Shift+l move workspace to output right
 
-## Modify // Vertical Window Orientation // <> | ##
-bindsym $mod+Shift+bar split vertical
+## Modify // Horizontal Window Orientation // <> | ##
+bindsym $mod+Shift+bar split horizontal
 
-## Modify // Horizontal Window Orientation // <> - ##
-bindsym $mod+minus split horizontal
+## Modify // Vertical Window Orientation // <> - ##
+bindsym $mod+minus split vertical
 
 ## Modify // Window Fullscreen Toggle // <> f ##
 bindsym $mod+f fullscreen toggle
