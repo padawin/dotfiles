@@ -1,4 +1,14 @@
-_git_mip () {
+#!/bin/bash
+
+_git_merge_in_parent () {
   __gitcomp_nl "$(__git_refs)"
 }
 
+# autocomplete g alias
+__git_complete g __git_main
+
+# autocomplete gh alias
+__git_complete gh _git_log
+
+# autocomplete gco alias
+__git_complete gco _git_checkout

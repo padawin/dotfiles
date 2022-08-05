@@ -1,9 +1,11 @@
 # some more ls aliases
+# See ~/dotfiles/custom_bash_completion for autocompletion of aliases
 alias ll='ls -lh'
 alias la='ls -lhA'
 alias l='ls -CF'
 alias halt='halt -p'
 
+alias g=git
 alias gco='git checkout $(git branch | grep -v $(git rev-parse --abbrev-ref HEAD) | fzf)'
 alias gsp='git stash pop $(git stash list | fzf | cut -d=: -f1)'
 

@@ -23,19 +23,6 @@ if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
     debian_chroot=$(cat /etc/debian_chroot)
 fi
 
-# Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
-
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
-
-if [ -f ~/.bash_aliases_private ]; then
-    . ~/.bash_aliases_private
-fi
-
 if [ -f ~/.bashrc_local ]; then
   . ~/.bashrc_local
 fi
@@ -53,15 +40,32 @@ if [ -f /usr/share/bash-completion/bash_completion ]; then
 	. /usr/share/bash-completion/bash_completion
 fi
 
-. ~/dotfiles/custom_bash_completion
-
 if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
     . /usr/local/bin/virtualenvwrapper.sh
+fi
+
+if [ -f ~/git-completion.bash ]; then
+    . ~/git-completion.bash
 fi
 
 if [ -f ~/git-prompt.sh ]; then
     . ~/git-prompt.sh
 fi
+
+# Alias definitions.
+# You may want to put all your additions into a separate file like
+# ~/.bash_aliases, instead of adding them here directly.
+# See /usr/share/doc/bash-doc/examples in the bash-doc package.
+
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+
+if [ -f ~/.bash_aliases_private ]; then
+    . ~/.bash_aliases_private
+fi
+
+. ~/dotfiles/custom_bash_completion
 
 export TERM=xterm-256color-italic
 
