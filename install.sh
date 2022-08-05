@@ -16,13 +16,15 @@ echo "Install some needed programs using system's package manager"
 # Install needed programs
 sudo $INSTALL_PROG install -y \
 	git vim alacritty tmux tmate python3 pip \
-	i3 i3ipc flameshot feh ranger \
+	i3 flameshot feh ranger \
 	rofi \
 	polybar sysstat acpi volumeicon network-manager-applet \
 	xset \
 	light \
 	htop tree \
 	fontawesome-fonts
+
+mkdir -p ~/.local/bin
 
 if [ -z "`which fzf`" ]; then
 	echo "Install fzf"
@@ -65,7 +67,7 @@ if [ -z "`which rofication-gui`" ]; then
 	DIR=$(mktemp -d)
 	cd $DIR
 	git clone https://github.com/regolith-linux/regolith-rofication.git
-	cd regolith-notification
+	cd regolith-rofication
 	sudo python setup.py install
 fi
 echo -e "\e[0;32m✔\e[0m rofication installed"
