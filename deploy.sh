@@ -48,6 +48,8 @@ files[23]='.config/nvim'
 files[24]='.config/rofi'
 files[25]='.config/regolith'
 files[26]='.tmate.conf'
+files[27]='git-completion.bash'
+files[28]='git-prompt.sh'
 
 for f in "${files[@]}"
 do
