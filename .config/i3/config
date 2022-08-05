@@ -242,7 +242,7 @@ mode "$mode_session" {
     bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"
 
 	## Session // Lock Screen // <> l ##
-	bindsym l exec dbus-send --type=method_call --dest=org.gnome.ScreenSaver /org/gnome/ScreenSaver org.gnome.ScreenSaver.Lock
+	bindsym l exec i3lock -c 000000
 
     # back to normal: Enter or Escape
 	## Session // Exit System Mode // Escape or Enter ##
