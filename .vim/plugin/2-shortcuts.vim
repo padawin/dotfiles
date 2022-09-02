@@ -29,6 +29,10 @@ nnoremap zz :w<CR>
 nnoremap <leader>zz zz
 nnoremap : ;
 nnoremap ; :
+" Access quickly block visual mode
+nnoremap v <C-V>
+nnoremap <C-V> v
+
 nnoremap * *<c-o>
 
 nnoremap <leader>j :m .+1<CR>==
