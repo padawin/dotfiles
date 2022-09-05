@@ -18,6 +18,21 @@
  *
  */
 
+/**
+If some permission issues occur when uploading the firmware to the keyboard,
+udev might be at fault, the following can help:
+$ wget https://raw.githubusercontent.com/keyboardio/Kaleidoscope/master/etc/60-kaleidoscope.rules
+$ sudo cp 60-kaleidoscope.rules /etc/udev/rules.d
+
+$ sudo /etc/init.d/udev reload
+OR
+$ sudo udevadm control --reload-rules && sudo udevadm trigger
+
+The current user might also need to belong to the dialout group:
+sudo usermod -a -G dialout <username>
+sudo chmod a+rw /dev/ttyACM0
+*/
+
 #ifndef BUILD_INFORMATION
 #define BUILD_INFORMATION "locally built"
 #endif
@@ -28,6 +43,8 @@
 #include "Kaleidoscope-Macros.h"
 #include "Kaleidoscope-MouseKeys.h"
 #include "Kaleidoscope-OneShot.h"
+#include "Kaleidoscope-Qukeys.h"
+#include "Kaleidoscope-CharShift.h"
 #include "Kaleidoscope-SpaceCadet.h"
 
 
@@ -73,9 +90,9 @@ KEYMAPS(
 
   [FUN] = KEYMAP
   (
-       DvorakKey_LeftCurlyBracket ,DvorakKey_LeftBracket ,Key_UpArrow        ,DvorakKey_RightBracket ,DvorakKey_RightCurlyBracket                       ,Key_PageUp   ,Key_7 ,Key_8 ,Key_9              ,Key_LeftBracket
+       DvorakKey_LeftCurlyBracket ,DvorakKey_LeftBracket ,Key_UpArrow        ,DvorakKey_RightBracket ,DvorakKey_RightCurlyBracket                       ,Key_PageUp   ,Key_7 ,Key_8 ,Key_9              ,CS(0)
       ,Key_LeftParen              ,Key_LeftArrow         ,Key_DownArrow      ,Key_RightArrow         ,Key_RightParen                                    ,Key_PageDown ,Key_4 ,Key_5 ,Key_6              ,Key_Quote
-      ,Key_Exclamation            ,Key_At                ,Key_Hash           ,Key_Dollar             ,Key_Percent                ,Key_Caret ,Key_And    ,Key_Star     ,Key_1 ,Key_2 ,Key_3              ,Key_RightBracket
+      ,CS(1)                      ,Key_At                ,Key_Hash           ,Key_Dollar             ,Key_Percent                ,Key_Caret ,Key_And    ,Key_Star     ,Key_1 ,Key_2 ,Key_3              ,Key_RightBracket
       ,TG(UPPER)                  ,Key_LeftGui           ,Key_LeftControl    ,Key_LeftShift          ,Key_Space                  ,Key_Tab   ,Key_Delete ,Key_Enter    ,___,   Key_0 ,LSHIFT(Key_Insert) ,Key_RightAlt
    ),
 
@@ -94,6 +111,8 @@ KALEIDOSCOPE_INIT_PLUGINS(
   Focus,
   FocusEEPROMCommand,
   FocusSettingsCommand,
+  Qukeys,
+  CharShift,
   SpaceCadet,
   OneShot,
   Macros,
@@ -123,6 +142,14 @@ const macro_t *macroAction(uint8_t macroIndex, uint8_t keyState) {
 }
 
 void setup() {
+  QUKEYS(
+    kaleidoscope::plugin::Qukey(0, KeyAddr(3, 5), Key_LeftControl),   // Tab/Ctrl
+  )
+  Qukeys.activate();
+  CS_KEYS(
+    kaleidoscope::plugin::CharShift::KeyPair(Key_Exclamation, LSHIFT(Key_LeftBracket)),
+    kaleidoscope::plugin::CharShift::KeyPair(Key_LeftBracket, Key_NoKey)
+  );
   Kaleidoscope.setup();
   SpaceCadet.disable();
 }
