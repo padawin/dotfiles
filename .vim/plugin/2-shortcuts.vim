@@ -44,8 +44,8 @@ nnoremap <leader>c :call ToggleCursorbind()<CR>
 
 noremap <Up>     <NOP>
 noremap <Down>   <NOP>
-noremap <Left>   <NOP>
-noremap <Right>  <NOP>
+noremap <Left>  gT
+noremap <Right> gt
 
 nnoremap <leader>" ciW""<esc>P
 nnoremap <leader>' ciW''<esc>P
