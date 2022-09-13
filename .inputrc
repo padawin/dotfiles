@@ -31,6 +31,8 @@ set bind-tty-special-chars Off
 "\ew": unix-word-rubout
 "\C-W": backward-kill-word
 
+"\C-G": "$(git rev-parse --abbrev-ref HEAD)"
+
 # filter history on typed command
 # e.g. typing "cd " and using up arrow goes through the "cd " commands in
 # history, instead of going through everything.
