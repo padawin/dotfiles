@@ -15,7 +15,7 @@ echo "Use $INSTALL_PROG"
 echo "Install some needed programs using system's package manager"
 # Install needed programs
 sudo $INSTALL_PROG install -y \
-	git vim alacritty tmux tmate python3 pip \
+	git vim alacritty tmux tmate python3 pip most \
 	i3 flameshot feh ranger \
 	rofi \
 	polybar sysstat acpi volumeicon network-manager-applet \
