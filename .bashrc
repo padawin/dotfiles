@@ -96,11 +96,12 @@ __prompt_command() {
 
 	local Red='\[\e[0;31m\]'
 	local Gre='\[\e[0;32m\]'
-	local Blu='\[\e[38;5;33m\]'
+	local Blu='\[\e[38;2;135;175;223m\]'
 	local Ora='\[\e[1;38;5;215m\]'
 	local Mau='\[\e[1;38;5;147m\]'
 	local Gre2='\[\e[1;38;5;35m\]'
 
+	local GIT_PS1_COLOR_FLAGS=${Blu}
 	gitPS1=$(__git_ps1 " ${Ora}(%s${Ora})${RCol}")
 	PS1+="$(j)${Mau}\w${gitPS1}"
 	if [ $EXIT != 0 ]; then

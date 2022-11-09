@@ -263,9 +263,9 @@ __git_ps1_colorize_gitstring ()
 		local c_lblue='\[\e[1;34m\]'
 		local c_clear='\[\e[0m\]'
 	fi
-	local bad_color=$c_red
-	local ok_color=$c_green
-	local flags_color="$c_lblue"
+	local bad_color=${GIT_PS1_COLOR_BAD:-$c_red}
+	local ok_color=${GIT_PS1_COLOR_OK:-$c_green}
+	local flags_color=${GIT_PS1_COLOR_FLAGS:-$c_lblue}
 
 	local branch_color=""
 	if [ $detached = no ]; then
