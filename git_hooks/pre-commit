@@ -5,7 +5,7 @@ res=0
 # add call to local hook
 local_hook="$(dirname $0)/../hooks_local/$(basename $0)"
 if [ -f "$local_hook" ]; then
-	$local_hook
+	$local_hook "$@"
 	res=$?
 fi
 
