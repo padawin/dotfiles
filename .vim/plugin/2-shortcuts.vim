@@ -17,21 +17,28 @@ nnoremap <leader>S :e $HOME/.vim/scratchpad<CR>
 nnoremap <leader>n /^\(<<<<\\|====\\|>>>>\)<CR>
 nnoremap <leader>u :UndotreeToggle<CR>
 nnoremap <leader>r :set relativenumber!<CR>:set list!<CR>
-nnoremap <F3> :noh<CR>
+nnoremap <BS> :noh<CR>
 nnoremap <leader>s :bnext<CR>
 nnoremap <leader>a :bprevious<CR>
 nnoremap <leader>m :make<CR><C-o>:bo cwindow<CR>
 nnoremap <leader>g :grep <c-r><c-w><CR><C-o>:bo cwindow<CR>
+" Get current file's directory in command mode
 cnoremap <c-o> <c-r>=expand("%:p:h")<CR>/
 
+" Override some lesser used keys
 " Non quitting analog of ZZ
 nnoremap zz :w<CR>
 nnoremap <leader>zz zz
+
+" Swap some keys to access more usable ones easier
+" Access quickly command mode
 nnoremap : ;
 nnoremap ; :
 " Access quickly block visual mode
 nnoremap v <C-V>
 nnoremap <C-V> v
+vnoremap v <C-V>
+vnoremap <C-V> v
 
 nnoremap * *<c-o>
 
