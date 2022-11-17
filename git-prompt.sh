@@ -208,11 +208,11 @@ __git_ps1_show_upstream ()
 		"0	0") # equal to upstream
 			p="=" ;;
 		"0	"*) # ahead of upstream
-			p=">" ;;
+			p="↑" ;;
 		*"	0") # behind upstream
-			p="<" ;;
+			p="↓" ;;
 		*)	    # diverged from upstream
-			p="<>" ;;
+			p="↖↗" ;;
 		esac
 	else
 		local c_upstreamDiffColor='\[\e[95m\]'
@@ -223,11 +223,14 @@ __git_ps1_show_upstream ()
 		"0	0") # equal to upstream
 			p="=" ;;
 		"0	"*) # ahead of upstream
-			p="> ${c_upstreamDiffColor}${count#0	}${c_clear}" ;;
+			#p="\e[1;94m>\e[0m ${c_upstreamDiffColor}${count#0	}${c_clear}" ;;
+			p="\e[1;94m↑\e[0m ${c_upstreamDiffColor}${count#0	}${c_clear}" ;;
 		*"	0") # behind upstream
-			p="< ${c_upstreamDiffColor}${count%	0}${c_clear}" ;;
+			#p="\e[1;94m<\e[0m ${c_upstreamDiffColor}${count%	0}${c_clear}" ;;
+			p="\e[1;94m↓\e[0m ${c_upstreamDiffColor}${count%	0}${c_clear}" ;;
 		*)	    # diverged from upstream
-			p="<> ${c_upstreamDiffColor}+${count#*	}-${count%	*}${c_clear}" ;;
+			#p="\e[1;31m<>\e[0m ${c_upstreamDiffColor}+${count#*	}-${count%	*}${c_clear}" ;;
+			p="\e[1;31m↖↗\e[0m ${c_upstreamDiffColor}+${count#*	}-${count%	*}${c_clear}" ;;
 		esac
 		if [[ -n "$count" && -n "$name" ]]; then
 			__git_ps1_upstream_name=$(git rev-parse \
@@ -535,7 +538,8 @@ __git_ps1 ()
 		if [ -n "${GIT_PS1_SHOWSTASHSTATE-}" ] &&
 		   git rev-parse --verify --quiet refs/stash >/dev/null
 		then
-			s="$"
+			s="⛁ "
+			#s="$"
 		fi
 
 		if [ -n "${GIT_PS1_SHOWUNTRACKEDFILES-}" ] &&
