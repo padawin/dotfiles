@@ -6,7 +6,7 @@ if [ $# -gt 2 ] || [ $# -lt 1 ]; then
 	exit 1
 fi
 
-GIT_DIR="$(cd ./"$(git rev-parse --show-cdup)" && pwd)/.git"
+GIT_DIR="$(git rev-parse --absolute-git-dir)"
 if [[ -f "$GIT_DIR/hooks/pre-merge" && -x "$GIT_DIR/hooks/pre-merge" ]]; then
   "$GIT_DIR/hooks/pre-merge"
   if [ $? -ne 0 ]; then
