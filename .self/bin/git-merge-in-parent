@@ -1,4 +1,6 @@
 #!/bin/bash
+set -euo pipefail
+
 if [ $# -gt 2 ] || [ $# -lt 1 ]; then
 	echo "Usage: $0 <parent_hash> [<pull_request_number>]"
 	exit 1
