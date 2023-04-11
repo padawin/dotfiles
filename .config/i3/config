@@ -14,6 +14,9 @@
 set $alt Mod1
 set $mod Mod4
 
+# Available on 4.21.1
+tiling_drag off
+
 ###############################################################################
 # Workspace Names
 # These are the labels which define each i3 workspace.
