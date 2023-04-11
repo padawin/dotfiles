@@ -5,6 +5,7 @@ alias la='ls -lhA'
 alias l='ls -CF'
 alias halt='halt -p'
 
+alias gti=git
 alias gsp='git stash pop $(git stash list | fzf | cut -d=: -f1)'
 
 # Unused

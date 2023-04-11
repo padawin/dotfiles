@@ -41,17 +41,6 @@ if [ -z "`which fzf`" ]; then
 fi
 echo -e "\e[0;32m✔\e[0m fzf installed"
 
-if [ -z "`which gti`" ]; then
-	echo "Install gti"
-	DIR=$(mktemp -d)
-	cd $DIR
-	git clone https://github.com/rwos/gti.git
-	cd gti
-	make
-	mv gti ~/.local/bin/gti
-fi
-echo -e "\e[0;32m✔\e[0m gti installed"
-
 if [ -z "`which markdown`" ]; then
 	echo "Install markdown"
 	DIR=$(mktemp -d)
