@@ -66,6 +66,11 @@
 #     git           always compare HEAD to @{upstream}
 #     svn           always compare HEAD to your SVN upstream
 #
+# By default, __git_ps1 will compare HEAD to your SVN upstream if it can
+# find one, or @{upstream} otherwise.  Once you have set
+# GIT_PS1_SHOWUPSTREAM, you can override it on a per-repository basis by
+# setting the bash.showUpstream config variable.
+#
 # You can change the separator between the branch name and the above
 # state symbols by setting GIT_PS1_STATESEPARATOR. The default separator
 # is SP.
@@ -79,10 +84,9 @@
 # single '?' character by setting GIT_PS1_COMPRESSSPARSESTATE, or omitted
 # by setting GIT_PS1_OMITSPARSESTATE.
 #
-# By default, __git_ps1 will compare HEAD to your SVN upstream if it can
-# find one, or @{upstream} otherwise.  Once you have set
-# GIT_PS1_SHOWUPSTREAM, you can override it on a per-repository basis by
-# setting the bash.showUpstream config variable.
+# If you would like to see a notification on the prompt when there are
+# unresolved conflicts, set GIT_PS1_SHOWCONFLICTSTATE to "yes". The
+# prompt will include "|CONFLICT".
 #
 # If you would like to see more information about the identity of
 # commits checked out as a detached HEAD, set GIT_PS1_DESCRIBE_STYLE
@@ -569,6 +573,13 @@ __git_ps1 ()
 	if [ $pcmode = yes ] && [ $ps1_expanded = yes ]; then
 		__git_ps1_branch_name=$b
 		b="\${__git_ps1_branch_name}"
+	fi
+
+	if [[ -n "${GIT_PS1_SHOWCONFLICTSTATE}" ]] && [[ $(git ls-files --unmerged 2>/dev/null) ]]; then
+		r="$r |CONFLICT"
+		if [ ! -z "$p" ]; then
+			p=""
+		fi
 	fi
 
 	local f="$h$w$i$s$u${sparse}$r$p"
