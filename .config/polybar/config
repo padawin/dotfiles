@@ -39,8 +39,8 @@ font-0 = Operator Mono Font:style=Bold:size=12;2
 font-1 = FontAwesome:style=Regular:size=13;2
 # Define the cursor for clickable modules
 cursor-click = pointer
-modules-left = i3 notifications github-notifications light xkeyboard config
-modules-right = filesystem cpu mem battery wlan date
+modules-left = i3 github-notifications light xkeyboard config
+modules-right = kubecontext filesystem mem battery wlan date
 tray-position = right
 module-margin = 1
 border-size = 5
@@ -218,6 +218,15 @@ format = "<label>"
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}
 label-padding = 1
+
+[module/kubecontext]
+type = custom/script
+exec = ~/.scripts/kubecontext
+format = "<label>"
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+label-padding = 1
+internal = 1
 
 [module/battery]
 type = internal/battery
