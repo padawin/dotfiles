@@ -20,7 +20,6 @@
 	review-full = "!sh -c 'git diff master..$1' -"
 	show-merge = "!sh -c 'git log -p --reverse $1^..$1' -"
 	show-merge-full = "!sh -c 'git diff $1^..$1' -"
-	rework = "!sh -c 'git rebase --interactive $(git merge-base $1 HEAD) --autosquash --autostash --rebase-merges' -"
 [color]
 	status = auto
 	pager = true
