@@ -31,5 +31,7 @@ alias commit='git commit -v'
 alias json='python -m json.tool'
 alias jvim='python -m json.tool | view +"set ft=json" -'
 
+alias orig="find . -name '*.orig' -delete"
+
 # ctl+f calls fg + fzf to select a job to resume
 bind -x '"\C-f": fg $(jobs | fzf | sed -Ee "s/\[([0-9]+)].*/\1/")'
