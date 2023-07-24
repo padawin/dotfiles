@@ -87,7 +87,7 @@ bindsym Print exec flameshot gui
 bindsym $mod+w exec rofi -show window -theme $rofiTheme
 
 ## Navigate // Relative Parent // <> q ##/
-bindsym $mod+q focus parent
+bindsym $mod+u focus parent
 
 ## Navigate // Relative Child // <> d ##/
 bindsym $mod+d focus child
