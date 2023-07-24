@@ -337,6 +337,58 @@ __git_sequencer_status ()
 	return 1
 }
 
+# __git_branch resolves the current branch name, taking the current context in
+# account (whether we are rebasing or not for example)
+__git_branch ()
+{
+	local g="$(git rev-parse --git-dir)"
+	local b=""
+	if [ -d "$g/rebase-merge" ]; then
+		__git_eread "$g/rebase-merge/head-name" b
+	else
+		if [ -d "$g/rebase-apply" ]; then
+			if [ -f "$g/rebase-apply/rebasing" ]; then
+				__git_eread "$g/rebase-apply/head-name" b
+			fi
+		fi
+
+		if [ -n "$b" ]; then
+			:
+		elif [ -h "$g/HEAD" ]; then
+			# symlink symbolic ref
+			b="$(git symbolic-ref HEAD 2>/dev/null)"
+		else
+			local head=""
+			if ! __git_eread "$g/HEAD" head; then
+				return $exit
+			fi
+			# is it a symbolic ref?
+			b="${head#ref: }"
+			if [ "$head" = "$b" ]; then
+				detached=yes
+				b="$(
+				case "${GIT_PS1_DESCRIBE_STYLE-}" in
+				(contains)
+					git describe --contains HEAD ;;
+				(branch)
+					git describe --contains --all HEAD ;;
+				(tag)
+					git describe --tags HEAD ;;
+				(describe)
+					git describe HEAD ;;
+				(* | default)
+					git describe --tags --exact-match HEAD ;;
+				esac 2>/dev/null)" ||
+
+				b="$short_sha..."
+				b="($b)"
+			fi
+		fi
+	fi
+	b=${b##refs/heads/}
+	echo $b
+}
+
 # __git_ps1 accepts 0 or 1 arguments (i.e., format string)
 # when called from PS1 using command substitution
 # in this mode it prints text to add to bash PS1 prompt (includes branch name)
@@ -448,67 +500,30 @@ __git_ps1 ()
 		sparse="|SPARSE"
 	fi
 
+	local b="$(__git_branch)"
 	local r=""
-	local b=""
 	local step=""
 	local total=""
 	if [ -d "$g/rebase-merge" ]; then
-		__git_eread "$g/rebase-merge/head-name" b
 		__git_eread "$g/rebase-merge/msgnum" step
 		__git_eread "$g/rebase-merge/end" total
 		r="|REBASE"
-	else
-		if [ -d "$g/rebase-apply" ]; then
-			__git_eread "$g/rebase-apply/next" step
-			__git_eread "$g/rebase-apply/last" total
-			if [ -f "$g/rebase-apply/rebasing" ]; then
-				__git_eread "$g/rebase-apply/head-name" b
-				r="|REBASE"
-			elif [ -f "$g/rebase-apply/applying" ]; then
-				r="|AM"
-			else
-				r="|AM/REBASE"
-			fi
-		elif [ -f "$g/MERGE_HEAD" ]; then
-			r="|MERGING"
-		elif __git_sequencer_status; then
-			:
-		elif [ -f "$g/BISECT_LOG" ]; then
-			r="|BISECTING"
-		fi
-
-		if [ -n "$b" ]; then
-			:
-		elif [ -h "$g/HEAD" ]; then
-			# symlink symbolic ref
-			b="$(git symbolic-ref HEAD 2>/dev/null)"
+	elif [ -d "$g/rebase-apply" ]; then
+		__git_eread "$g/rebase-apply/next" step
+		__git_eread "$g/rebase-apply/last" total
+		if [ -f "$g/rebase-apply/rebasing" ]; then
+			r="|REBASE"
+		elif [ -f "$g/rebase-apply/applying" ]; then
+			r="|AM"
 		else
-			local head=""
-			if ! __git_eread "$g/HEAD" head; then
-				return $exit
-			fi
-			# is it a symbolic ref?
-			b="${head#ref: }"
-			if [ "$head" = "$b" ]; then
-				detached=yes
-				b="$(
-				case "${GIT_PS1_DESCRIBE_STYLE-}" in
-				(contains)
-					git describe --contains HEAD ;;
-				(branch)
-					git describe --contains --all HEAD ;;
-				(tag)
-					git describe --tags HEAD ;;
-				(describe)
-					git describe HEAD ;;
-				(* | default)
-					git describe --tags --exact-match HEAD ;;
-				esac 2>/dev/null)" ||
-
-				b="$short_sha..."
-				b="($b)"
-			fi
+			r="|AM/REBASE"
 		fi
+	elif [ -f "$g/MERGE_HEAD" ]; then
+		r="|MERGING"
+	elif __git_sequencer_status; then
+		:
+	elif [ -f "$g/BISECT_LOG" ]; then
+		r="|BISECTING"
 	fi
 
 	if [ -n "$step" ] && [ -n "$total" ]; then
@@ -569,7 +584,6 @@ __git_ps1 ()
 		__git_ps1_colorize_gitstring
 	fi
 
-	b=${b##refs/heads/}
 	if [ $pcmode = yes ] && [ $ps1_expanded = yes ]; then
 		__git_ps1_branch_name=$b
 		b="\${__git_ps1_branch_name}"
