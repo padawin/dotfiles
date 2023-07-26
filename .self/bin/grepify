@@ -10,6 +10,10 @@ else:
 	CYAN = ""
 	RESET = ""
 
+fileOnly = False
+if len(sys.argv) > 1 and sys.argv[1] == '-l':
+    fileOnly = True
+
 currFile = None
 for line in sys.stdin:
     line = line.strip().split(":")
@@ -18,10 +22,16 @@ for line in sys.stdin:
         continue
 
     if currFile is None or currFile != line[0]:
-        if currFile is not None:
+        if currFile is not None and not fileOnly:
             print("")
         currFile = line[0]
-        print("{}{}{}".format(YELLOW, line[0], RESET))
+        if fileOnly:
+            print(currFile)
+            continue
+        else:
+            print("{}{}{}".format(YELLOW, currFile, RESET))
+    elif fileOnly:
+        continue
 
     try:
         lineNumber = "{}{}{}".format(CYAN, int(line[1]), RESET)
