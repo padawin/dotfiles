@@ -6,7 +6,7 @@ if [ $# -ne 1 ]; then
 	exit 1
 fi
 
-BASE_HASH=$(git merge-base $1 HEAD)
+BASE_HASH=$(git merge-base "$1" HEAD)
 if [ -z "$BASE_HASH" ]; then
 	echo "No base hash found for base-ref $1"
 	exit 1
