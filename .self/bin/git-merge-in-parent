@@ -15,7 +15,10 @@ if [[ -f "$GIT_DIR/hooks/pre-merge" && -x "$GIT_DIR/hooks/pre-merge" ]]; then
 fi
 
 PARENT_BRANCH="$1"
-PR_NUMBER="$2"
+PR_NUMBER=""
+if [ $# -eq 2 ]; then
+	PR_NUMBER="$2"
+fi
 PARENT_COMMIT=$(git rev-parse "$PARENT_BRANCH")
 CURRENT_COMMIT=$(git rev-parse HEAD)
 CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
