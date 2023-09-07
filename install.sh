@@ -22,7 +22,8 @@ sudo $INSTALL_PROG install -y \
 	xset \
 	light \
 	htop tree \
-	fontawesome-fonts
+	fontawesome-fonts \
+	midori
 
 mkdir -p ~/.local/bin
 
