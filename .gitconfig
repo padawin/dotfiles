@@ -5,6 +5,7 @@
 	attributesfile = ~/.gitattributes
 	editor = vim
 	excludesfile = ~/.gitignore-global
+	pager = diff-so-fancy | less --tabs=4 -RFX
 [rerere]
 	enabled = true
 [alias]
@@ -33,15 +34,19 @@
 	oldMoved = magenta bold
 	# meta = 11
 	frag = blue bold
-	old = red
-	new = green
+	old = red bold
+	new = green bold
 	whitespace = red reverse
+	meta = white
+	func = 146 bold
+	commit = yellow bold
 [diff]
 	colorMoved = plain
 [interactive]
 	# needs a perl module, which can be installed by running as root:
 	# cpan Term::ReadKey
 	singleKey = yes
+	diffFilter = diff-so-fancy --patch
 [push]
 	default = current
 [init]
