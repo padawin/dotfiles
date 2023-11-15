@@ -45,7 +45,7 @@ set smartcase
 " Backspace over everything in insert mode
 set backspace=indent,eol,start
 
-set completeopt=menu,preview,menuone
+set completeopt=menuone,popup,noinsert
 
 " Set spell check
 set spell spelllang=en spellfile=$HOME/.vim/spell/techspeak.utf-8.add,$HOME/.vim/spell/en.utf-8.add

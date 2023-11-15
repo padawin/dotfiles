@@ -88,7 +88,11 @@ inoremap <c-k> <c-x><c-k>
 inoremap <c-s> <c-x><c-o>
 
 " Complete selected word
-inoremap <expr> <TAB> pumvisible() ? '<CR>' : "\<TAB>"
+inoremap <expr> <TAB> pumvisible() ? '<C-y>' : "\<TAB>"
+" Enter does not select the currently hovered item in the popup menu.
+" This is to avoid a pre-selected autocompletion to be selected when the
+" currently entered word is enough and the user wants to enter a new line.
+inoremap <expr> <CR> pumvisible() ? "<C-o>o" : "<CR>"
 
 " EasyMotion {{{
 let g:EasyMotion_do_mapping = 0 " Disable default mappings
