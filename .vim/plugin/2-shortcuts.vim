@@ -29,6 +29,8 @@ cnoremap <c-o> <c-r>=expand("%:p:h")<CR>/
 " Non quitting analog of ZZ
 nnoremap zz :w<CR>
 nnoremap <leader>zz zz
+" Copy the current line without the EOL
+nnoremap Y 0v$hy
 
 " Swap some keys to access more usable ones easier
 " Access quickly command mode
