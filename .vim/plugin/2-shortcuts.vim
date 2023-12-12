@@ -22,6 +22,7 @@ nnoremap <leader>s :bnext<CR>
 nnoremap <leader>a :bprevious<CR>
 nnoremap <leader>m :make<CR><C-o>:bo cwindow<CR>
 nnoremap <leader>g :lgrep <c-r><c-w><CR><C-o>:bo lwindow<CR>
+nnoremap <leader>t :tabe %<CR>
 " Get current file's directory in command mode
 cnoremap <c-o> <c-r>=expand("%:p:h")<CR>/
 
