@@ -295,7 +295,7 @@ floating_modifier $mod
 hide_edge_borders smart
 
 # Set the default layout mode
-workspace_layout default
+workspace_layout tabbed
 
 # Cause Settings app to float above tiled windows
 floating_maximum_size -1 x -1
