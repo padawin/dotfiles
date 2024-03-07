@@ -6,7 +6,6 @@ if [ ! -z "$checkGit" ]; then
 	git status > /dev/null 2>&1 || exit
 fi
 
-PATH="/usr/local/bin:$PATH"
 dir="`git rev-parse --git-dir`"
 trap 'rm -f "$dir/$$.tags"' EXIT
 git ls-files | \
