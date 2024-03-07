@@ -27,7 +27,7 @@ Plugin 'vim-scripts/AutoComplPop'
 Plugin 'easymotion/vim-easymotion'
 
 Plugin 'padawin/vim-presentation'
-Plugin 'govim/govim'
+Plugin 'fatih/vim-go'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'beyondmarc/glsl.vim'
 Plugin 'klen/python-mode'
