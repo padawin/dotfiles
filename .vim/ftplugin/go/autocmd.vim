@@ -1,10 +1,13 @@
-fun! CompileGoFile()
+function! CompileGoFile()
 	let l:current_file=expand('%')
 	if l:current_file =~ '_test.go'
-		silent GoTestCompile
+		GoTestCompile
 	else
-		silent GoBuild
+		GoBuild
 	endif
 endfun
 
+augroup GoBuild
+	autocmd VimEnter,BufReadPost,BufWritePost *.go silent call CompileGoFile()
+augroup END
 
