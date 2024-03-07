@@ -66,7 +66,7 @@ set directory=~/.vim/backup/
 set wildchar=<Tab> wildmenu wildmode=full
 " To be able to leave an unsaved buffer to access another one
 set hidden
-set tags=.git/tags;/
+set tags=.git/tags
 
 " Make diffing better: https://vimways.org/2018/the-power-of-diff/
 set diffopt+=algorithm:patience
