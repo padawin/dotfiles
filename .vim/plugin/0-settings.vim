@@ -50,6 +50,10 @@ set listchars=space:·,trail:█
 
 set completeopt=menuone,preview,noinsert
 
+" Set cursor shape, block most of the time, and a thin line in replace mode, or
+" in exclusive selection
+set guicursor=n-v-c-sm-i-ci:block,r-cr-o:hor20
+
 " Set spell check
 set spell spelllang=en spellfile=$HOME/.vim/spell/techspeak.utf-8.add,$HOME/.vim/spell/en.utf-8.add
 
