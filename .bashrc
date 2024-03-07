@@ -112,7 +112,7 @@ __prompt_command() {
 	PS1+="$RCol\n> "
 }
 
-export MANPAGER=most
+export PAGER='less --tabs=4 -RFX'
 
 # don't put duplicate lines in the history. See bash(1) for more options
 export HISTCONTROL=ignoredups
