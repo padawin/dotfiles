@@ -9,10 +9,16 @@ syntax match goCustomMethod    "\.\w\+\s*(" contains=goCustomScope,goCustomParen
 "highlight def link goCustomFunc  Function
 highlight def link goCustomMethod Function
 highlight def link goCustomAttribute Identifier
-highlight def link goString String
 
-"highlight goCustomFunc ctermfg=43
-highlight goCustomFuncDef ctermfg=13
-highlight goCustomFunc ctermfg=43
-highlight goCustomAttribute ctermfg=247
-highlight goCustomMethod ctermfg=33
+function! s:tweak_colorscheme_colors_go()
+	highlight goCustomFuncDef ctermfg=13
+	highlight goCustomFunc ctermfg=43
+	highlight goCustomAttribute ctermfg=247
+	highlight goCustomMethod ctermfg=33
+endfunction
+
+" Set the rule if the colorscheme is re-applied
+autocmd ColorScheme * call s:tweak_colorscheme_colors_go()
+" Set the rule immediately, as this code is initially called *after* the
+" colorscheme is set (in order to override the colorscheme)
+call s:tweak_colorscheme_colors_go()

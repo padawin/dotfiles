@@ -45,6 +45,9 @@ set smartcase
 " Backspace over everything in insert mode
 set backspace=indent,eol,start
 
+" Invisible chars display:
+set listchars=space:·,trail:█
+
 set completeopt=menuone,popup,noinsert
 
 " Set spell check
