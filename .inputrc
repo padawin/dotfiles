@@ -43,7 +43,7 @@ set bind-tty-special-chars Off
 
 "\eb": backward-char
 "\ef": forward-char
-"\eh": backward-word
-"\el": forward-word
-"\e\C-h": vi-backward-bigword
-"\e\C-l": vi-forward-bigword
+"\eh": vi-backward-bigword
+"\el": vi-forward-bigword
+"\C-h": backward-word
+"\C-l": forward-word
