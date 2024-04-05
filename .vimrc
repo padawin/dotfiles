@@ -31,6 +31,16 @@ Plugin 'fatih/vim-go'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'beyondmarc/glsl.vim'
 Plugin 'klen/python-mode'
+Plugin 'elixir-editors/vim-elixir'
+
+" Neovim plugins
+Plugin 'neovim/nvim-lspconfig'
+" autocomplete and snippets
+Plugin 'hrsh7th/nvim-cmp'
+Plugin 'hrsh7th/cmp-nvim-lsp'
+Plugin 'hrsh7th/cmp-vsnip'
+Plugin 'hrsh7th/vim-vsnip'
+Plugin 'onsails/lspkind-nvim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()

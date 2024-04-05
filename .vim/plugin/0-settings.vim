@@ -104,3 +104,5 @@ let g:go_auto_type_info = 1
 " to use <c-c> as its normal usage (escape-like)
 " Defined in: /usr/share/vim/vim82/ftplugin/sql.vim
 let g:omni_sql_no_default_maps = '1'
+
+let g:neomake_elixir_enabled_makers = ['credo']

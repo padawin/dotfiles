@@ -3,19 +3,102 @@ let &packpath = &runtimepath
 source ~/.vimrc
 
 lua << EOF
-local user_packadd_path = "faerryn_user.nvim/default/default/default/default"
-local user_install_path = vim.fn.stdpath "data" .. "/site/pack/user/opt/" .. user_packadd_path
-if vim.fn.isdirectory(user_install_path) == 0 then
-    os.execute(
-        "git clone --quiet --depth 1 https://github.com/faerryn/user.nvim.git " .. vim.fn.shellescape(user_install_path)
-    )
+-- Refactor
+require('refactoring').setup({})
+
+local lspconfig = require("lspconfig")
+
+-- Neovim doesn't support snippets out of the box, so we need to mutate the
+-- capabilities we send to the language server to let them know we want snippets.
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+-- Setup our autocompletion. These configuration options are the default ones
+-- copied out of the documentation.
+local cmp = require("cmp")
+
+cmp.setup({
+  snippet = {
+    expand = function(args)
+      -- For `vsnip` user.
+      vim.fn["vsnip#anonymous"](args.body)
+    end,
+  },
+  mapping = {
+    ["<C-b>"] = cmp.mapping.scroll_docs(-4),
+    ["<C-f>"] = cmp.mapping.scroll_docs(4),
+    ["<C-Space>"] = cmp.mapping.complete(),
+    ["<C-e>"] = cmp.mapping.close(),
+    ["<C-y>"] = cmp.mapping.confirm({ select = true }),
+  },
+  sources = {
+    { name = "nvim_lsp" },
+    { name = "vsnip" },
+  },
+  formatting = {
+    format = require("lspkind").cmp_format({
+      with_text = true,
+      menu = {
+        nvim_lsp = "[LSP]",
+      },
+    }),
+  },
+})
+
+-- Elixir-ls
+-- A callback that will get called when a buffer connects to the language server.
+-- Here we create any key maps that we want to have on that buffer.
+local on_attach = function(_, bufnr)
+  local function map(...)
+    vim.api.nvim_buf_set_keymap(bufnr, ...)
+  end
+  local map_opts = {noremap = true, silent = true}
+
+  --map("n", "df", "<cmd>lua vim.lsp.buf.formatting()<cr>", map_opts)
+  --map("n", "gd", "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<cr>", map_opts)
+  --map("n", "dt", "<cmd>lua vim.lsp.buf.definition()<cr>", map_opts)
+  --map("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", map_opts)
+  --map("n", "gD", "<cmd>lua vim.lsp.buf.implementation()<cr>", map_opts)
+  --map("n", "<c-k>", "<cmd>lua vim.lsp.buf.signature_help()<cr>", map_opts)
+  --map("n", "1gD", "<cmd>lua vim.lsp.buf.type_definition()<cr>", map_opts)
+
+  -- These have a different style than above because I was fiddling
+  -- around and never converted them. Instead of converting them
+  -- now, I'm leaving them as they are for this article because this is
+  -- what I actually use, and hey, it works ¯\_(ツ)_/¯.
+  --vim.cmd [[imap <expr> <C-l> vsnip#available(1) ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>']]
+  --vim.cmd [[smap <expr> <C-l> vsnip#available(1) ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>']]
+
+  --vim.cmd [[imap <expr> <Tab> vsnip#jumpable(1) ? '<Plug>(vsnip-jump-next)' : '<Tab>']]
+  --vim.cmd [[smap <expr> <Tab> vsnip#jumpable(1) ? '<Plug>(vsnip-jump-next)' : '<Tab>']]
+  --vim.cmd [[imap <expr> <S-Tab> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<S-Tab>']]
+  --vim.cmd [[smap <expr> <S-Tab> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<S-Tab>']]
+
+  -- tell nvim-cmp about our desired capabilities
+  require("cmp_nvim_lsp").default_capabilities(capabilities)
 end
-vim.api.nvim_command("packadd " .. vim.fn.fnameescape(user_packadd_path))
 
-local user = require "user"
-user.setup { parallel = true }
-local use = user.use
+-- Finally, let's initialize the Elixir language server
 
--- user.nvim can manage itself!
-use "faerryn/user.nvim"
+-- Replace the following with the path to your installation
+local path_to_elixirls = vim.fn.expand("~/.local/share/elixir-ls/language_server.sh")
+
+lspconfig.elixirls.setup({
+  cmd = {path_to_elixirls},
+  capabilities = capabilities,
+  on_attach = on_attach,
+  settings = {
+    elixirLS = {
+      -- I choose to disable dialyzer for personal reasons, but
+      -- I would suggest you also disable it unless you are well
+      -- acquainted with dialzyer and know how to use it.
+      dialyzerEnabled = false,
+      -- I also choose to turn off the auto dep fetching feature.
+      -- It often get's into a weird state that requires deleting
+      -- the .elixir_ls directory and restarting your editor.
+      fetchDeps = false
+    }
+  }
+})
+
 EOF
