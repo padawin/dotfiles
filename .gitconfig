@@ -53,10 +53,14 @@
 	templatedir = ~/.git_template
 	defaultBranch = master
 [merge]
-	tool = vimdiff
+	tool = vim
 	conflictstyle = merge
 [mergetool]
 	prompt = false
+[mergetool "vim"]
+	cmd = vim $MERGED $BASE $LOCAL $REMOTE -c '/^\\(<<<<\\|====\\|>>>>\\)'
+[mergetool "vimdiff"]
+	layout = MERGED
 [help]
 	autocorrect = 1
 [color "diff-highlight"]
