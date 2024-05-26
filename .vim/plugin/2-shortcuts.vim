@@ -40,15 +40,15 @@ nnoremap ; :
 " Access quickly block visual mode
 nnoremap v <C-V>
 nnoremap <C-V> v
-vnoremap v <C-V>
-vnoremap <C-V> v
+xnoremap v <C-V>
+xnoremap <C-V> v
 
 nnoremap * *<c-o>
 
 nnoremap <leader>j :m .+1<CR>==
 nnoremap <leader>k :m .-2<CR>==
-vnoremap <leader>j :m '>+1<CR>gv=gv
-vnoremap <leader>k :m '<-2<CR>gv=gv
+xnoremap <leader>j :m '>+1<CR>gv=gv
+xnoremap <leader>k :m '<-2<CR>gv=gv
 
 nnoremap <leader>c :call ToggleCursorbind()<CR>
 
@@ -62,11 +62,11 @@ nnoremap <leader>' ciW''<esc>P
 nnoremap <leader>[ ciW[]<esc>P
 nnoremap <leader>( ciW()<esc>P
 nnoremap <leader>{ ciW{}<esc>P
-vnoremap <leader>" c""<esc>P
-vnoremap <leader>' c''<esc>P
-vnoremap <leader>[ c[]<esc>P
-vnoremap <leader>( c()<esc>P
-vnoremap <leader>{ c{}<esc>P
+xnoremap <leader>" c""<esc>P
+xnoremap <leader>' c''<esc>P
+xnoremap <leader>[ c[]<esc>P
+xnoremap <leader>( c()<esc>P
+xnoremap <leader>{ c{}<esc>P
 
 " ctrl u -> set the word under the cursor in uppercase
 inoremap <c-u> <esc>viwUgi
@@ -76,8 +76,8 @@ autocmd FileType c,cpp,php,javascript nnoremap <buffer> <localleader>c I// <esc>
 autocmd FileType python     nnoremap <buffer> <localleader>c I# <esc>:s~^\(\s*\)# # ~\1~<cr>
 
 " shortcut to comment a block, per filetype
-autocmd FileType c,cpp,php,javascript vnoremap <buffer> <localleader>c <esc>'<O/*<esc>'>o*/<esc>
-autocmd FileType python     vnoremap <buffer> <localleader>c <esc>'<O"""<esc>'>o"""<esc>
+autocmd FileType c,cpp,php,javascript xnoremap <buffer> <localleader>c <esc>'<O/*<esc>'>o*/<esc>
+autocmd FileType python     xnoremap <buffer> <localleader>c <esc>'<O"""<esc>'>o"""<esc>
 
 " Tab to get suggestion for badly spelt word
 nnoremap <leader><tab> ]s1z=
