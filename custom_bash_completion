@@ -16,3 +16,35 @@ __git_complete gh _git_log
 
 # autocomplete gco alias
 __git_complete gco _git_checkout
+
+
+# Learnt from https://opensource.com/article/18/3/creating-bash-completion-script
+_s_completions() {
+	git rev-parse --show-toplevel &> /dev/null
+	if [ $? -ne 0 ]; then
+		return
+	fi
+
+	# keep the suggestions in a local variable
+	# Colored version, does not work yet
+	#local suggestions=($(compgen -W "$(git status --porcelain |\
+	#	sed -E -e 's/^.M (.*)$/\\e[33m\1\\e[0m/'\
+	#	       -e 's/M. (.*)$/\\e[34m\1\\e[0m/'\
+	#		   -e 's/^\?\? (.*)$/\\e[38;5;245m\1\\e[0m/'
+	#)" "${COMP_WORDS[-1]}"))
+	local suggestions=($(compgen -W "$(git status --porcelain | sed 's/.. //')" "${COMP_WORDS[-1]}"))
+
+	if [ "${#suggestions[@]}" == "1" ]; then
+		# if there's only one match, we remove the command literal
+		# to proceed with the automatic completion of the number
+		local file=$(echo -e $suggestions[0] | sed 's/^...//')
+		COMPREPLY=("$file")
+	else
+		# more than one suggestions resolved,
+		# respond with the suggestions intact
+		COMPREPLY=("${suggestions[@]}")
+  fi
+}
+
+# s is an alias defined in ~/.bash_aliases
+complete -F _s_completions s

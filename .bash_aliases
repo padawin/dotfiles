@@ -36,3 +36,6 @@ alias orig="find . -name '*.orig' -delete"
 
 # ctl+f calls fg + fzf to select a job to resume
 bind -x '"\C-f": fg $(jobs | fzf | sed -Ee "s/\[([0-9]+)].*/\1/")'
+
+# s will allow to edit modified or staged files in Git
+alias s="vim"
