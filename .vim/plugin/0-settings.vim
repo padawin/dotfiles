@@ -11,7 +11,15 @@ set foldmethod=manual
 " Enable mouse usage (normal mode) in terminals
 set mouse=n
 
+" Set keymap timeout to 1sec, on Atreus, making <leader><shift>something is
+" sometimes too long for the default timeout in neovim (300ms)
+set timeoutlen=1000
+
 set scrolloff=3
+
+" Open quickfix results in new tab, or in existing tab if the entry's file is
+" already opened
+set switchbuf+=usetab,newtab
 
 " Always show a status bar
 set laststatus=2
