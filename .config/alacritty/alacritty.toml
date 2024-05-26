@@ -1,0 +1,78 @@
+[colors.bright]
+black = "#555753"
+blue = "#729FCF"
+cyan = "#FCAF3E"
+green = "#8AE234"
+magenta = "#AD7FA8"
+red = "#EF2929"
+white = "#EEEEEC"
+yellow = "#FCE94F"
+
+[colors.dim]
+black = "#131415"
+blue = "#556a7d"
+cyan = "#5b7d78"
+green = "#777c44"
+magenta = "#75617b"
+red = "#864343"
+white = "#828482"
+yellow = "#9e824c"
+
+[colors.normal]
+black = "#2E3436"
+blue = "#3465A4"
+cyan = "#F57900"
+green = "#4E9A06"
+magenta = "#75507B"
+red = "#FC4D44"
+white = "#BABDB9"
+yellow = "#C4A000"
+
+[colors.primary]
+background = "#151515"
+foreground = "#cccccc"
+
+[cursor.style]
+blinking = "On"
+
+[font]
+size = 12
+
+[font.bold]
+family = "Operator Mono"
+style = "Bold"
+
+[font.bold_italic]
+family = "Operator Mono"
+style = "Bold Italic"
+
+[font.italic]
+family = "Operator Mono"
+style = "Italic"
+
+[font.normal]
+family = "Operator Mono"
+style = "Semi-Light"
+
+[[keyboard.bindings]]
+action = "Paste"
+key = "Insert"
+mods = "Shift"
+
+[[keyboard.bindings]]
+action = "Copy"
+key = "Insert"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "SpawnNewInstance"
+key = "N"
+mode = "~Alt"
+mods = "Shift|Control"
+
+[selection]
+save_to_clipboard = true
+
+[window]
+dynamic_title = true
+title = "Terminal"
