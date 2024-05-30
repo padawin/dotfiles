@@ -9,7 +9,7 @@ set textwidth=80
 " folding
 set foldmethod=manual
 " Enable mouse usage (normal mode) in terminals
-set mouse=n
+set mouse=nvi
 
 " Set keymap timeout to 1sec, on Atreus, making <leader><shift>something is
 " sometimes too long for the default timeout in neovim (300ms)
