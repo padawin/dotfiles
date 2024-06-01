@@ -8,3 +8,4 @@ emacs/backups/
 .vim/backup
 .vim/scratchpad
 .vim/plugin/99-local.vim
+.config/nvim/plugin/packer_compiled.lua
