@@ -19,6 +19,22 @@
  */
 
 /**
+Usage:
+Single time setup:
+$ cd ${HOME}/projects
+$ git clone https://github.com/keyboardio/Kaleidoscope
+$ cd ${HOME}/projects/Kaleidoscope
+$ make setup
+$ export KALEIDOSCOPE_DIR=${HOME}/projects/Kaleidoscope
+
+When modifying firmware:
+$ cd ${HOME}/projects/Kaleidoscope/examples/Devices/Keyboardio/Atreus
+$ ### Edit the .ino files ###
+$ make compile
+$ make flash # Pressing the prog key
+*/
+
+/**
 If some permission issues occur when uploading the firmware to the keyboard,
 udev might be at fault, the following can help:
 $ wget https://raw.githubusercontent.com/keyboardio/Kaleidoscope/master/etc/60-kaleidoscope.rules
@@ -53,7 +69,11 @@ sudo chmod a+rw /dev/ttyACM0
 
 enum {
   MACRO_QWERTY,
-  MACRO_VERSION_INFO
+  MACRO_VERSION_INFO,
+  MACRO_EMAIL_MAIN,
+  MACRO_EMAIL_SECONDARY,
+  MACRO_FIRST_NAME,
+  MACRO_LAST_NAME
 };
 
 #define Key_Exclamation LSHIFT(Key_1)
@@ -82,27 +102,26 @@ enum {
 KEYMAPS(
   [QWERTY] = KEYMAP
   (
-       Key_Q   ,Key_W           ,Key_E           ,Key_R         ,Key_T                                  ,Key_Y         ,Key_U   ,Key_I        ,Key_O        ,Key_P
-      ,Key_A   ,Key_S           ,Key_D           ,Key_F         ,Key_G                                  ,Key_H         ,Key_J   ,Key_K        ,Key_L        ,Key_Semicolon
-      ,Key_Z   ,Key_X           ,Key_C           ,Key_V         ,Key_B     ,Key_Backtick ,Key_Backslash ,Key_N         ,Key_M   ,Key_Comma    ,Key_Period   ,Key_Slash
-      ,Key_Esc ,Key_LeftGui     ,Key_LeftControl ,Key_LeftShift ,Key_Space ,Key_Tab      ,Key_Backspace ,Key_Enter     ,MO(FUN) ,Key_LeftAlt  ,Key_RightAlt ,___
+       Key_Q   ,Key_W           ,Key_E         ,Key_R           ,Key_T                                  ,Key_Y         ,Key_U   ,Key_I       ,Key_O      ,Key_P
+      ,Key_A   ,Key_S           ,Key_D         ,Key_F           ,Key_G                                  ,Key_H         ,Key_J   ,Key_K       ,Key_L      ,Key_Semicolon
+      ,Key_Z   ,Key_X           ,Key_C         ,Key_V           ,Key_B     ,Key_Backtick ,Key_Backslash ,Key_N         ,Key_M   ,Key_Comma   ,Key_Period ,Key_Slash
+      ,Key_Esc ,Key_LeftGui     ,Key_LeftShift ,Key_LeftControl ,Key_Space ,Key_Tab      ,Key_Backspace ,Key_Enter     ,MO(FUN) ,Key_LeftAlt ,___        ,Key_RightAlt
   ),
 
   [FUN] = KEYMAP
   (
-       DvorakKey_LeftCurlyBracket ,DvorakKey_LeftBracket ,Key_UpArrow        ,DvorakKey_RightBracket ,DvorakKey_RightCurlyBracket                       ,Key_PageUp   ,Key_7 ,Key_8 ,Key_9              ,CS(0)
-      ,Key_LeftParen              ,Key_LeftArrow         ,Key_DownArrow      ,Key_RightArrow         ,Key_RightParen                                    ,Key_PageDown ,Key_4 ,Key_5 ,Key_6              ,Key_Quote
-      ,CS(1)                      ,Key_At                ,Key_Hash           ,Key_Dollar             ,Key_Percent                ,Key_Caret ,Key_And    ,Key_Star     ,Key_1 ,Key_2 ,Key_3              ,Key_RightBracket
-      ,TG(UPPER)                  ,Key_LeftGui           ,Key_LeftControl    ,Key_LeftShift          ,Key_Space                  ,Key_Tab   ,Key_Delete ,Key_Enter    ,___,   Key_0 ,LSHIFT(Key_Insert) ,Key_RightAlt
+       DvorakKey_LeftCurlyBracket ,DvorakKey_LeftBracket ,Key_UpArrow   ,DvorakKey_RightBracket ,DvorakKey_RightCurlyBracket                           ,Key_PageUp   ,Key_7 ,Key_8 ,Key_9              ,CS(0)
+      ,Key_LeftParen              ,Key_LeftArrow         ,Key_DownArrow ,Key_RightArrow         ,Key_RightParen                                        ,Key_PageDown ,Key_4 ,Key_5 ,Key_6              ,Key_Quote
+      ,CS(1)                      ,Key_At                ,Key_Hash      ,Key_Dollar             ,Key_Percent                ,Key_Caret     ,Key_And    ,Key_Star     ,Key_1 ,Key_2 ,Key_3              ,Key_RightBracket
+      ,TG(UPPER)                  ,Key_LeftGui           ,Key_LeftShift ,Key_LeftControl        ,Key_Space                  ,Key_Tab       ,Key_Delete ,Key_Enter    ,___,   Key_0 ,LSHIFT(Key_Insert) ,Key_RightAlt
    ),
-
   [UPPER] = KEYMAP
   (
-       Key_Insert            ,Key_Home                 ,Key_UpArrow   ,Key_End        ,Key_PageUp             ,Key_UpArrow   ,Key_F7              ,Key_F8          ,Key_F9         ,Key_F10
-      ,Key_Delete            ,Key_LeftArrow            ,Key_DownArrow ,Key_RightArrow ,Key_PageDown           ,Key_DownArrow ,Key_F4              ,Key_F5          ,Key_F6         ,Key_F11
-      ,M(MACRO_VERSION_INFO) ,Consumer_VolumeIncrement ,XXX           ,XXX            ,___          ,___ ,___ ,XXX           ,Key_F1              ,Key_F2          ,Key_F3         ,Key_F12
-      ,MoveToLayer(QWERTY)   ,Consumer_VolumeDecrement ,___           ,___            ,___          ,___ ,___ ,___           ,MoveToLayer(QWERTY) ,Key_PrintScreen ,Key_ScrollLock ,Consumer_PlaySlashPause
-   )
+       ___                   ,___ ,___                 ,___ ,___           ,M(MACRO_FIRST_NAME) ,Key_F7 ,Key_F8          ,Key_F9         ,M(MACRO_LAST_NAME)
+      ,___                   ,___ ,M(MACRO_EMAIL_MAIN) ,___ ,___           ,___                 ,Key_F4 ,Key_F5          ,Key_F6         ,Key_F11
+      ,___                   ,___ ,___                 ,___ ,___ ,___ ,___ ,___                 ,Key_F1 ,Key_F2          ,Key_F3         ,Key_F12
+      ,MoveToLayer(QWERTY)   ,___ ,___                 ,___ ,___ ,___ ,___ ,___                 ,___    ,Key_PrintScreen ,___            ,___
+   ),
 )
 /* *INDENT-ON* */
 
@@ -119,8 +138,16 @@ KALEIDOSCOPE_INIT_PLUGINS(
   MouseKeys
 );
 
-const macro_t *macroAction(uint8_t macroIndex, uint8_t keyState) {
-  switch (macroIndex) {
+const macro_t* macroAction(uint8_t macro_id, KeyEvent &event) {
+  // For Macros.type, the provided letters are on a QWERTY layout. So :
+  // - "g" is on the key "u"
+  // - "l" is on the key "p"
+  // - "a" and "m" are unchanged
+  // - ...
+  // The full mapping is:
+  // Expected character: -wvlfuijpnar.gcedybos'htq`\\xm,k;
+  // character to set:   ',.pyfgcrlaoeuidhtns;qjkx`\\bmwvz
+  switch (macro_id) {
   case MACRO_QWERTY:
     // This macro is currently unused, but is kept around for compatibility
     // reasons. We used to use it in place of `MoveToLayer(QWERTY)`, but no
@@ -128,10 +155,24 @@ const macro_t *macroAction(uint8_t macroIndex, uint8_t keyState) {
     // the macro in EEPROM, it will keep working after a firmware update.
     Layer.move(QWERTY);
     break;
-  case MACRO_VERSION_INFO:
-    if (keyToggledOn(keyState)) {
-      Macros.type(PSTR("Keyboardio Atreus - Kaleidoscope "));
-      Macros.type(PSTR(BUILD_INFORMATION));
+  case MACRO_EMAIL_MAIN:
+    if (keyToggledOn(event.state)) {
+      Macros.type(PSTR("ujg;pagleoshogufd;@kfkalskaeism"));
+    }
+    break;
+  case MACRO_EMAIL_SECONDARY:
+    if (keyToggledOn(event.state)) {
+      Macros.type(PSTR("ujg;pagleoshogufd;@umaqpeism"));
+    }
+    break;
+  case MACRO_FIRST_NAME:
+    if (keyToggledOn(event.state)) {
+      Macros.type(PSTR("Ujg;pagl"));
+    }
+    break;
+  case MACRO_LAST_NAME:
+    if (keyToggledOn(event.state)) {
+      Macros.type(PSTR("Oshogufd;"));
     }
     break;
   default:
@@ -142,10 +183,10 @@ const macro_t *macroAction(uint8_t macroIndex, uint8_t keyState) {
 }
 
 void setup() {
-  QUKEYS(
-    kaleidoscope::plugin::Qukey(0, KeyAddr(3, 5), Key_LeftControl),   // Tab/Ctrl
-  )
-  Qukeys.activate();
+  //QUKEYS(
+  //  kaleidoscope::plugin::Qukey(0, KeyAddr(3, 4), Key_LeftControl),   // Space/Ctrl
+  //)
+  //Qukeys.activate();
   CS_KEYS(
     kaleidoscope::plugin::CharShift::KeyPair(Key_Exclamation, LSHIFT(Key_LeftBracket)),
     kaleidoscope::plugin::CharShift::KeyPair(Key_LeftBracket, Key_NoKey)
