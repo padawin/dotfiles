@@ -58,10 +58,7 @@ sudo chmod a+rw /dev/ttyACM0
 #include "Kaleidoscope-FocusSerial.h"
 #include "Kaleidoscope-Macros.h"
 #include "Kaleidoscope-MouseKeys.h"
-#include "Kaleidoscope-OneShot.h"
-#include "Kaleidoscope-Qukeys.h"
 #include "Kaleidoscope-CharShift.h"
-#include "Kaleidoscope-SpaceCadet.h"
 
 
 #define MO(n) ShiftToLayer(n)
@@ -93,35 +90,45 @@ enum {
 #define DvorakKey_RightCurlyBracket LSHIFT(Key_Equals)
 
 enum {
-  QWERTY,
+  HOME,
   FUN,
+  FUN_LOCK,
   UPPER
 };
 
 /* *INDENT-OFF* */
 KEYMAPS(
-  [QWERTY] = KEYMAP
+  [HOME] = KEYMAP
   (
-       Key_Q   ,Key_W           ,Key_E         ,Key_R           ,Key_T                                  ,Key_Y         ,Key_U   ,Key_I       ,Key_O      ,Key_P
-      ,Key_A   ,Key_S           ,Key_D         ,Key_F           ,Key_G                                  ,Key_H         ,Key_J   ,Key_K       ,Key_L      ,Key_Semicolon
-      ,Key_Z   ,Key_X           ,Key_C         ,Key_V           ,Key_B     ,Key_Backtick ,Key_Backslash ,Key_N         ,Key_M   ,Key_Comma   ,Key_Period ,Key_Slash
-      ,Key_Esc ,Key_LeftGui     ,Key_LeftShift ,Key_LeftControl ,Key_Space ,Key_Tab      ,Key_Backspace ,Key_Enter     ,MO(FUN) ,Key_LeftAlt ,___        ,Key_RightAlt
+       Key_Q   ,Key_W           ,Key_E         ,Key_R           ,Key_T                                  ,Key_Y     ,Key_U   ,Key_I       ,Key_O        ,Key_P
+      ,Key_A   ,Key_S           ,Key_D         ,Key_F           ,Key_G                                  ,Key_H     ,Key_J   ,Key_K       ,Key_L        ,Key_Semicolon
+      ,Key_Z   ,Key_X           ,Key_C         ,Key_V           ,Key_B     ,Key_Backtick ,Key_Backslash ,Key_N     ,Key_M   ,Key_Comma   ,Key_Period   ,Key_Slash
+      ,Key_Esc ,Key_LeftGui     ,Key_LeftShift ,Key_LeftControl ,Key_Space ,Key_Tab      ,Key_Backspace ,Key_Enter ,MO(FUN) ,Key_LeftAlt ,Key_RightAlt ,XXX
   ),
 
   [FUN] = KEYMAP
   (
-       DvorakKey_LeftCurlyBracket ,DvorakKey_LeftBracket ,Key_UpArrow   ,DvorakKey_RightBracket ,DvorakKey_RightCurlyBracket                           ,Key_PageUp   ,Key_7 ,Key_8 ,Key_9              ,CS(0)
-      ,Key_LeftParen              ,Key_LeftArrow         ,Key_DownArrow ,Key_RightArrow         ,Key_RightParen                                        ,Key_PageDown ,Key_4 ,Key_5 ,Key_6              ,Key_Quote
-      ,CS(1)                      ,Key_At                ,Key_Hash      ,Key_Dollar             ,Key_Percent                ,Key_Caret     ,Key_And    ,Key_Star     ,Key_1 ,Key_2 ,Key_3              ,Key_RightBracket
-      ,TG(UPPER)                  ,Key_LeftGui           ,Key_LeftShift ,Key_LeftControl        ,Key_Space                  ,Key_Tab       ,Key_Delete ,Key_Enter    ,___,   Key_0 ,LSHIFT(Key_Insert) ,Key_RightAlt
-   ),
+       DvorakKey_LeftCurlyBracket ,DvorakKey_LeftBracket ,Key_UpArrow   ,DvorakKey_RightBracket ,DvorakKey_RightCurlyBracket                       ,Key_PageUp   ,Key_7 ,Key_8 ,Key_9              ,CS(0)
+      ,Key_LeftParen              ,Key_LeftArrow         ,Key_DownArrow ,Key_RightArrow         ,Key_RightParen                                    ,Key_PageDown ,Key_4 ,Key_5 ,Key_6              ,Key_Quote
+      ,CS(1)                      ,Key_At                ,Key_Hash      ,Key_Dollar             ,Key_Percent                ,Key_Caret ,Key_And    ,Key_Star     ,Key_1 ,Key_2 ,Key_3              ,Key_RightBracket
+      ,TG(UPPER)                  ,Key_LeftGui           ,Key_LeftShift ,Key_LeftControl        ,Key_Space                  ,Key_Tab   ,Key_Delete ,Key_Enter    ,XXX,   Key_0 ,LSHIFT(Key_Insert) ,TG(FUN_LOCK)
+ ),
+
+  [FUN_LOCK] = KEYMAP
+  (
+       XXX            ,XXX           ,Key_mouseUp   ,XXX           ,Key_mouseWarpN                     ,Key_PageUp   ,Key_7 ,Key_8 ,Key_9 ,CS(1)
+      ,Key_mouseWarpW ,Key_mouseL    ,Key_mouseDn   ,Key_mouseR    ,Key_mouseWarpE                     ,Key_PageDown ,Key_4 ,Key_5 ,Key_6 ,Key_Star
+      ,XXX            ,Key_mouseBtnL ,Key_mouseBtnM ,Key_mouseBtnR ,Key_mouseWarpS ,XXX ,XXX           ,Key_E        ,Key_1 ,Key_2 ,Key_3 ,Key_Quote
+      ,TG(HOME)       ,XXX           ,XXX           ,XXX           ,Key_Space      ,XXX ,Key_Backspace ,Key_Enter    ,XXX   ,Key_0 ,XXX   ,LSHIFT(Key_RightBracket)
+ ),
+
   [UPPER] = KEYMAP
   (
-       ___                   ,___ ,___                 ,___ ,___           ,M(MACRO_FIRST_NAME) ,Key_F7 ,Key_F8          ,Key_F9         ,M(MACRO_LAST_NAME)
-      ,___                   ,___ ,M(MACRO_EMAIL_MAIN) ,___ ,___           ,___                 ,Key_F4 ,Key_F5          ,Key_F6         ,Key_F11
-      ,___                   ,___ ,___                 ,___ ,___ ,___ ,___ ,___                 ,Key_F1 ,Key_F2          ,Key_F3         ,Key_F12
-      ,MoveToLayer(QWERTY)   ,___ ,___                 ,___ ,___ ,___ ,___ ,___                 ,___    ,Key_PrintScreen ,___            ,___
-   ),
+       XXX               ,XXX ,XXX                 ,XXX ,XXX           ,M(MACRO_FIRST_NAME) ,Key_F7 ,Key_F8          ,Key_F9 ,M(MACRO_LAST_NAME)
+      ,XXX               ,XXX ,M(MACRO_EMAIL_MAIN) ,XXX ,XXX           ,XXX                 ,Key_F4 ,Key_F5          ,Key_F6 ,Key_F11
+      ,XXX               ,XXX ,XXX                 ,XXX ,XXX ,XXX ,XXX ,XXX                 ,Key_F1 ,Key_F2          ,Key_F3 ,Key_F12
+      ,MoveToLayer(HOME) ,XXX ,XXX                 ,XXX ,XXX ,XXX ,XXX ,XXX                 ,XXX    ,Key_PrintScreen ,XXX    ,XXX
+  ),
 )
 /* *INDENT-ON* */
 
@@ -130,10 +137,7 @@ KALEIDOSCOPE_INIT_PLUGINS(
   Focus,
   FocusEEPROMCommand,
   FocusSettingsCommand,
-  Qukeys,
   CharShift,
-  SpaceCadet,
-  OneShot,
   Macros,
   MouseKeys
 );
@@ -150,10 +154,10 @@ const macro_t* macroAction(uint8_t macro_id, KeyEvent &event) {
   switch (macro_id) {
   case MACRO_QWERTY:
     // This macro is currently unused, but is kept around for compatibility
-    // reasons. We used to use it in place of `MoveToLayer(QWERTY)`, but no
+    // reasons. We used to use it in place of `MoveToLayer(HOME)`, but no
     // longer do. We keep it so that if someone still has the old layout with
     // the macro in EEPROM, it will keep working after a firmware update.
-    Layer.move(QWERTY);
+    Layer.move(HOME);
     break;
   case MACRO_EMAIL_MAIN:
     if (keyToggledOn(event.state)) {
@@ -183,16 +187,11 @@ const macro_t* macroAction(uint8_t macro_id, KeyEvent &event) {
 }
 
 void setup() {
-  //QUKEYS(
-  //  kaleidoscope::plugin::Qukey(0, KeyAddr(3, 4), Key_LeftControl),   // Space/Ctrl
-  //)
-  //Qukeys.activate();
   CS_KEYS(
     kaleidoscope::plugin::CharShift::KeyPair(Key_Exclamation, LSHIFT(Key_LeftBracket)),
     kaleidoscope::plugin::CharShift::KeyPair(Key_LeftBracket, Key_NoKey)
   );
   Kaleidoscope.setup();
-  SpaceCadet.disable();
 }
 
 void loop() {
